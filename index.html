@@ -16,9 +16,9 @@
                             black: '#ffffff', // Canvas background is white
                             dark: '#f4f4f5',  // Light card background matching zinc-100
                             card: '#fafafa',  // Bright white card body
-                            red: '#e11d48',   // High-performance crimson red
+                            red: '#e11d48',   // High-performance energy crimson red
                             redHover: '#be123c',
-                            redGlow: 'rgba(225, 29, 72, 0.4)',
+                            redGlow: 'rgba(225, 29, 72, 0.45)',
                             white: '#000000', // Typography color is black
                             gray: '#52525b'   // Visible charcoal color for descriptions
                         }
@@ -63,7 +63,7 @@
         .border-glow-red {
             box-shadow: 0 0 15px rgba(225, 29, 72, 0.15);
         }
-        /* Custom scrollbar */
+        /* Custom scrollbar matching crimson brand */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -89,7 +89,7 @@
     <div class="bg-gradient-to-r from-brand-red to-[#9f1239] text-white py-2.5 px-4 font-semibold text-xs md:text-sm shadow-lg sticky top-0 z-50 flex justify-between items-center backdrop-blur-md">
         <div class="flex items-center gap-2 mx-auto sm:mx-0">
             <span class="bg-black text-brand-red rounded-full px-2.5 py-0.5 text-[10px] tracking-wider uppercase font-bold">PROPOSAL READY</span>
-            <span>Viewing the Centered <strong>Cross Island Petroleum Supplies</strong> Showcase.</span>
+            <span>Viewing the Centered 3D Kinetic <strong>Cross Island Petroleum Supplies</strong> Showcase.</span>
         </div>
         <button onclick="togglePitchPanel()" class="hidden sm:flex bg-black text-white hover:bg-zinc-900 transition-all px-4 py-1.5 rounded-md text-xs font-bold items-center gap-1.5 shadow border border-brand-red/30">
             <i data-lucide="presentation" class="w-3.5 h-3.5 text-brand-red"></i> Pitch Panel
@@ -129,7 +129,7 @@
     <!-- HERO SECTION WITH INTEGRATED BACKGROUND PARTICLES -->
     <section class="relative min-h-[95vh] flex flex-col items-center justify-center px-6 py-12 lg:py-16 max-w-7xl mx-auto text-center overflow-hidden">
         
-        <!-- Interactive 3D Terrain & Moving Tanker Canvas -->
+        <!-- Interactive 3D Background constellation canvas -->
         <div id="three-container" class="absolute inset-0 w-full h-full pointer-events-none z-0"></div>
 
         <div class="relative z-10 space-y-6 flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
@@ -223,7 +223,7 @@
                         <i data-lucide="droplet" class="w-6 h-6"></i>
                     </div>
                     <h3 class="text-lg font-bold text-black mb-2">Refined Hydrocarbons</h3>
-                    <p class="text-xs text-zinc-600 font-light leading-relaxed max-w-md">
+                    <p class="text-xs text-zinc-650 font-light leading-relaxed max-w-md">
                         Continuous bulk haulage of Ultra-Low Sulfur Diesel, Premium Gasoline, and Heavy Fuel Oils (HFO) directly to distribution hubs and industrial reserves.
                     </p>
                 </div>
@@ -245,7 +245,7 @@
                         <i data-lucide="package" class="w-6 h-6"></i>
                     </div>
                     <h3 class="text-lg font-bold text-black mb-2">Bulk Industrial Lubricants</h3>
-                    <p class="text-xs text-zinc-600 font-light leading-relaxed max-w-md">
+                    <p class="text-xs text-zinc-650 font-light leading-relaxed max-w-md">
                         Reliable supply chain transport of synthetic lubricants and manufacturing motor oils in multi-compartment vessels optimized for multi-client custom delivery.
                     </p>
                 </div>
@@ -256,7 +256,7 @@
                         <i data-lucide="zap" class="w-6 h-6"></i>
                     </div>
                     <h3 class="text-lg font-bold text-black mb-2">Crisis & Depletion Support</h3>
-                    <p class="text-xs text-zinc-600 font-light leading-relaxed max-w-md">
+                    <p class="text-xs text-zinc-650 font-light leading-relaxed max-w-md">
                         On-demand reserve dispatch for major power plants, utility complexes, and remote facilities experiencing severe volume drops or pipeline failures.
                     </p>
                 </div>
@@ -375,7 +375,7 @@
                 </div>
 
                 <!-- Submit Button to client -->
-                <button onclick="triggerQuoteSent()" class="w-full max-w-md bg-brand-red hover:bg-brand-redHover text-white font-extrabold text-xs uppercase tracking-wider py-4 rounded-lg shadow-lg mt-6 hover:scale-[1.01] active:scale-[0.99] transition-all">
+                <button onclick="triggerQuoteSent()" class="w-full max-w-md bg-brand-red hover:bg-brand-redHover text-white font-extrabold text-xs uppercase tracking-wider py-4 rounded-lg shadow-lg mt-6 hover:scale-[1.01] active:scale-[0.99] transition-all border-none">
                     Generate Formal SLA Document
                 </button>
             </div>
@@ -470,8 +470,8 @@
             </div>
             
             <div class="flex flex-wrap justify-center gap-6 text-xs text-zinc-500 font-medium">
-                <a href="#services" class="hover:text-brand-red">Our Services</a>
-                <a href="#quote" class="hover:text-brand-red">Haulage Estimator</a>
+                <a href="#services" class="hover:text-brand-red">Services</a>
+                <a href="#quote" class="hover:text-brand-red">Estimate Rates</a>
                 <a href="#about" class="hover:text-brand-red">Safety Standards</a>
             </div>
         </div>
@@ -830,6 +830,9 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
         let targetZoom = 180;
         let animationTime = 0;
 
+        // SPECIFIED CONFIGURATION PATH
+        const logoPath = "./logo.svg";
+
         function init3DLogo() {
             const container = document.getElementById('logo-3d-canvas');
             const width = container.clientWidth;
@@ -866,7 +869,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
             backRimLight.position.set(0, 0, -50);
             logoScene.add(backRimLight);
 
-            // Initialize Consolidated 3D Logo parent node
+            // Initialize Consolidated 3D Logo parent group
             logoGroup = new THREE.Group();
             logoGroup.scale.set(0.001, 0.001, 0.001); // Initial scale for scale-in animation
             logoScene.add(logoGroup);
@@ -915,20 +918,24 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
             glassPlaque = new THREE.Mesh(plaqueGeo, glassMaterial);
             logoGroup.add(glassPlaque);
 
-            // 2. EMBED COMPOSITE LOGO TEXTURE (Procedurally Rendered High-Res CIPS Logo)
+            // 2. EMBED COMPOSITE LOGO TEXTURE (Resilient Dual-Mode Loader with High Contrast & Alpha Transparency)
             generateLogoTexture((logoTexture) => {
-                
                 // Front Plane for projected vector overlay
-                const planeGeo = new THREE.PlaneGeometry(32, 22);
+                // Preserves width-to-height ratio beautifully
+                const planeGeo = new THREE.PlaneGeometry(32, 22.5);
                 const logoMaterial = new THREE.MeshBasicMaterial({
                     map: logoTexture,
                     transparent: true,
                     side: THREE.DoubleSide,
-                    depthWrite: false
+                    depthWrite: false // Prevents sorting glitches
                 });
 
                 logoPlane = new THREE.Mesh(planeGeo, logoMaterial);
-                logoPlane.position.z = 1.45; // Positioned slightly on top of beveled front surface
+                
+                // Positioned slightly in front of the plaque surface bevel boundary (extrudeSettings depth is 1.8)
+                // Back depth center is at 0. Extrusion depth front is at 0.9 + 0.6 bevel. Front edge is at z=1.5
+                // Setting logoPlane.position.z to 1.62 completely eliminates z-fighting and adds beautiful overlay depth.
+                logoPlane.position.z = 1.62; 
                 logoGroup.add(logoPlane);
 
                 // Hide loader once texture is generated and parsed successfully
@@ -991,7 +998,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
             animateLogo();
         }
 
-        // Procedural Vector Asset Generator (Draws high-fidelity logo onto texture canvas)
+        // Resilient XML SVG Asset Fetcher, Color Inverter & Canvas Texture Creator
         function generateLogoTexture(onComplete) {
             let completed = false;
             
@@ -1001,26 +1008,22 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 onComplete(texture);
             };
 
+            // High-fidelity fallback vector generator (recreates CIPS branding with correct alignments)
             const fallbackProcedural = () => {
                 if (completed) return;
-                console.log("Locating asset fallback: Rendering high-res procedural vector representation");
+                console.log("CIPS Engine Fallback: Generating pristine high-contrast vector markup via canvas stream");
                 const canvas = document.createElement('canvas');
                 canvas.width = 1024;
                 canvas.height = 720;
                 const ctx = canvas.getContext('2d');
                 ctx.clearRect(0, 0, 1024, 720);
 
-                // Draw Core Letters "C", "i", "P", "S"
+                // Main Lettering "C" in white for maximum contrast on the dark glass plaque
                 ctx.font = "bold 260px Inter, system-ui, sans-serif";
-                ctx.fillStyle = "#000000";
-                
-                // letter C
+                ctx.fillStyle = "#ffffff";
                 ctx.fillText("C", 180, 450);
                 
-                // Draw "i" stem (rounded)
-                ctx.fillStyle = "#000000";
-                
-                // Safe browser-compatible rounded rect draw
+                // Draw "i" stem (rounded capsule)
                 const drawRoundedRectLocal = (cx, cy, cw, ch, cr) => {
                     ctx.beginPath();
                     ctx.moveTo(cx + cr, cy);
@@ -1035,9 +1038,10 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                     ctx.closePath();
                     ctx.fill();
                 };
+                ctx.fillStyle = "#ffffff";
                 drawRoundedRectLocal(375, 335, 45, 120, 10);
                 
-                // Draw Red/Orange play triangle on top of "i" stem
+                // Crimson energy play triangle serving as the dot of the "i"
                 ctx.fillStyle = "#e11d48";
                 ctx.beginPath();
                 ctx.moveTo(375, 210);
@@ -1046,19 +1050,17 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 ctx.closePath();
                 ctx.fill();
                 
-                // Draw "P"
-                ctx.fillStyle = "#000000";
+                // Letters "P" and "S" in white
+                ctx.fillStyle = "#ffffff";
                 ctx.fillText("P", 445, 450);
-                
-                // Draw "S"
                 ctx.fillText("S", 605, 450);
 
                 // Subtext: "Moving forward"
                 ctx.font = "600 54px Inter, system-ui, sans-serif";
-                ctx.fillStyle = "#000000";
+                ctx.fillStyle = "#ffffff";
                 ctx.fillText("Moving forward", 180, 560);
 
-                // Chevrons >>>
+                // Glow Crimson Arrow Chevrons >>>
                 const drawChevron = (x, y) => {
                     ctx.beginPath();
                     ctx.lineWidth = 14;
@@ -1080,40 +1082,77 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 handleComplete(texture);
             };
 
-            // Set strict safety timeout (500ms) to ensure loader never hangs if image fetch blocks
+            // Force a 600ms safety timeout to handle network failure/CORS blocks instantly without stalling
             const timeoutId = setTimeout(() => {
                 fallbackProcedural();
-            }, 500);
+            }, 600);
 
-            // Attempt to load clean local SVG asset first
-            const loader = new THREE.TextureLoader();
-            loader.load(
-                "Screenshot-2026-05-21-212944.svg",
-                (texture) => {
+            // Fetch XML SVG, process and invert black assets to clean white, load into texture
+            const processSVGText = (svgText) => {
+                try {
+                    let modified = svgText;
+                    
+                    // Regex replacement to swap black values (#000000, black, zinc/dark fills) with bright white for contrast
+                    modified = modified.replace(/fill\s*=\s*["']#000000["']/gi, 'fill="#ffffff"');
+                    modified = modified.replace(/fill\s*=\s*["']black["']/gi, 'fill="#ffffff"');
+                    modified = modified.replace(/stroke\s*=\s*["']#000000["']/gi, 'stroke="#ffffff"');
+                    modified = modified.replace(/stroke\s*=\s*["']black["']/gi, 'stroke="#ffffff"');
+                    
+                    // Inject a light styling rule inside the SVG document to force all text and dark vectors to white, 
+                    // while retaining our brand crimson and red triangle highlights
+                    const styleOverride = `
+                        <style>
+                            path, text, rect, circle, ellipse, polygon { fill: #ffffff; }
+                            .crimson, [fill="#e11d48"], [stroke="#e11d48"] { fill: #e11d48 !important; stroke: #e11d48 !important; }
+                        </style>
+                    `;
+                    modified = modified.replace('<svg', `<svg>${styleOverride}`);
+
+                    // Convert raw XML String into safe Object Blob URL
+                    const blob = new Blob([modified], { type: 'image/svg+xml' });
+                    const blobUrl = URL.createObjectURL(blob);
+                    
+                    const loader = new THREE.TextureLoader();
+                    loader.load(blobUrl, (texture) => {
+                        clearTimeout(timeoutId);
+                        texture.minFilter = THREE.LinearFilter;
+                        texture.magFilter = THREE.LinearFilter;
+                        handleComplete(texture);
+                        URL.revokeObjectURL(blobUrl);
+                    }, undefined, () => {
+                        clearTimeout(timeoutId);
+                        fallbackProcedural();
+                    });
+                } catch (err) {
                     clearTimeout(timeoutId);
-                    texture.minFilter = THREE.LinearFilter;
-                    texture.magFilter = THREE.LinearFilter;
-                    handleComplete(texture);
-                },
-                undefined,
-                (err) => {
-                    // Falls back to PNG loader if SVG path isn't exposed
-                    loader.load(
-                        "Screenshot 2026-05-21 212944.png",
-                        (pngTexture) => {
-                            clearTimeout(timeoutId);
-                            pngTexture.minFilter = THREE.LinearFilter;
-                            pngTexture.magFilter = THREE.LinearFilter;
-                            handleComplete(pngTexture);
-                        },
-                        undefined,
-                        () => {
-                            clearTimeout(timeoutId);
-                            fallbackProcedural(); // Ultimate safe procedural rendering
-                        }
-                    );
+                    fallbackProcedural();
                 }
-            );
+            };
+
+            // Execute SVG loading pipeline
+            fetch(logoPath)
+                .then(res => {
+                    if (!res.ok) throw new Error("CIPS: Local logo.svg not reachable");
+                    return res.text();
+                })
+                .then(svgText => {
+                    processSVGText(svgText);
+                })
+                .catch(() => {
+                    // Try our local workspace identifier directly
+                    fetch("Screenshot-2026-05-21-212944.svg")
+                        .then(res => {
+                            if (!res.ok) throw new Error("CIPS: Screenshot SVG not found");
+                            return res.text();
+                        })
+                        .then(svgText => {
+                            processSVGText(svgText);
+                        })
+                        .catch(() => {
+                            // Run ultimate procedural fallback
+                            fallbackProcedural();
+                        });
+                });
         }
 
         function onLogoMouseMove(event) {
