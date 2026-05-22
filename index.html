@@ -13,14 +13,14 @@
                 extend: {
                     colors: {
                         brand: {
-                            black: '#ffffff', // Canvas background is white
-                            dark: '#f4f4f5',  // Light card background matching zinc-100
-                            card: '#fafafa',  // Bright white card body
+                            black: '#09090b', // Canvas background is dark zinc-950
+                            dark: '#121214',  // Premium dark grey zinc-900 card surface
+                            card: '#18181b',  // Near-black card body
                             red: '#e11d48',   // High-performance energy crimson red
                             redHover: '#be123c',
                             redGlow: 'rgba(225, 29, 72, 0.45)',
-                            white: '#000000', // Typography color is black
-                            gray: '#52525b'   // Visible charcoal color for descriptions
+                            white: '#ffffff', // High-contrast clean white typography
+                            gray: '#a1a1aa'   // Light zinc-400 visible descriptions
                         }
                     },
                     fontFamily: {
@@ -36,26 +36,28 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Three.js Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- SVGLoader Extension for Three.js -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/SVGLoader.js"></script>
     <!-- Custom CSS for Blasphemorphic UI -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #ffffff; /* White main background */
-            color: #000000; /* Black main typography */
+            background-color: #09090b; /* Dark modern canvas */
+            color: #ffffff; /* White primary typography */
             overflow-x: hidden;
         }
         .glass {
-            background: rgba(255, 255, 255, 0.75); /* Soft white glassmorphism overlay */
+            background: rgba(18, 18, 20, 0.75); /* Soft dark glassmorphism overlay */
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 0, 0, 0.08); /* Subtle dark border line */
+            border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle dark border line */
         }
         .glass-premium {
-            background: linear-gradient(135deg, rgba(245, 245, 245, 0.8) 0%, rgba(255, 255, 255, 0.95) 100%);
+            background: linear-gradient(135deg, rgba(24, 24, 27, 0.8) 0%, rgba(10, 10, 12, 0.95) 100%);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(225, 29, 72, 0.2);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05); /* Lighter shadow token */
+            border: 1px solid rgba(225, 29, 72, 0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); /* Deep premium shadow */
         }
         .text-glow-red {
             text-shadow: 0 0 15px rgba(225, 29, 72, 0.6);
@@ -68,7 +70,7 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #ffffff;
+            background: #09090b;
         }
         ::-webkit-scrollbar-thumb {
             background: rgba(225, 29, 72, 0.3);
@@ -82,7 +84,7 @@
 <body class="selection:bg-brand-red selection:text-white">
 
     <!-- Top Ambient Lights -->
-    <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-red/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-red/10 rounded-full blur-[140px] pointer-events-none"></div>
     <div class="absolute top-[80vh] right-1/4 w-96 h-96 bg-brand-red/5 rounded-full blur-[150px] pointer-events-none"></div>
 
     <!-- Developer Pitch Indicator Bar -->
@@ -97,7 +99,7 @@
     </div>
 
     <!-- MAIN NAVBAR -->
-    <nav class="glass sticky top-[42px] z-40 px-6 py-4 mx-4 my-4 rounded-xl transition-all border border-black/5 shadow-xl">
+    <nav class="glass sticky top-[42px] z-40 px-6 py-4 mx-4 my-4 rounded-xl transition-all border border-white/5 shadow-xl">
         <div class="max-w-7xl mx-auto flex flex-col gap-4 items-center justify-center sm:flex-row sm:justify-between">
             <!-- Brand Logo Logo -->
             <a href="#" class="flex flex-col items-center gap-2 group text-center sm:flex-row sm:text-left sm:gap-3">
@@ -105,13 +107,13 @@
                     <i data-lucide="fuel" class="w-6 h-6 text-white stroke-[2.5]"></i>
                 </div>
                 <div>
-                    <span class="text-xl font-extrabold tracking-tight text-black block">CROSS ISLAND</span>
+                    <span class="text-xl font-extrabold tracking-tight text-white block">CROSS ISLAND</span>
                     <span class="text-[9px] font-bold uppercase tracking-[0.25em] text-brand-red block -mt-1.5">Petroleum Supplies</span>
                 </div>
             </a>
 
             <!-- Menu Links (Desktop) -->
-            <div class="flex flex-wrap justify-center items-center gap-6 font-medium text-sm text-zinc-700">
+            <div class="flex flex-wrap justify-center items-center gap-6 font-medium text-sm text-zinc-300">
                 <a href="#services" class="hover:text-brand-red transition-colors">Our Services</a>
                 <a href="#quote" class="hover:text-brand-red transition-colors">Haulage Estimator</a>
                 <a href="#about" class="hover:text-brand-red transition-colors">Safety Standards</a>
@@ -133,44 +135,44 @@
         <div id="three-container" class="absolute inset-0 w-full h-full pointer-events-none z-0"></div>
 
         <div class="relative z-10 space-y-6 flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-bold tracking-wider uppercase">
-                <span class="w-2 h-2 rounded-full bg-brand-red"></span> Islandwide Fuel & Oil Haulage Specialist
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-red/15 border border-brand-red/30 text-brand-red text-xs font-bold tracking-wider uppercase">
+                <span class="w-2 h-2 rounded-full bg-brand-red animate-ping"></span> Islandwide Fuel & Oil Haulage Specialist
             </div>
             
             <!-- Three.js Premium 3D Logo Lockup Canvas Frame -->
             <div class="relative w-full max-w-md h-64 md:h-80 mx-auto flex items-center justify-center">
                 <!-- Professional Loading Fallback -->
-                <div id="logo-loader" class="absolute inset-0 flex flex-col items-center justify-center bg-white/85 z-20 transition-opacity duration-500">
+                <div id="logo-loader" class="absolute inset-0 flex flex-col items-center justify-center bg-[#09090b]/85 z-20 transition-opacity duration-500">
                     <div class="w-10 h-10 border-4 border-brand-red/20 border-t-brand-red rounded-full animate-spin"></div>
-                    <span class="text-[10px] uppercase font-bold tracking-widest text-zinc-600 mt-3">Synthesizing 3D Logo Assets</span>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-zinc-400 mt-3">Compiling 3D Wordmark Meshes</span>
                 </div>
                 <!-- 3D Logo Canvas -->
                 <canvas id="logo-3d-canvas" class="w-full h-full cursor-grab active:cursor-grabbing outline-none"></canvas>
             </div>
 
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-black">
+            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] text-white">
                 High-Performance <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-black via-zinc-700 to-brand-red text-glow-red">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-450 to-brand-red text-glow-red font-extrabold">
                     Petroleum Logistics
                 </span>
             </h1>
             
-            <p class="text-zinc-600 text-base sm:text-lg max-w-2xl font-light leading-relaxed mx-auto">
+            <p class="text-zinc-400 text-base sm:text-lg max-w-2xl font-light leading-relaxed mx-auto">
                 Connecting refineries, depots, and industrial sites across the terrain with absolute precision. High-capacity Class-A tankers, real-time volume telematics, and zero-incident safety protocols.
             </p>
 
             <!-- Key Telemetry Metrics Hero -->
             <div class="grid grid-cols-3 gap-8 py-4 max-w-lg mx-auto w-full">
                 <div class="flex flex-col items-center text-center">
-                    <span class="text-2xl sm:text-3xl font-extrabold text-black block border-b-2 border-brand-red px-2 mb-1">100%</span>
+                    <span class="text-2xl sm:text-3xl font-extrabold text-white block border-b-2 border-brand-red px-2 mb-1">100%</span>
                     <span class="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">Compliance Rate</span>
                 </div>
                 <div class="flex flex-col items-center text-center">
-                    <span class="text-2xl sm:text-3xl font-extrabold text-black block border-b-2 border-zinc-300 px-2 mb-1">0</span>
+                    <span class="text-2xl sm:text-3xl font-extrabold text-white block border-b-2 border-zinc-700 px-2 mb-1">0</span>
                     <span class="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">Spill Incidents</span>
                 </div>
                 <div class="flex flex-col items-center text-center">
-                    <span class="text-2xl sm:text-3xl font-extrabold text-black block border-b-2 border-brand-red px-2 mb-1">24/7</span>
+                    <span class="text-2xl sm:text-3xl font-extrabold text-white block border-b-2 border-brand-red px-2 mb-1">24/7</span>
                     <span class="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">GPS Telematics</span>
                 </div>
             </div>
@@ -180,7 +182,7 @@
                 <a href="#quote" class="bg-brand-red hover:bg-brand-redHover text-white font-extrabold px-8 py-4 rounded-lg shadow-xl shadow-brand-red/25 text-center hover:scale-[1.02] transition-all duration-200 w-full">
                     Initiate Transport Order
                 </a>
-                <a href="#about" class="glass text-black font-semibold px-8 py-4 rounded-lg border border-black/10 hover:bg-black/5 text-center flex items-center justify-center gap-2 transition-all w-full">
+                <a href="#about" class="glass text-white font-semibold px-8 py-4 rounded-lg border border-white/10 hover:bg-white/5 text-center flex items-center justify-center gap-2 transition-all w-full">
                     <i data-lucide="shield-check" class="w-5 h-5 text-brand-red"></i> View Safety Standards
                 </a>
             </div>
@@ -188,14 +190,14 @@
     </section>
 
     <!-- LOGISTICS SERVICES -->
-    <section id="services" class="py-20 px-6 max-w-7xl mx-auto border-t border-zinc-200 text-center">
+    <section id="services" class="py-20 px-6 max-w-7xl mx-auto border-t border-zinc-800 text-center">
         <div class="flex flex-col items-center justify-center gap-12 w-full">
             
             <!-- Centered Header -->
             <div class="space-y-6 max-w-3xl mx-auto">
                 <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-red block">OUR CAPABILITIES</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">Fuel Haulage, Engineered for Precision</h2>
-                <p class="text-zinc-600 font-light text-base leading-relaxed">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Fuel Haulage, Engineered for Precision</h2>
+                <p class="text-zinc-400 font-light text-base leading-relaxed">
                     Moving bulk petroleum products requires maximum accountability, strict compliance, and high-efficiency distribution systems. We manage operations across all major state ports.
                 </p>
                 
@@ -204,13 +206,13 @@
                         <div class="p-1.5 bg-brand-red/10 rounded-lg text-brand-red">
                             <i data-lucide="shield-alert" class="w-4 h-4"></i>
                         </div>
-                        <p class="text-xs text-zinc-700 text-left">Class-A certified drivers with strict hazard management.</p>
+                        <p class="text-xs text-zinc-350 text-left">Class-A certified drivers with strict hazard management.</p>
                     </div>
                     <div class="flex gap-2.5 items-center justify-center max-w-xs">
                         <div class="p-1.5 bg-brand-red/10 rounded-lg text-brand-red">
                             <i data-lucide="gauge" class="w-4 h-4"></i>
                         </div>
-                        <p class="text-xs text-zinc-700 text-left">Custom volume telemetry preventing offload variance.</p>
+                        <p class="text-xs text-zinc-350 text-left">Custom volume telemetry preventing offload variance.</p>
                     </div>
                 </div>
             </div>
@@ -218,45 +220,45 @@
             <!-- Centered Service Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-5xl mx-auto">
                 <!-- Gas/Diesel Card -->
-                <div class="glass-premium p-6 rounded-xl border border-black/5 hover:border-brand-red/30 transition-all duration-300 group flex flex-col items-center text-center">
+                <div class="glass-premium p-6 rounded-xl border border-white/5 hover:border-brand-red/30 transition-all duration-300 group flex flex-col items-center text-center">
                     <div class="w-12 h-12 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red group-hover:scale-110 transition-transform mb-6">
                         <i data-lucide="droplet" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-black mb-2">Refined Hydrocarbons</h3>
-                    <p class="text-xs text-zinc-650 font-light leading-relaxed max-w-md">
+                    <h3 class="text-lg font-bold text-white mb-2">Refined Hydrocarbons</h3>
+                    <p class="text-xs text-zinc-400 font-light leading-relaxed max-w-md">
                         Continuous bulk haulage of Ultra-Low Sulfur Diesel, Premium Gasoline, and Heavy Fuel Oils (HFO) directly to distribution hubs and industrial reserves.
                     </p>
                 </div>
 
                 <!-- Jet Fuel / Aviation Card -->
-                <div class="glass-premium p-6 rounded-xl border border-black/5 hover:border-brand-red/30 transition-all duration-300 group flex flex-col items-center text-center">
+                <div class="glass-premium p-6 rounded-xl border border-white/5 hover:border-brand-red/30 transition-all duration-300 group flex flex-col items-center text-center">
                     <div class="w-12 h-12 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red group-hover:scale-110 transition-transform mb-6">
                         <i data-lucide="plane" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-black mb-2">Aviation Fuel Logistics</h3>
+                    <h3 class="text-lg font-bold text-white mb-2">Aviation Fuel Logistics</h3>
                     <p class="text-xs text-zinc-650 font-light leading-relaxed max-w-md">
                         Dedicated specialized aluminum-alloy tankers designed exclusively for pure Jet A-1 transport under absolute dust, water, and static charge containment protocols.
                     </p>
                 </div>
 
                 <!-- Lubricants Card -->
-                <div class="glass-premium p-6 rounded-xl border border-black/5 hover:border-brand-red/30 transition-all duration-300 group flex flex-col items-center text-center">
+                <div class="glass-premium p-6 rounded-xl border border-white/5 hover:border-brand-red/30 transition-all duration-300 group flex flex-col items-center text-center">
                     <div class="w-12 h-12 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red group-hover:scale-110 transition-transform mb-6">
                         <i data-lucide="package" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-black mb-2">Bulk Industrial Lubricants</h3>
-                    <p class="text-xs text-zinc-650 font-light leading-relaxed max-w-md">
+                    <h3 class="text-lg font-bold text-white mb-2">Bulk Industrial Lubricants</h3>
+                    <p class="text-xs text-zinc-450 font-light leading-relaxed max-w-md">
                         Reliable supply chain transport of synthetic lubricants and manufacturing motor oils in multi-compartment vessels optimized for multi-client custom delivery.
                     </p>
                 </div>
 
                 <!-- Emergency Dispatch Card -->
-                <div class="glass-premium p-6 rounded-xl border border-black/5 hover:border-brand-red/30 transition-all duration-300 group flex flex-col items-center text-center">
+                <div class="glass-premium p-6 rounded-xl border border-white/5 hover:border-brand-red/30 transition-all duration-300 group flex flex-col items-center text-center">
                     <div class="w-12 h-12 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red group-hover:scale-110 transition-transform mb-6">
                         <i data-lucide="zap" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-black mb-2">Crisis & Depletion Support</h3>
-                    <p class="text-xs text-zinc-650 font-light leading-relaxed max-w-md">
+                    <h3 class="text-lg font-bold text-white mb-2">Crisis & Depletion Support</h3>
+                    <p class="text-xs text-zinc-400 font-light leading-relaxed max-w-md">
                         On-demand reserve dispatch for major power plants, utility complexes, and remote facilities experiencing severe volume drops or pipeline failures.
                     </p>
                 </div>
@@ -266,11 +268,11 @@
     </section>
 
     <!-- HAULAGE COST CALCULATOR & QUOTE REQUEST -->
-    <section id="quote" class="py-20 px-6 max-w-7xl mx-auto border-t border-zinc-200 text-center">
+    <section id="quote" class="py-20 px-6 max-w-7xl mx-auto border-t border-zinc-800 text-center">
         <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
             <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-red block">TRANSPARENT VALUE</span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">Interactive Haulage Rate Calculator</h2>
-            <p class="text-zinc-600 font-light text-sm sm:text-base">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Interactive Haulage Rate Calculator</h2>
+            <p class="text-zinc-400 font-light text-sm sm:text-base">
                 Input your volume demands and routing requirements below to get an instant digital cost estimate and carbon impact breakdown.
             </p>
         </div>
@@ -278,23 +280,23 @@
         <div class="grid grid-cols-1 gap-8 items-stretch max-w-5xl mx-auto">
             
             <!-- Centered Calculator Settings Box -->
-            <div class="glass rounded-2xl p-6 lg:p-8 border border-black/5 flex flex-col justify-between items-center text-center w-full">
+            <div class="glass rounded-2xl p-6 lg:p-8 border border-white/5 flex flex-col justify-between items-center text-center w-full">
                 <div class="space-y-8 w-full max-w-3xl">
-                    <h3 class="font-bold text-lg text-black flex items-center justify-center gap-2 mx-auto">
+                    <h3 class="font-bold text-lg text-white flex items-center justify-center gap-2 mx-auto">
                         <i data-lucide="sliders" class="text-brand-red w-5 h-5"></i> Logistics Parameters
                     </h3>
 
                     <!-- Parameter 1: Fuel Product Select -->
                     <div class="flex flex-col items-center">
-                        <label class="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-3 text-center">Select Fuel Product</label>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-zinc-550 mb-3 text-center">Select Fuel Product</label>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-xl">
                             <button onclick="setProduct('diesel', 1.2)" id="btn-prod-diesel" class="py-3 px-4 rounded-lg border border-brand-red text-brand-red font-bold text-xs hover:bg-brand-red/5 transition-all focus:outline-none text-center">
                                 Diesel (HFO/ULSD)
                             </button>
-                            <button onclick="setProduct('gasoline', 1.0)" id="btn-prod-gasoline" class="py-3 px-4 rounded-lg border border-white/10 text-zinc-650 font-semibold text-xs hover:bg-black/5 transition-all focus:outline-none text-center">
+                            <button onclick="setProduct('gasoline', 1.0)" id="btn-prod-gasoline" class="py-3 px-4 rounded-lg border border-white/10 text-zinc-400 font-semibold text-xs hover:bg-black/5 transition-all focus:outline-none text-center">
                                 Premium Gasoline
                             </button>
-                            <button onclick="setProduct('aviation', 1.6)" id="btn-prod-aviation" class="py-3 px-4 rounded-lg border border-white/10 text-zinc-650 font-semibold text-xs hover:bg-black/5 transition-all focus:outline-none text-center">
+                            <button onclick="setProduct('aviation', 1.6)" id="btn-prod-aviation" class="py-3 px-4 rounded-lg border border-white/10 text-zinc-400 font-semibold text-xs hover:bg-black/5 transition-all focus:outline-none text-center">
                                 Jet Fuel / A-1
                             </button>
                         </div>
@@ -306,7 +308,7 @@
                             <label class="text-xs font-bold uppercase tracking-wider text-zinc-500">Haulage Distance</label>
                             <span id="dist-display" class="text-sm font-bold text-brand-red">60 miles</span>
                         </div>
-                        <input id="dist-input" type="range" min="10" max="250" value="60" oninput="calculateRate()" class="w-full accent-brand-red h-1.5 bg-zinc-200 rounded-lg appearance-none cursor-pointer">
+                        <input id="dist-input" type="range" min="10" max="250" value="60" oninput="calculateRate()" class="w-full accent-brand-red h-1.5 bg-zinc-800 rounded-lg appearance-none cursor-pointer">
                         <div class="flex justify-between text-[10px] text-zinc-500 mt-1.5 font-semibold">
                             <span>10 Miles</span>
                             <span>130 Miles</span>
@@ -320,7 +322,7 @@
                             <label class="text-xs font-bold uppercase tracking-wider text-zinc-500">Required Load Volume</label>
                             <span id="vol-display" class="text-sm font-bold text-brand-red">8,500 Gallons</span>
                         </div>
-                        <input id="vol-input" type="range" min="2000" max="15000" step="500" value="8500" oninput="calculateRate()" class="w-full accent-brand-red h-1.5 bg-zinc-200 rounded-lg appearance-none cursor-pointer">
+                        <input id="vol-input" type="range" min="2000" max="15000" step="500" value="8500" oninput="calculateRate()" class="w-full accent-brand-red h-1.5 bg-zinc-850 rounded-lg appearance-none cursor-pointer">
                         <div class="flex justify-between text-[10px] text-zinc-500 mt-1.5 font-semibold">
                             <span>2k Gals (Sub-Tanker)</span>
                             <span>8.5k Gals</span>
@@ -329,7 +331,7 @@
                     </div>
                 </div>
 
-                <div class="border-t border-black/5 pt-6 mt-6 w-full max-w-3xl flex flex-col sm:flex-row gap-4 items-center justify-center text-zinc-650 text-xs">
+                <div class="border-t border-white/5 pt-6 mt-6 w-full max-w-3xl flex flex-col sm:flex-row gap-4 items-center justify-center text-zinc-450 text-xs">
                     <p class="flex items-center justify-center gap-1.5">
                         <i data-lucide="info" class="w-4 h-4 text-brand-red shrink-0"></i> Calculations structured on active arterial road tariffs and hazard regulations.
                     </p>
@@ -337,39 +339,39 @@
             </div>
 
             <!-- Centered Cost Estimates Screen -->
-            <div class="bg-gradient-to-br from-zinc-50 to-white rounded-2xl p-6 lg:p-8 border border-brand-red/20 shadow-xl flex flex-col justify-between items-center text-center w-full max-w-xl mx-auto">
+            <div class="bg-gradient-to-br from-zinc-900 to-[#121214] rounded-2xl p-6 lg:p-8 border border-brand-red/20 shadow-xl flex flex-col justify-between items-center text-center w-full max-w-xl mx-auto">
                 <div class="w-full">
                     <span class="text-xs font-extrabold text-brand-red tracking-widest uppercase block mb-1 text-center">PROPOSAL ESTIMATOR</span>
-                    <h3 class="font-extrabold text-2xl text-black text-center">Estimated Run Pricing</h3>
-                    <p class="text-xs text-zinc-555 font-light mt-1 text-center">Real-time quote for single active route allocation.</p>
+                    <h3 class="font-extrabold text-2xl text-white text-center">Estimated Run Pricing</h3>
+                    <p class="text-xs text-zinc-500 font-light mt-1 text-center">Real-time quote for single active route allocation.</p>
 
                     <div class="space-y-4 my-8 font-mono w-full max-w-md mx-auto">
-                        <div class="flex justify-between items-center border-b border-black/5 pb-3">
-                            <span class="text-zinc-555 text-sm">Logistics Base</span>
-                            <span id="val-base" class="font-bold text-black text-base">$480.00</span>
+                        <div class="flex justify-between items-center border-b border-white/5 pb-3">
+                            <span class="text-zinc-400 text-sm">Logistics Base</span>
+                            <span id="val-base" class="font-bold text-white text-base">$480.00</span>
                         </div>
-                        <div class="flex justify-between items-center border-b border-black/5 pb-3">
-                            <span class="text-zinc-555 text-sm">Regulatory Levy</span>
-                            <span id="val-levy" class="font-bold text-black text-base">$85.00</span>
+                        <div class="flex justify-between items-center border-b border-white/5 pb-3">
+                            <span class="text-zinc-400 text-sm">Regulatory Levy</span>
+                            <span id="val-levy" class="font-bold text-white text-base">$85.00</span>
                         </div>
-                        <div class="flex justify-between items-center border-b border-black/5 pb-3">
-                            <span class="text-zinc-555 text-sm">Environmental Tax</span>
-                            <span id="val-tax" class="font-bold text-black text-base">$110.00</span>
+                        <div class="flex justify-between items-center border-b border-white/5 pb-3">
+                            <span class="text-zinc-400 text-sm">Environmental Tax</span>
+                            <span id="val-tax" class="font-bold text-white text-base">$110.00</span>
                         </div>
                         <div class="flex justify-between items-center pt-2">
-                            <span class="text-zinc-600 text-sm font-semibold">Total Estimated Cost</span>
+                            <span class="text-zinc-300 text-sm font-semibold">Total Estimated Cost</span>
                             <span id="val-total" class="font-extrabold text-brand-red text-2xl text-glow-red">$675.00</span>
                         </div>
                     </div>
 
                     <!-- Carbon Impact Alert -->
-                    <div class="p-4 bg-zinc-100 border border-brand-red/20 rounded-xl flex gap-3 items-center justify-center w-full max-w-md mx-auto text-center">
+                    <div class="p-4 bg-zinc-950 border border-brand-red/20 rounded-xl flex gap-3 items-center justify-center w-full max-w-md mx-auto text-center">
                         <div class="p-2 bg-brand-red/10 rounded-lg text-brand-red shrink-0">
                             <i data-lucide="leaf" class="w-5 h-5"></i>
                         </div>
                         <div class="text-left">
                             <span class="text-[10px] uppercase font-bold text-brand-red tracking-wider block">Carbon Neutral Offset Program</span>
-                            <p class="text-[11px] text-zinc-700 mt-0.5">Estimated route offset value: <span id="val-carbon" class="font-semibold text-black">32 kg CO2e</span> via tier-4 diesel fleet integration.</p>
+                            <p class="text-[11px] text-zinc-400 mt-0.5">Estimated route offset value: <span id="val-carbon" class="font-semibold text-white">32 kg CO2e</span> via tier-4 diesel fleet integration.</p>
                         </div>
                     </div>
                 </div>
@@ -384,69 +386,69 @@
     </section>
 
     <!-- TRUST & SAFETY ASSURANCE SECTION -->
-    <section id="about" class="py-20 px-6 max-w-7xl mx-auto border-t border-zinc-200 text-center">
+    <section id="about" class="py-20 px-6 max-w-7xl mx-auto border-t border-zinc-800 text-center">
         <div class="grid grid-cols-1 gap-12 items-center justify-center max-w-4xl mx-auto">
             
             <div class="space-y-6 flex flex-col items-center">
                 <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-red block">ZERO TOLERANCE CRITERIA</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">Zero incidents. Absolute protection of cargo.</h2>
-                <p class="text-zinc-750 font-light text-base leading-relaxed max-w-2xl">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Zero incidents. Absolute protection of cargo.</h2>
+                <p class="text-zinc-400 font-light text-base leading-relaxed max-w-2xl">
                     At Cross Island Petroleum Supplies, safety is a strict operating constraint. We utilize double-containment hardware, high-frequency driver training, and automated telemetry tracking to neutralize resource loss under any atmospheric conditions.
                 </p>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8 w-full max-w-2xl">
-                    <div class="p-5 bg-zinc-50 border border-black/5 rounded-lg space-y-2 flex flex-col items-center">
+                    <div class="p-5 bg-zinc-900 border border-white/5 rounded-lg space-y-2 flex flex-col items-center">
                         <div class="p-2 bg-brand-red/10 rounded-full text-brand-red mb-1">
                             <i data-lucide="shield-check" class="w-6 h-6"></i>
                         </div>
-                        <h4 class="font-bold text-black text-sm">Hazmat Qualified</h4>
-                        <p class="text-xs text-zinc-555 max-w-xs">All dispatch crews pass intensive fluid safety protocols annually.</p>
+                        <h4 class="font-bold text-white text-sm">Hazmat Qualified</h4>
+                        <p class="text-xs text-zinc-500 max-w-xs">All dispatch crews pass intensive fluid safety protocols annually.</p>
                     </div>
-                    <div class="p-5 bg-zinc-50 border border-black/5 rounded-lg space-y-2 flex flex-col items-center">
+                    <div class="p-5 bg-zinc-900 border border-white/5 rounded-lg space-y-2 flex flex-col items-center">
                         <div class="p-2 bg-brand-red/10 rounded-full text-brand-red mb-1">
                             <i data-lucide="heart-pulse" class="w-6 h-6"></i>
                         </div>
-                        <h4 class="font-bold text-black text-sm">Automated Shut-Offs</h4>
+                        <h4 class="font-bold text-white text-sm">Automated Shut-Offs</h4>
                         <p class="text-xs text-zinc-555 max-w-xs">Every manifold contains pneumatic relief systems designed to isolate line leaks instantly.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Terminal Graphics Box (Centered) -->
-            <div class="relative rounded-2xl border border-black/5 p-8 overflow-hidden bg-zinc-50 shadow-2xl w-full max-w-2xl mx-auto flex flex-col items-center">
-                <div class="absolute inset-0 opacity-[0.02] pointer-events-none" style="background-image: radial-gradient(rgba(0,0,0,0.15) 1px, transparent 1px); background-size: 24px 24px;"></div>
+            <div class="relative rounded-2xl border border-white/5 p-8 overflow-hidden bg-zinc-950 shadow-2xl w-full max-w-2xl mx-auto flex flex-col items-center">
+                <div class="absolute inset-0 opacity-[0.02] pointer-events-none" style="background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px); background-size: 24px 24px;"></div>
                 
-                <h3 class="font-bold text-black text-lg mb-2">Quality Control Verification</h3>
-                <p class="text-xs text-zinc-550 mb-6 max-w-md">Our automated fuel verification framework monitors chemical purity values live.</p>
+                <h3 class="font-bold text-white text-lg mb-2">Quality Control Verification</h3>
+                <p class="text-xs text-zinc-500 mb-6 max-w-md">Our automated fuel verification framework monitors chemical purity values live.</p>
 
                 <!-- Fuel Lab Quality Specs Grid (Centered layout) -->
                 <div class="space-y-5 w-full max-w-md mx-auto text-left">
                     <div class="space-y-1.5">
                         <div class="flex justify-between text-xs font-semibold">
-                            <span class="text-zinc-600">Sulfur Content Threshold (ULSD)</span>
+                            <span class="text-zinc-400">Sulfur Content Threshold (ULSD)</span>
                             <span class="text-brand-red font-bold">&lt; 15 ppm</span>
                         </div>
-                        <div class="h-1.5 w-full bg-zinc-200 rounded-full overflow-hidden">
+                        <div class="h-1.5 w-full bg-zinc-800 rounded-full overflow-hidden">
                             <div class="h-full bg-brand-red rounded-full" style="width: 15%;"></div>
                         </div>
                     </div>
 
                     <div class="space-y-1.5">
                         <div class="flex justify-between text-xs font-semibold">
-                            <span class="text-zinc-600">Hydrocarbon Viscosity Index</span>
-                            <span class="text-black font-bold">2.8 hSt (Normal)</span>
+                            <span class="text-zinc-400">Hydrocarbon Viscosity Index</span>
+                            <span class="text-white font-bold">2.8 hSt (Normal)</span>
                         </div>
-                        <div class="h-1.5 w-full bg-zinc-200 rounded-full overflow-hidden">
-                            <div class="h-full bg-black rounded-full" style="width: 65%;"></div>
+                        <div class="h-1.5 w-full bg-zinc-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-white rounded-full" style="width: 65%;"></div>
                         </div>
                     </div>
 
                     <div class="space-y-1.5">
                         <div class="flex justify-between text-xs font-semibold">
-                            <span class="text-zinc-600">Moisture Containment Tolerance</span>
+                            <span class="text-zinc-400">Moisture Containment Tolerance</span>
                             <span class="text-emerald-600 font-bold">0.02% (Optimal)</span>
                         </div>
-                        <div class="h-1.5 w-full bg-zinc-200 rounded-full overflow-hidden">
+                        <div class="h-1.5 w-full bg-zinc-800 rounded-full overflow-hidden">
                             <div class="h-full bg-emerald-500 rounded-full" style="width: 5%;"></div>
                         </div>
                     </div>
@@ -457,42 +459,42 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-zinc-50 border-t border-zinc-200 py-12 px-6 mt-20 text-center">
+    <footer class="bg-[#09090b] border-t border-zinc-800 py-12 px-6 mt-20 text-center">
         <div class="max-w-7xl mx-auto flex flex-col items-center justify-center gap-6">
             <div class="flex flex-col items-center justify-center gap-3">
                 <div class="w-8 h-8 bg-brand-red rounded flex items-center justify-center mx-auto">
                     <i data-lucide="fuel" class="w-5 h-5 text-white"></i>
                 </div>
                 <div>
-                    <span class="text-sm font-bold text-black block">CROSS ISLAND PETROLEUM SUPPLIES</span>
-                    <span class="text-[9px] text-zinc-555 uppercase tracking-wider block">Logistics & Distribution Engineering © 2026</span>
+                    <span class="text-sm font-bold text-white block">CROSS ISLAND PETROLEUM SUPPLIES</span>
+                    <span class="text-[9px] text-zinc-500 uppercase tracking-wider block">Logistics & Distribution Engineering © 2026</span>
                 </div>
             </div>
             
             <div class="flex flex-wrap justify-center gap-6 text-xs text-zinc-500 font-medium">
                 <a href="#services" class="hover:text-brand-red">Services</a>
-                <a href="#quote" class="hover:text-brand-red">Estimate Rates</a>
+                <a href="#quote" class="hover:text-brand-red">Haulage Estimator</a>
                 <a href="#about" class="hover:text-brand-red">Safety Standards</a>
             </div>
         </div>
     </footer>
 
     <!-- DEVELOPER PITCH & PROPOSAL DRAWER -->
-    <div id="pitch-panel" class="fixed inset-y-0 right-0 w-full md:w-[600px] bg-white border-l border-brand-red/30 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 overflow-y-auto hidden">
+    <div id="pitch-panel" class="fixed inset-y-0 right-0 w-full md:w-[600px] bg-[#09090b] border-l border-brand-red/30 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 overflow-y-auto hidden">
         <div class="p-6 md:p-8 space-y-8 text-center flex flex-col items-center">
             
             <!-- Pitch Drawer Header -->
-            <div class="flex justify-between items-center border-b border-zinc-200 pb-5 w-full">
+            <div class="flex justify-between items-center border-b border-zinc-800 pb-5 w-full">
                 <div class="flex items-center gap-3 mx-auto">
                     <div class="p-2.5 bg-brand-red/10 rounded-lg text-brand-red border border-brand-red/20">
                         <i data-lucide="presentation" class="w-6 h-6"></i>
                     </div>
                     <div class="text-left">
-                        <h2 class="text-xl font-extrabold text-black">Client Proposal Engine</h2>
+                        <h2 class="text-xl font-extrabold text-white">Client Proposal Engine</h2>
                         <span class="text-xs text-brand-red font-bold block">How to sell this site for $3,500 – $5,000</span>
                     </div>
                 </div>
-                <button onclick="togglePitchPanel()" class="p-2 hover:bg-zinc-100 rounded-lg text-zinc-500 hover:text-black transition-colors">
+                <button onclick="togglePitchPanel()" class="p-2 hover:bg-zinc-800 rounded-lg text-zinc-500 hover:text-black transition-colors">
                     <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
             </div>
@@ -500,8 +502,8 @@
             <!-- Pitch Content Section 1: Business Overview -->
             <div class="space-y-4 w-full">
                 <span class="text-[10px] font-extrabold text-brand-red uppercase tracking-widest block text-center">THE TARGET PROBLEM</span>
-                <h3 class="font-extrabold text-lg text-black text-center">Why Cross Island Petroleum Supplies needs this</h3>
-                <p class="text-xs text-zinc-700 leading-relaxed font-light text-center max-w-md mx-auto">
+                <h3 class="font-extrabold text-lg text-white text-center">Why Cross Island Petroleum Supplies needs this</h3>
+                <p class="text-xs text-zinc-400 leading-relaxed font-light text-center max-w-md mx-auto">
                     Traditional fuel-haulers usually rely on outdated, text-heavy designs. By presenting this customized **Interactive Logistics Board with Black and Crimson accents**, you frame their team as an elite, high-performance operational network.
                 </p>
             </div>
@@ -509,23 +511,23 @@
             <!-- Pitch Content Section 2: Pricing Strategy Blueprint -->
             <div class="space-y-4 w-full">
                 <span class="text-[10px] font-extrabold text-brand-red uppercase tracking-widest block text-center">THE BUSINESS ARCHITECTURE</span>
-                <h3 class="font-extrabold text-lg text-black text-center">Pricing Model Recommendations</h3>
+                <h3 class="font-extrabold text-lg text-white text-center">Pricing Model Recommendations</h3>
                 
                 <div class="space-y-3 w-full max-w-md mx-auto">
-                    <div class="p-4 rounded-lg border border-black/5 bg-zinc-50 text-center">
+                    <div class="p-4 rounded-lg border border-white/5 bg-zinc-900 text-center">
                         <div class="flex justify-between items-center mb-1">
-                            <span class="text-xs font-extrabold text-black">Upfront Flat Build Fee</span>
+                            <span class="text-xs font-extrabold text-white">Upfront Flat Build Fee</span>
                             <span class="text-sm font-extrabold text-brand-red">$3,500 - $4,800</span>
                         </div>
-                        <p class="text-[11px] text-zinc-600 text-left">Includes Next.js optimization, custom WebGL pipeline flows, metadata-driven local SEO, and rate calculation architectures.</p>
+                        <p class="text-[11px] text-zinc-400 text-left">Includes Next.js optimization, custom WebGL pipeline flows, metadata-driven local SEO, and rate calculation architectures.</p>
                     </div>
 
-                    <div class="p-4 rounded-lg border border-black/5 bg-zinc-50 text-center">
+                    <div class="p-4 rounded-lg border border-white/5 bg-zinc-900 text-center">
                         <div class="flex justify-between items-center mb-1">
-                            <span class="text-xs font-extrabold text-black">Monthly Recurrent Retention</span>
+                            <span class="text-xs font-extrabold text-white">Monthly Recurrent Retention</span>
                             <span class="text-sm font-extrabold text-brand-red">$99 / month</span>
                         </div>
-                        <p class="text-[11px] text-zinc-600 text-left">Covers ultra-fast static CDN hosting (Vercel/Cloudflare integration), minor content edits, and server maintenance.</p>
+                        <p class="text-[11px] text-zinc-400 text-left">Covers ultra-fast static CDN hosting (Vercel/Cloudflare integration), minor content edits, and server maintenance.</p>
                     </div>
                 </div>
             </div>
@@ -533,10 +535,10 @@
             <!-- Pitch Content Section 3: Copy-Paste Client Pitch Script -->
             <div class="space-y-4 w-full">
                 <span class="text-[10px] font-extrabold text-brand-red uppercase tracking-widest block text-center">CLIENT EMAIL & PITCH TEMPLATE</span>
-                <h3 class="font-extrabold text-lg text-black text-center">Pitch Framework to Secure Interest</h3>
+                <h3 class="font-extrabold text-lg text-white text-center">Pitch Framework to Secure Interest</h3>
                 
-                <div class="relative bg-zinc-50 border border-zinc-200 p-4 rounded-lg w-full max-w-md mx-auto text-left">
-                    <p class="text-[11px] text-zinc-700 italic whitespace-pre-line leading-relaxed select-all">
+                <div class="relative bg-zinc-900 border border-zinc-800 p-4 rounded-lg w-full max-w-md mx-auto text-left">
+                    <p class="text-[11px] text-zinc-300 italic whitespace-pre-line leading-relaxed select-all">
 "Hi [Decision Maker's Name],
 
 I’ve engineered an interactive, high-fidelity digital logistics platform customized specifically for Cross Island Petroleum Supplies. 
@@ -553,24 +555,8 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 </div>
             </div>
 
-            <!-- Pitch Content Section 4: AI Workflow Optimization -->
-            <div class="space-y-4 w-full text-center">
-                <span class="text-[10px] font-extrabold text-brand-red uppercase tracking-widest block">DEVELOPER ADVANTAGE</span>
-                <h3 class="font-extrabold text-lg text-black">Why This Custom Stack Dominates</h3>
-                <ul class="space-y-2 text-xs text-zinc-700 font-light max-w-md mx-auto text-left">
-                    <li class="flex gap-2 items-start">
-                        <i data-lucide="check-circle" class="w-4.5 h-4.5 text-brand-red shrink-0 mt-0.5"></i>
-                        <span><strong>Zero Database Upkeep:</strong> Fully compiled into lightweight static files. Vercel/Cloudflare bandwidth bounds are essentially free.</span>
-                    </li>
-                    <li class="flex gap-2 items-start">
-                        <i data-lucide="check-circle" class="w-4.5 h-4.5 text-brand-red shrink-0 mt-0.5"></i>
-                        <span><strong>Highly Extensible:</strong> Ready to hook into active telematics or GPS asset sensors as soon as they decide to scale past simulations.</span>
-                    </li>
-                </ul>
-            </div>
-
             <!-- Pitch Drawer Footer -->
-            <div class="pt-4 border-t border-zinc-200 text-center w-full max-w-md mx-auto">
+            <div class="pt-4 border-t border-zinc-800 text-center w-full max-w-md mx-auto">
                 <button onclick="togglePitchPanel()" class="bg-brand-red text-white font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-lg w-full border-none">
                     Return to Live Client Preview
                 </button>
@@ -628,7 +614,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 if (b === type) {
                     el.className = "py-3 px-4 rounded-lg border border-brand-red text-brand-red font-bold text-xs hover:bg-brand-red/5 transition-all focus:outline-none text-center";
                 } else {
-                    el.className = "py-3 px-4 rounded-lg border border-white/10 text-zinc-650 font-semibold text-xs hover:bg-black/5 transition-all focus:outline-none text-center";
+                    el.className = "py-3 px-4 rounded-lg border border-white/10 text-zinc-450 font-semibold text-xs hover:bg-black/5 transition-all focus:outline-none text-center";
                 }
             });
 
@@ -642,8 +628,10 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
             const volume = parseFloat(document.getElementById('vol-input').value);
 
             // Update range sliders screen displays
-            document.getElementById('dist-display').textContent = `${distance} Miles`;
-            document.getElementById('vol-display').textContent = `${volume.toLocaleString()} Gallons`;
+            const distDisp = document.getElementById('dist-display');
+            const volDisp = document.getElementById('vol-display');
+            if (distDisp) distDisp.textContent = `${distance} Miles`;
+            if (volDisp) volDisp.textContent = `${volume.toLocaleString()} Gallons`;
 
             // Calculate Base Formula Specs
             const distanceCost = distance * 2.85;
@@ -655,26 +643,37 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
             const entireCharge = baseCostTotal + securityTax + environmentalTax;
 
             // Update HTML Displays
-            document.getElementById('val-base').textContent = `$${baseCostTotal.toFixed(2)}`;
-            document.getElementById('val-levy').textContent = `$${securityTax.toFixed(2)}`;
-            document.getElementById('val-tax').textContent = `$${environmentalTax.toFixed(2)}`;
-            document.getElementById('val-total').textContent = `$${entireCharge.toFixed(2)}`;
+            const valBase = document.getElementById('val-base');
+            const valLevy = document.getElementById('val-levy');
+            const valTax = document.getElementById('val-tax');
+            const valTotal = document.getElementById('val-total');
+            const valCarbon = document.getElementById('val-carbon');
+
+            if (valBase) valBase.textContent = `$${baseCostTotal.toFixed(2)}`;
+            if (valLevy) valLevy.textContent = `$${securityTax.toFixed(2)}`;
+            if (valTax) valTax.textContent = `$${environmentalTax.toFixed(2)}`;
+            if (valTotal) valTotal.textContent = `$${entireCharge.toFixed(2)}`;
 
             // CO2 Metric Estimate
             const estimatedCarbonOffset = Math.round((distance * 0.65) + (volume * 0.0012));
-            document.getElementById('val-carbon').textContent = `${estimatedCarbonOffset} kg CO2e`;
+            if (valCarbon) valCarbon.textContent = `${estimatedCarbonOffset} kg CO2e`;
         }
 
         // Custom UI Notification Overlay Popups
         function showToast(title, msg) {
             const toast = document.getElementById('toast-notice');
-            document.getElementById('toast-title').textContent = title;
-            document.getElementById('toast-msg').textContent = msg;
+            const tTitle = document.getElementById('toast-title');
+            const tMsg = document.getElementById('toast-msg');
 
-            toast.classList.remove('opacity-0', 'pointer-events-none');
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'pointer-events-none');
-            }, 3000);
+            if (tTitle) tTitle.textContent = title;
+            if (tMsg) tMsg.textContent = msg;
+
+            if (toast) {
+                toast.classList.remove('opacity-0', 'pointer-events-none');
+                setTimeout(() => {
+                    toast.classList.add('opacity-0', 'pointer-events-none');
+                }, 3000);
+            }
         }
 
         // Trigger action quote mockup alerts
@@ -711,11 +710,12 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
 
         function initThreeDRefinery() {
             const container = document.getElementById('three-container');
+            if (!container) return;
             const width = container.clientWidth;
             const height = container.clientHeight;
 
             sceneBackground = new THREE.Scene();
-            sceneBackground.fog = new THREE.FogExp2(0xffffff, 0.002);
+            sceneBackground.fog = new THREE.FogExp2(0x09090b, 0.002); // Darker atmospheric fog
 
             cameraBackground = new THREE.PerspectiveCamera(50, width / height, 1, 2000);
             cameraBackground.position.set(0, 0, 320);
@@ -725,10 +725,10 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
             rendererBackground.setPixelRatio(Math.min(window.devicePixelRatio, 2));
             container.appendChild(rendererBackground.domElement);
 
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
             sceneBackground.add(ambientLight);
 
-            const dirLight = new THREE.DirectionalLight(0xe11d48, 1.2);
+            const dirLight = new THREE.DirectionalLight(0xe11d48, 1.5);
             dirLight.position.set(100, 150, 50);
             sceneBackground.add(dirLight);
 
@@ -772,7 +772,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 size: 5,
                 map: createCircleTexture(),
                 transparent: true,
-                opacity: 0.5,
+                opacity: 0.35, // Balanced subtle glow
                 depthWrite: false,
                 blending: THREE.NormalBlending
             });
@@ -793,6 +793,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
 
         function onBGWindowResize() {
             const container = document.getElementById('three-container');
+            if (!container) return;
             const width = container.clientWidth;
             const height = container.clientHeight;
 
@@ -823,11 +824,11 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
         // ==========================================
         // PREMIUM THREE.JS 3D LOGO ANIMATION ENGINE
         // ==========================================
-        let logoScene, logoCamera, logoRenderer, logoGroup, glassPlaque, logoPlane, glowPlane;
+        let logoScene, logoCamera, logoRenderer, logoGroup, glowPlane;
         let ring1, ring2;
         let logoMouseX = 0, logoMouseY = 0;
         let initialZoom = 450;
-        let targetZoom = 180;
+        let targetZoom = 130; // Closer zoom to make the logo dominant
         let animationTime = 0;
 
         // SPECIFIED CONFIGURATION PATH
@@ -835,6 +836,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
 
         function init3DLogo() {
             const container = document.getElementById('logo-3d-canvas');
+            if (!container) return;
             const width = container.clientWidth;
             const height = container.clientHeight;
 
@@ -851,135 +853,66 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
             logoRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
             // Lighting Setup for Premium specularity and clearcoat highlights
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.45);
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
             logoScene.add(ambientLight);
 
-            // Intense white key light
-            const keyLight = new THREE.DirectionalLight(0xffffff, 1.2);
-            keyLight.position.set(60, 80, 100);
+            // Dynamic spotlights for rim lighting and reflections on letters
+            const keyLight = new THREE.SpotLight(0xffffff, 2, 300, Math.PI / 4, 0.5, 1);
+            keyLight.position.set(50, 80, 100);
             logoScene.add(keyLight);
 
-            // Crimson red fill light for glass edge highlights
-            const redFillLight = new THREE.DirectionalLight(0xe11d48, 1.8);
-            redFillLight.position.set(-80, -40, 50);
+            // Crimson red fill light for luxury edge highlights
+            const redFillLight = new THREE.DirectionalLight(0xe11d48, 3.5);
+            redFillLight.position.set(-80, 40, 50);
             logoScene.add(redFillLight);
 
-            // Back rim light to enhance depth
-            const backRimLight = new THREE.PointLight(0xe11d48, 2.5, 300);
-            backRimLight.position.set(0, 0, -50);
-            logoScene.add(backRimLight);
+            // Back spotlight for extreme rim lighting
+            const backSpot = new THREE.SpotLight(0xe11d48, 6, 200, Math.PI / 3, 0.8, 1);
+            backSpot.position.set(0, 0, -60);
+            logoScene.add(backSpot);
 
             // Initialize Consolidated 3D Logo parent group
             logoGroup = new THREE.Group();
             logoGroup.scale.set(0.001, 0.001, 0.001); // Initial scale for scale-in animation
             logoScene.add(logoGroup);
 
-            // 1. EXTRACT / DESIGN 3D PLATFORM: Thin Extruded Capsule Plaque (Obsidian Premium Glass)
-            const plaqueShape = new THREE.Shape();
-            const pW = 42, pH = 26, pR = 5;
-            
-            // Winding Bevel Rounded Rectangle Path
-            plaqueShape.moveTo(-pW/2 + pR, -pH/2);
-            plaqueShape.lineTo(pW/2 - pR, -pH/2);
-            plaqueShape.quadraticCurveTo(pW/2, -pH/2, pW/2, -pH/2 + pR);
-            plaqueShape.lineTo(pW/2, pH/2 - pR);
-            plaqueShape.quadraticCurveTo(pW/2, pH/2, pW/2 - pR, pH/2);
-            plaqueShape.lineTo(-pW/2 + pR, pH/2);
-            plaqueShape.quadraticCurveTo(-pW/2, pH/2, -pW/2, pH/2 - pR);
-            plaqueShape.lineTo(-pW/2, -pH/2 + pR);
-            plaqueShape.quadraticCurveTo(-pW/2, -pH/2, -pW/2 + pR, -pH/2);
+            // 1. EMBED COMPOSITE LOGO TEXTURE (Directly extrudes paths from logo.svg or fallback shapes)
+            generateLogoTexture();
 
-            const extrudeSettings = {
-                steps: 1,
-                depth: 1.8,
-                bevelEnabled: true,
-                bevelThickness: 0.6,
-                bevelSize: 0.5,
-                bevelSegments: 4
-            };
-
-            const plaqueGeo = new THREE.ExtrudeGeometry(plaqueShape, extrudeSettings);
-            plaqueGeo.center(); // Perfect pivot point alignment
-
-            const glassMaterial = new THREE.MeshPhysicalMaterial({
-                color: 0x0c0c0e,
-                roughness: 0.15,
-                metalness: 0.1,
-                transmission: 0.65,
-                ior: 1.5,
-                thickness: 3.5,
-                specularIntensity: 1.2,
-                clearcoat: 1.0,
-                clearcoatRoughness: 0.1,
-                transparent: true,
-                opacity: 0.95
-            });
-
-            glassPlaque = new THREE.Mesh(plaqueGeo, glassMaterial);
-            logoGroup.add(glassPlaque);
-
-            // 2. EMBED COMPOSITE LOGO TEXTURE (Resilient Dual-Mode Loader with High Contrast & Alpha Transparency)
-            generateLogoTexture((logoTexture) => {
-                // Front Plane for projected vector overlay
-                // Preserves width-to-height ratio beautifully
-                const planeGeo = new THREE.PlaneGeometry(32, 22.5);
-                const logoMaterial = new THREE.MeshBasicMaterial({
-                    map: logoTexture,
-                    transparent: true,
-                    side: THREE.DoubleSide,
-                    depthWrite: false // Prevents sorting glitches
-                });
-
-                logoPlane = new THREE.Mesh(planeGeo, logoMaterial);
-                
-                // Positioned slightly in front of the plaque surface bevel boundary (extrudeSettings depth is 1.8)
-                // Back depth center is at 0. Extrusion depth front is at 0.9 + 0.6 bevel. Front edge is at z=1.5
-                // Setting logoPlane.position.z to 1.62 completely eliminates z-fighting and adds beautiful overlay depth.
-                logoPlane.position.z = 1.62; 
-                logoGroup.add(logoPlane);
-
-                // Hide loader once texture is generated and parsed successfully
-                const loader = document.getElementById('logo-loader');
-                if (loader) {
-                    loader.classList.add('opacity-0');
-                    setTimeout(() => loader.remove(), 500);
-                }
-            });
-
-            // 3. EMIT BACKPLATE GLOW MASK (Soft Glowing Crimson Radial Gradient Backdrop Plane)
+            // 2. EMIT BACKPLATE GLOW MASK (Soft Glowing Crimson Backdrop)
             const glowCanvas = document.createElement('canvas');
             glowCanvas.width = 256;
             glowCanvas.height = 256;
             const glowCtx = glowCanvas.getContext('2d');
             const glowGrad = glowCtx.createRadialGradient(128, 128, 0, 128, 128, 128);
-            glowGrad.addColorStop(0, 'rgba(225, 29, 72, 0.85)');
-            glowGrad.addColorStop(0.5, 'rgba(225, 29, 72, 0.25)');
+            glowGrad.addColorStop(0, 'rgba(225, 29, 72, 0.9)');
+            glowGrad.addColorStop(0.4, 'rgba(225, 29, 72, 0.3)');
             glowGrad.addColorStop(1, 'rgba(225, 29, 72, 0)');
             glowCtx.fillStyle = glowGrad;
             glowCtx.fillRect(0, 0, 256, 256);
 
             const glowTexture = new THREE.CanvasTexture(glowCanvas);
-            const glowGeo = new THREE.PlaneGeometry(62, 45);
+            const glowGeo = new THREE.PlaneGeometry(85, 60);
             const glowMat = new THREE.MeshBasicMaterial({
                 map: glowTexture,
                 transparent: true,
                 blending: THREE.AdditiveBlending,
                 depthWrite: false,
-                opacity: 0.35
+                opacity: 0.4
             });
 
             glowPlane = new THREE.Mesh(glowGeo, glowMat);
-            glowPlane.position.z = -2.5; // Offset backward to establish true glowing rim light
+            glowPlane.position.z = -12; // Farther back since plaque is gone
             logoGroup.add(glowPlane);
 
-            // 4. METALLIC TECH RINGS (Fine, Polished Crimson Torus Rings Orbiting scene)
-            const ringGeo = new THREE.TorusGeometry(26, 0.25, 12, 100);
+            // 3. METALLIC TECH RINGS (Fine, Polished Crimson Torus Rings Orbiting scene)
+            const ringGeo = new THREE.TorusGeometry(32, 0.2, 12, 100);
             const ringMat = new THREE.MeshStandardMaterial({
                 color: 0xe11d48,
                 metalness: 0.95,
                 roughness: 0.1,
                 transparent: true,
-                opacity: 0.65
+                opacity: 0.45
             });
 
             ring1 = new THREE.Mesh(ringGeo, ringMat);
@@ -998,165 +931,372 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
             animateLogo();
         }
 
-        // Resilient XML SVG Asset Fetcher, Color Inverter & Canvas Texture Creator
-        function generateLogoTexture(onComplete) {
+        // Resilient XML SVG Asset Fetcher & 3D Extruder
+        function generateLogoTexture() {
             let completed = false;
             
-            const handleComplete = (texture) => {
+            const handleComplete = (meshGroup) => {
                 if (completed) return;
                 completed = true;
-                onComplete(texture);
+                
+                logoGroup.add(meshGroup);
+
+                // Hide loader once meshes are generated and rendered successfully
+                const loader = document.getElementById('logo-loader');
+                if (loader) {
+                    loader.classList.add('opacity-0');
+                    setTimeout(() => loader.remove(), 500);
+                }
             };
 
-            // High-fidelity fallback vector generator (recreates CIPS branding with correct alignments)
+            // High-fidelity fallback vector generator (recreates beautiful individual 3D letter shapes)
             const fallbackProcedural = () => {
                 if (completed) return;
-                console.log("CIPS Engine Fallback: Generating pristine high-contrast vector markup via canvas stream");
-                const canvas = document.createElement('canvas');
-                canvas.width = 1024;
-                canvas.height = 720;
-                const ctx = canvas.getContext('2d');
-                ctx.clearRect(0, 0, 1024, 720);
-
-                // Main Lettering "C" in white for maximum contrast on the dark glass plaque
-                ctx.font = "bold 260px Inter, system-ui, sans-serif";
-                ctx.fillStyle = "#ffffff";
-                ctx.fillText("C", 180, 450);
+                console.log("CIPS Engine Fallback: Generating pristine high-contrast 3D extruded lettering");
                 
-                // Draw "i" stem (rounded capsule)
-                const drawRoundedRectLocal = (cx, cy, cw, ch, cr) => {
-                    ctx.beginPath();
-                    ctx.moveTo(cx + cr, cy);
-                    ctx.lineTo(cx + cw - cr, cy);
-                    ctx.quadraticCurveTo(cx + cw, cy, cx + cw, cy + cr);
-                    ctx.lineTo(cx + cw, cy + ch - cr);
-                    ctx.quadraticCurveTo(cx + cw, cy + ch, cx + cw - cr, cy + ch);
-                    ctx.lineTo(cx + cr, cy + ch);
-                    ctx.quadraticCurveTo(cx, cy + ch, cx, cy + ch - cr);
-                    ctx.lineTo(cx, cy + cr);
-                    ctx.quadraticCurveTo(cx, cy, cx + cr, cy);
-                    ctx.closePath();
-                    ctx.fill();
+                const letterGroup = new THREE.Group();
+
+                // Shared luxury metal material for letters
+                const whiteMetalMaterial = new THREE.MeshStandardMaterial({
+                    color: 0xffffff,
+                    metalness: 0.9,
+                    roughness: 0.15,
+                    side: THREE.DoubleSide,
+                    depthWrite: true
+                });
+
+                // Shared luxury brand red material for chevrons & play button
+                const crimsonMetalMaterial = new THREE.MeshStandardMaterial({
+                    color: 0xe11d48,
+                    metalness: 0.9,
+                    roughness: 0.15,
+                    side: THREE.DoubleSide,
+                    depthWrite: true
+                });
+
+                // Standard subtle extrusion settings
+                const extrudeConfig = {
+                    depth: 1.8,
+                    bevelEnabled: true,
+                    bevelThickness: 0.4,
+                    bevelSize: 0.25,
+                    bevelSegments: 4,
+                    steps: 1
                 };
-                ctx.fillStyle = "#ffffff";
-                drawRoundedRectLocal(375, 335, 45, 120, 10);
-                
-                // Crimson energy play triangle serving as the dot of the "i"
-                ctx.fillStyle = "#e11d48";
-                ctx.beginPath();
-                ctx.moveTo(375, 210);
-                ctx.lineTo(470, 272);
-                ctx.lineTo(375, 335);
-                ctx.closePath();
-                ctx.fill();
-                
-                // Letters "P" and "S" in white
-                ctx.fillStyle = "#ffffff";
-                ctx.fillText("P", 445, 450);
-                ctx.fillText("S", 605, 450);
 
-                // Subtext: "Moving forward"
-                ctx.font = "600 54px Inter, system-ui, sans-serif";
-                ctx.fillStyle = "#ffffff";
-                ctx.fillText("Moving forward", 180, 560);
+                // ---- Draw 'C' Shape ----
+                const cShape = new THREE.Shape();
+                const rOut = 9, rIn = 5.2, angle = 0.52;
+                const cos = Math.cos(angle), sin = Math.sin(angle);
+                cShape.moveTo(rOut * cos, rOut * sin);
+                cShape.absarc(0, 0, rOut, angle, Math.PI * 2 - angle, false);
+                cShape.lineTo(rIn * Math.cos(Math.PI * 2 - angle), rIn * Math.sin(Math.PI * 2 - angle));
+                cShape.absarc(0, 0, rIn, Math.PI * 2 - angle, angle, true);
+                cShape.closePath();
 
-                // Glow Crimson Arrow Chevrons >>>
-                const drawChevron = (x, y) => {
-                    ctx.beginPath();
-                    ctx.lineWidth = 14;
-                    ctx.lineCap = 'round';
-                    ctx.lineJoin = 'round';
-                    ctx.strokeStyle = '#e11d48';
-                    ctx.moveTo(x, y);
-                    ctx.lineTo(x + 18, y + 18);
-                    ctx.lineTo(x, y + 36);
-                    ctx.stroke();
+                const cMesh = new THREE.Mesh(new THREE.ExtrudeGeometry(cShape, extrudeConfig), whiteMetalMaterial);
+                cMesh.position.set(-14, 2, 0);
+                letterGroup.add(cMesh);
+
+                // ---- Draw 'i' Stem (Capsule) ----
+                const iShape = new THREE.Shape();
+                const w = 3.2, h = 8.5, r = 1.6;
+                iShape.moveTo(-w/2 + r, -h/2);
+                iShape.lineTo(w/2 - r, -h/2);
+                iShape.quadraticCurveTo(w/2, -h/2, w/2, -h/2 + r);
+                iShape.lineTo(w/2, h/2 - r);
+                iShape.quadraticCurveTo(w/2, h/2, w/2 - r, h/2);
+                iShape.lineTo(-w/2 + r, h/2);
+                iShape.quadraticCurveTo(-w/2, h/2, -w/2, h/2 - r);
+                iShape.lineTo(-w/2, -h/2 + r);
+                iShape.quadraticCurveTo(-w/2, -h/2, -w/2 + r, -h/2);
+
+                const iMesh = new THREE.Mesh(new THREE.ExtrudeGeometry(iShape, extrudeConfig), whiteMetalMaterial);
+                iMesh.position.set(-4.8, -1.2, 0);
+                letterGroup.add(iMesh);
+
+                // ---- Draw Red Play Triangle (Dot of 'i') ----
+                const triShape = new THREE.Shape();
+                triShape.moveTo(-3, 3.5);
+                triShape.lineTo(4.5, -0.8);
+                triShape.lineTo(-3, -5);
+                triShape.closePath();
+
+                const triMesh = new THREE.Mesh(new THREE.ExtrudeGeometry(triShape, extrudeConfig), crimsonMetalMaterial);
+                triMesh.position.set(-4.8, 6.2, 0);
+                letterGroup.add(triMesh);
+
+                // ---- Draw 'P' Shape (with Inner Hole) ----
+                const pShape = new THREE.Shape();
+                pShape.moveTo(-4.5, -8.5);
+                pShape.lineTo(-1.5, -8.5);
+                pShape.lineTo(-1.5, 0.5); 
+                pShape.lineTo(1, 0.5);
+                pShape.absarc(1, 4, 3.5, -Math.PI/2, Math.PI/2, false);
+                pShape.lineTo(-4.5, 7.5);
+                pShape.closePath();
+
+                const pHole = new THREE.Path();
+                pHole.moveTo(-1.5, 2.2);
+                pHole.lineTo(1, 2.2);
+                pHole.absarc(1, 4, 1.8, -Math.PI/2, Math.PI/2, false);
+                pHole.lineTo(-1.5, 5.8);
+                pHole.closePath();
+                pShape.holes.push(pHole);
+
+                const pMesh = new THREE.Mesh(new THREE.ExtrudeGeometry(pShape, extrudeConfig), whiteMetalMaterial);
+                pMesh.position.set(3, 2, 0);
+                letterGroup.add(pMesh);
+
+                // ---- Draw 'S' Shape ----
+                const sShape = new THREE.Shape();
+                sShape.moveTo(3, 4.5);
+                sShape.quadraticCurveTo(3, 7.5, 0, 7.5);
+                sShape.quadraticCurveTo(-3, 7.5, -3, 4.5);
+                sShape.quadraticCurveTo(-3, 2, 0, 1.2);
+                sShape.quadraticCurveTo(3, 0.4, 3, -2);
+                sShape.quadraticCurveTo(3, -5, 0, -5);
+                sShape.quadraticCurveTo(-3, -5, -3, -2.5);
+                sShape.lineTo(-1, -2.5);
+                sShape.quadraticCurveTo(-1, -3.5, 0, -3.5);
+                sShape.quadraticCurveTo(1, -3.5, 1, -2);
+                sShape.quadraticCurveTo(1, -0.4, -1.2, 0.4);
+                sShape.quadraticCurveTo(-5, 1.2, -5, 4.5);
+                sShape.quadraticCurveTo(-5, 9.5, 0, 9.5);
+                sShape.quadraticCurveTo(5, 9.5, 5, 4.5);
+                sShape.closePath();
+
+                const sMesh = new THREE.Mesh(new THREE.ExtrudeGeometry(sShape, extrudeConfig), whiteMetalMaterial);
+                sMesh.position.set(13.5, 2, 0);
+                letterGroup.add(sMesh);
+
+                // ---- Chevrons underneath wordmark >>> ----
+                const drawChevronShape = () => {
+                    const shape = new THREE.Shape();
+                    shape.moveTo(0, 0);
+                    shape.lineTo(1.8, 1.8);
+                    shape.lineTo(0, 3.6);
+                    shape.lineTo(1.1, 3.6);
+                    shape.lineTo(2.9, 1.8);
+                    shape.lineTo(1.1, 0);
+                    shape.closePath();
+                    return shape;
                 };
-                drawChevron(605, 522);
-                drawChevron(630, 522);
-                drawChevron(655, 522);
 
-                const texture = new THREE.CanvasTexture(canvas);
-                texture.minFilter = THREE.LinearFilter;
-                texture.magFilter = THREE.LinearFilter;
-                handleComplete(texture);
+                const chevronGeo = new THREE.ExtrudeGeometry(drawChevronShape(), extrudeConfig);
+                const chevGroup = new THREE.Group();
+
+                for (let c = 0; c < 3; c++) {
+                    const chevMesh = new THREE.Mesh(chevronGeo, crimsonMetalMaterial);
+                    chevMesh.position.set(c * 2.2, 0, 0);
+                    chevGroup.add(chevMesh);
+                }
+                chevGroup.position.set(10.5, -12.5, 0);
+                letterGroup.add(chevGroup);
+
+                // Add 3D "Moving forward" flat lettering backing
+                const subtextCanvas = document.createElement('canvas');
+                subtextCanvas.width = 512;
+                subtextCanvas.height = 128;
+                const subtextCtx = subtextCanvas.getContext('2d');
+                subtextCtx.clearRect(0, 0, 512, 128);
+                subtextCtx.font = "600 36px Inter, system-ui, sans-serif";
+                subtextCtx.fillStyle = "#ffffff";
+                subtextCtx.fillText("Moving forward", 10, 80);
+
+                const subtextTex = new THREE.CanvasTexture(subtextCanvas);
+                const subtextGeo = new THREE.PlaneGeometry(24, 6);
+                const subtextMat = new THREE.MeshBasicMaterial({
+                    map: subtextTex,
+                    transparent: true,
+                    side: THREE.DoubleSide
+                });
+                const subtextMesh = new THREE.Mesh(subtextGeo, subtextMat);
+                subtextMesh.position.set(-3.5, -11, 0.2);
+                letterGroup.add(subtextMesh);
+
+                // Center LetterGroup
+                const box = new THREE.Box3().setFromObject(letterGroup);
+                const center = new THREE.Vector3();
+                box.getCenter(center);
+                letterGroup.position.sub(center);
+
+                // Scale Group significantly up
+                letterGroup.scale.setScalar(1.35);
+
+                handleComplete(letterGroup);
             };
 
-            // Force a 600ms safety timeout to handle network failure/CORS blocks instantly without stalling
             const timeoutId = setTimeout(() => {
                 fallbackProcedural();
             }, 600);
 
-            // Fetch XML SVG, process and invert black assets to clean white, load into texture
-            const processSVGText = (svgText) => {
-                try {
-                    let modified = svgText;
-                    
-                    // Regex replacement to swap black values (#000000, black, zinc/dark fills) with bright white for contrast
-                    modified = modified.replace(/fill\s*=\s*["']#000000["']/gi, 'fill="#ffffff"');
-                    modified = modified.replace(/fill\s*=\s*["']black["']/gi, 'fill="#ffffff"');
-                    modified = modified.replace(/stroke\s*=\s*["']#000000["']/gi, 'stroke="#ffffff"');
-                    modified = modified.replace(/stroke\s*=\s*["']black["']/gi, 'stroke="#ffffff"');
-                    
-                    // Inject a light styling rule inside the SVG document to force all text and dark vectors to white, 
-                    // while retaining our brand crimson and red triangle highlights
-                    const styleOverride = `
-                        <style>
-                            path, text, rect, circle, ellipse, polygon { fill: #ffffff; }
-                            .crimson, [fill="#e11d48"], [stroke="#e11d48"] { fill: #e11d48 !important; stroke: #e11d48 !important; }
-                        </style>
-                    `;
-                    modified = modified.replace('<svg', `<svg>${styleOverride}`);
+            // DETECT BLOB OR LOCAL FILE PROTOCOL TO INSTANTLY BYPASS XMLHTTPREQUEST INVALID URL ERROR
+            const isBlobOrFile = window.location.protocol.startsWith('blob') || window.location.protocol.startsWith('file');
+            if (isBlobOrFile) {
+                clearTimeout(timeoutId);
+                fallbackProcedural();
+                return;
+            }
 
-                    // Convert raw XML String into safe Object Blob URL
-                    const blob = new Blob([modified], { type: 'image/svg+xml' });
-                    const blobUrl = URL.createObjectURL(blob);
-                    
-                    const loader = new THREE.TextureLoader();
-                    loader.load(blobUrl, (texture) => {
+            // Execute SVG Extrusion Loader
+            const svgLoader = new THREE.SVGLoader();
+            try {
+                svgLoader.load(
+                    logoPath,
+                    (svgData) => {
                         clearTimeout(timeoutId);
-                        texture.minFilter = THREE.LinearFilter;
-                        texture.magFilter = THREE.LinearFilter;
-                        handleComplete(texture);
-                        URL.revokeObjectURL(blobUrl);
-                    }, undefined, () => {
-                        clearTimeout(timeoutId);
-                        fallbackProcedural();
-                    });
-                } catch (err) {
-                    clearTimeout(timeoutId);
-                    fallbackProcedural();
-                }
-            };
-
-            // Execute SVG loading pipeline
-            fetch(logoPath)
-                .then(res => {
-                    if (!res.ok) throw new Error("CIPS: Local logo.svg not reachable");
-                    return res.text();
-                })
-                .then(svgText => {
-                    processSVGText(svgText);
-                })
-                .catch(() => {
-                    // Try our local workspace identifier directly
-                    fetch("Screenshot-2026-05-21-212944.svg")
-                        .then(res => {
-                            if (!res.ok) throw new Error("CIPS: Screenshot SVG not found");
-                            return res.text();
-                        })
-                        .then(svgText => {
-                            processSVGText(svgText);
-                        })
-                        .catch(() => {
-                            // Run ultimate procedural fallback
-                            fallbackProcedural();
+                        const paths = svgData.paths;
+                        const svgGroup = new THREE.Group();
+                        
+                        const whiteMetalMaterial = new THREE.MeshStandardMaterial({
+                            color: 0xffffff,
+                            metalness: 0.9,
+                            roughness: 0.15,
+                            side: THREE.DoubleSide,
+                            depthWrite: true
                         });
-                });
+
+                        const crimsonMetalMaterial = new THREE.MeshStandardMaterial({
+                            color: 0xe11d48,
+                            metalness: 0.9,
+                            roughness: 0.15,
+                            side: THREE.DoubleSide,
+                            depthWrite: true
+                        });
+
+                        for (let i = 0; i < paths.length; i++) {
+                            const path = paths[i];
+                            const fillColor = path.userData.style.fill;
+                            
+                            // Smart brand color selector logic
+                            let mat = whiteMetalMaterial;
+                            if (fillColor && (fillColor.includes('e11d48') || fillColor.includes('red') || fillColor.includes('ff3b30'))) {
+                                mat = crimsonMetalMaterial;
+                            }
+                            
+                            const shapes = THREE.SVGLoader.createShapes(path);
+                            for (let j = 0; j < shapes.length; j++) {
+                                const shape = shapes[j];
+                                const geometry = new THREE.ExtrudeGeometry(shape, {
+                                    depth: 2.2,
+                                    bevelEnabled: true,
+                                    bevelSegments: 3,
+                                    steps: 1,
+                                    bevelSize: 0.15,
+                                    bevelThickness: 0.15
+                                });
+                                const mesh = new THREE.Mesh(geometry, mat);
+                                svgGroup.add(mesh);
+                            }
+                        }
+                        
+                        // Normalize loaded SVG transformations
+                        const box = new THREE.Box3().setFromObject(svgGroup);
+                        const size = new THREE.Vector3();
+                        box.getSize(size);
+                        const center = new THREE.Vector3();
+                        box.getCenter(center);
+                        
+                        svgGroup.position.x = -center.x;
+                        svgGroup.position.y = -center.y;
+                        svgGroup.position.z = -center.z;
+                        
+                        const pivot = new THREE.Group();
+                        pivot.add(svgGroup);
+                        pivot.scale.set(1.4, -1.4, 1.4); // Scale up & flip inverted Y space
+                        
+                        handleComplete(pivot);
+                    },
+                    undefined,
+                    () => {
+                        // Try screenshot fallback SVG
+                        try {
+                            svgLoader.load(
+                                "Screenshot-2026-05-21-212944.svg",
+                                (svgData2) => {
+                                    clearTimeout(timeoutId);
+                                    const paths = svgData2.paths;
+                                    const svgGroup = new THREE.Group();
+                                    
+                                    const whiteMetalMaterial = new THREE.MeshStandardMaterial({
+                                        color: 0xffffff,
+                                        metalness: 0.9,
+                                        roughness: 0.15,
+                                        side: THREE.DoubleSide,
+                                        depthWrite: true
+                                    });
+
+                                    const crimsonMetalMaterial = new THREE.MeshStandardMaterial({
+                                        color: 0xe11d48,
+                                        metalness: 0.9,
+                                        roughness: 0.15,
+                                        side: THREE.DoubleSide,
+                                        depthWrite: true
+                                    });
+
+                                    for (let i = 0; i < paths.length; i++) {
+                                        const path = paths[i];
+                                        const fillColor = path.userData.style.fill;
+                                        
+                                        let mat = whiteMetalMaterial;
+                                        if (fillColor && (fillColor.includes('e11d48') || fillColor.includes('red') || fillColor.includes('ff3b30') || fillColor.includes('triangle'))) {
+                                            mat = crimsonMetalMaterial;
+                                        }
+                                        
+                                        const shapes = THREE.SVGLoader.createShapes(path);
+                                        for (let j = 0; j < shapes.length; j++) {
+                                            const shape = shapes[j];
+                                            const geometry = new THREE.ExtrudeGeometry(shape, {
+                                                depth: 2.2,
+                                                bevelEnabled: true,
+                                                bevelSegments: 3,
+                                                steps: 1,
+                                                bevelSize: 0.15,
+                                                bevelThickness: 0.15
+                                            });
+                                            const mesh = new THREE.Mesh(geometry, mat);
+                                            svgGroup.add(mesh);
+                                        }
+                                    }
+                                    
+                                    const box = new THREE.Box3().setFromObject(svgGroup);
+                                    const size = new THREE.Vector3();
+                                    box.getSize(size);
+                                    const center = new THREE.Vector3();
+                                    box.getCenter(center);
+                                    
+                                    svgGroup.position.x = -center.x;
+                                    svgGroup.position.y = -center.y;
+                                    svgGroup.position.z = -center.z;
+                                    
+                                    const pivot = new THREE.Group();
+                                    pivot.add(svgGroup);
+                                    pivot.scale.set(1.4, -1.4, 1.4);
+                                    
+                                    handleComplete(pivot);
+                                },
+                                undefined,
+                                () => {
+                                    clearTimeout(timeoutId);
+                                    fallbackProcedural();
+                                }
+                            );
+                        } catch (errInner) {
+                            clearTimeout(timeoutId);
+                            fallbackProcedural();
+                        }
+                    }
+                );
+            } catch (errOuter) {
+                clearTimeout(timeoutId);
+                fallbackProcedural();
+            }
         }
 
         function onLogoMouseMove(event) {
             const container = document.getElementById('logo-3d-canvas');
+            if (!container) return;
             const rect = container.getBoundingClientRect();
             logoMouseX = ((event.clientX - rect.left) / rect.width) * 2 - 1;
             logoMouseY = -((event.clientY - rect.top) / rect.height) * 2 + 1;
@@ -1164,6 +1304,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
 
         function onLogoWindowResize() {
             const container = document.getElementById('logo-3d-canvas');
+            if (!container) return;
             const width = container.clientWidth;
             const height = container.clientHeight;
 
