@@ -236,7 +236,7 @@
                         <i data-lucide="plane" class="w-6 h-6"></i>
                     </div>
                     <h3 class="text-lg font-bold text-black mb-2">Aviation Fuel Logistics</h3>
-                    <p class="text-xs text-zinc-600 font-light leading-relaxed max-w-md">
+                    <p class="text-xs text-zinc-650 font-light leading-relaxed max-w-md">
                         Dedicated specialized aluminum-alloy tankers designed exclusively for pure Jet A-1 transport under absolute dust, water, and static charge containment protocols.
                     </p>
                 </div>
@@ -323,7 +323,7 @@
                             <span id="vol-display" class="text-sm font-bold text-brand-red">8,500 Gallons</span>
                         </div>
                         <input id="vol-input" type="range" min="2000" max="15000" step="500" value="8500" oninput="calculateRate()" class="w-full accent-brand-red h-1.5 bg-zinc-200 rounded-lg appearance-none cursor-pointer">
-                        <div class="flex justify-between text-[10px] text-zinc-500 mt-1.5 font-semibold">
+                        <div class="flex justify-between text-[10px] text-zinc-555 mt-1.5 font-semibold">
                             <span>2k Gals (Sub-Tanker)</span>
                             <span>8.5k Gals</span>
                             <span>15k Gals (Max Payload)</span>
@@ -471,7 +471,7 @@
                 </div>
             </div>
             
-            <div class="flex flex-wrap justify-center gap-6 text-xs text-zinc-500 font-medium">
+            <div class="flex flex-wrap justify-center gap-6 text-xs text-zinc-555 font-medium">
                 <a href="#services" class="hover:text-brand-red">Services</a>
                 <a href="#quote" class="hover:text-brand-red">Estimate Rates</a>
                 <a href="#about" class="hover:text-brand-red">Safety Standards</a>
@@ -614,7 +614,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 if (b === type) {
                     el.className = "py-3 px-4 rounded-lg border border-brand-red text-brand-red font-bold text-xs hover:bg-brand-red/5 transition-all focus:outline-none text-center";
                 } else {
-                    el.className = "py-3 px-4 rounded-lg border border-white/10 text-zinc-450 font-semibold text-xs hover:bg-black/5 transition-all focus:outline-none text-center";
+                    el.className = "py-3 px-4 rounded-lg border border-white/10 text-zinc-455 font-semibold text-xs hover:bg-black/5 transition-all focus:outline-none text-center";
                 }
             });
 
@@ -852,7 +852,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
             logoRenderer.setSize(width, height);
             logoRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-            // Lighting Setup for Premium specularity and clearcoat highlights
+            // Lighting Setup for Premium specularity and highlights
             const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
             logoScene.add(ambientLight);
 
@@ -1048,22 +1048,22 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 pMesh.position.set(3, 2, 0);
                 letterGroup.add(pMesh);
 
-                // ---- Draw 'S' Shape (Prinstine Standard mathematically correct orientation) ----
+                // ---- Draw 'S' Shape (Corrected, standard non-inverted orientation) ----
                 const sShape = new THREE.Shape();
-                sShape.moveTo(4, 4.5);
-                sShape.quadraticCurveTo(4, 8.5, 0, 8.5);
-                sShape.quadraticCurveTo(-4, 8.5, -4, 4.5);
-                sShape.quadraticCurveTo(-4, 1, 0, 0);
-                sShape.quadraticCurveTo(4, -1, 4, -4.5);
-                sShape.quadraticCurveTo(4, -8.5, 0, -8.5);
-                sShape.quadraticCurveTo(-4, -8.5, -4, -4.5);
-                sShape.lineTo(-1.8, -4.5);
-                sShape.quadraticCurveTo(-1.8, -6.3, 0, -6.3);
-                sShape.quadraticCurveTo(1.8, -6.3, 1.8, -4.5);
-                sShape.quadraticCurveTo(1.8, -2.5, 0, -1.5);
-                sShape.quadraticCurveTo(-1.8, -0.5, -1.8, 4.5);
-                sShape.quadraticCurveTo(-1.8, 6.3, 0, 6.3);
-                sShape.quadraticCurveTo(1.8, 6.3, 1.8, 4.5);
+                sShape.moveTo(-4, 4.5);
+                sShape.quadraticCurveTo(-4, 8.5, 0, 8.5);
+                sShape.quadraticCurveTo(4, 8.5, 4, 4.5);
+                sShape.quadraticCurveTo(4, 1.5, 0, 0);
+                sShape.quadraticCurveTo(-4, -1.5, -4, -4.5);
+                sShape.quadraticCurveTo(-4, -8.5, 0, -8.5);
+                sShape.quadraticCurveTo(4, -8.5, 4, -4.5);
+                sShape.lineTo(1.8, -4.5);
+                sShape.quadraticCurveTo(1.8, -6.3, 0, -6.3);
+                sShape.quadraticCurveTo(-1.8, -6.3, -1.8, -4.5);
+                sShape.quadraticCurveTo(-1.8, -2.5, 0, -1.5);
+                sShape.quadraticCurveTo(1.8, -0.5, 1.8, 4.5);
+                sShape.quadraticCurveTo(1.8, 6.3, 0, 6.3);
+                sShape.quadraticCurveTo(-1.8, 6.3, -1.8, 4.5);
                 sShape.closePath();
 
                 const sMesh = new THREE.Mesh(new THREE.ExtrudeGeometry(sShape, extrudeConfig), darkMetalMaterial);
