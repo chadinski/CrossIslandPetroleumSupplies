@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cross Island Petroleum Supplies | Next-Gen Fuel Haulage & Logistics</title>
+    <title>Cross Island Petroleum Supplies | Elite Fuel Haulage & Logistics</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -12,18 +12,15 @@
             theme: {
                 extend: {
                     colors: {
-                        petrol: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            500: '#0ea5e9',
-                            800: '#075985',
-                            900: '#0c4a6e',
-                            950: '#020617',
-                        },
-                        amber: {
-                            500: '#f59e0b',
-                            600: '#d97706',
-                            400: '#fbbf24',
+                        brand: {
+                            black: '#ffffff', // Canvas background is white
+                            dark: '#f4f4f5',  // Light card background matching zinc-100
+                            card: '#fafafa',  // Bright white card body
+                            red: '#e11d48',   // High-performance crimson red
+                            redHover: '#be123c',
+                            redGlow: 'rgba(225, 29, 72, 0.4)',
+                            white: '#000000', // Typography color is black
+                            gray: '#52525b'   // Visible charcoal color for descriptions
                         }
                     },
                     fontFamily: {
@@ -43,419 +40,224 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #020617;
-            color: #f8fafc;
+            background-color: #ffffff; /* White main background */
+            color: #000000; /* Black main typography */
             overflow-x: hidden;
         }
         .glass {
-            background: rgba(15, 23, 42, 0.45);
+            background: rgba(255, 255, 255, 0.75); /* Soft white glassmorphism overlay */
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.08); /* Subtle dark border line */
         }
         .glass-premium {
-            background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+            background: linear-gradient(135deg, rgba(245, 245, 245, 0.8) 0%, rgba(255, 255, 255, 0.95) 100%);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(245, 158, 11, 0.15);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(225, 29, 72, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05); /* Lighter shadow token */
         }
-        .text-glow-amber {
-            text-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+        .text-glow-red {
+            text-shadow: 0 0 15px rgba(225, 29, 72, 0.6);
         }
-        .text-glow-petrol {
-            text-shadow: 0 0 15px rgba(14, 165, 233, 0.5);
+        .border-glow-red {
+            box-shadow: 0 0 15px rgba(225, 29, 72, 0.15);
         }
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #020617;
+            background: #ffffff;
         }
         ::-webkit-scrollbar-thumb {
-            background: rgba(245, 158, 11, 0.3);
+            background: rgba(225, 29, 72, 0.3);
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: rgba(245, 158, 11, 0.5);
+            background: rgba(225, 29, 72, 0.6);
         }
     </style>
 </head>
-<body class="selection:bg-amber-500 selection:text-black">
+<body class="selection:bg-brand-red selection:text-white">
 
-    <!-- Top Glow Overlay -->
-    <div class="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none"></div>
-    <div class="absolute top-[80vh] right-1/4 w-96 h-96 bg-petrol-500/10 rounded-full blur-[150px] pointer-events-none"></div>
+    <!-- Top Ambient Lights -->
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-red/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute top-[80vh] right-1/4 w-96 h-96 bg-brand-red/5 rounded-full blur-[150px] pointer-events-none"></div>
 
     <!-- Developer Pitch Indicator Bar -->
-    <div class="bg-gradient-to-r from-amber-600 to-amber-500 text-black py-2.5 px-4 font-semibold text-xs md:text-sm shadow-lg sticky top-0 z-50 flex justify-between items-center backdrop-blur-md">
-        <div class="flex items-center gap-2">
-            <span class="bg-black text-amber-500 rounded-full px-2 py-0.5 text-[10px] tracking-wider uppercase font-bold">PROPOSAL READY</span>
-            <span>You are viewing the Interactive Prototype for <strong>Cross Island Petroleum Supplies</strong>.</span>
+    <div class="bg-gradient-to-r from-brand-red to-[#9f1239] text-white py-2.5 px-4 font-semibold text-xs md:text-sm shadow-lg sticky top-0 z-50 flex justify-between items-center backdrop-blur-md">
+        <div class="flex items-center gap-2 mx-auto sm:mx-0">
+            <span class="bg-black text-brand-red rounded-full px-2.5 py-0.5 text-[10px] tracking-wider uppercase font-bold">PROPOSAL READY</span>
+            <span>Viewing the Centered <strong>Cross Island Petroleum Supplies</strong> Showcase.</span>
         </div>
-        <button onclick="togglePitchPanel()" class="bg-black text-white hover:bg-zinc-900 transition-all px-4 py-1.5 rounded-md text-xs font-bold flex items-center gap-1.5 shadow">
-            <i data-lucide="presentation" class="w-3.5 h-3.5"></i> Open Developer Pitch Panel
+        <button onclick="togglePitchPanel()" class="hidden sm:flex bg-black text-white hover:bg-zinc-900 transition-all px-4 py-1.5 rounded-md text-xs font-bold items-center gap-1.5 shadow border border-brand-red/30">
+            <i data-lucide="presentation" class="w-3.5 h-3.5 text-brand-red"></i> Pitch Panel
         </button>
     </div>
 
     <!-- MAIN NAVBAR -->
-    <nav class="glass sticky top-[42px] z-40 px-6 py-4 mx-4 my-4 rounded-2xl transition-all border border-white/5 shadow-xl">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="relative w-10 h-10 bg-gradient-to-tr from-amber-500 to-amber-600 rounded-xl flex items-center justify-center shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-all">
-                    <i data-lucide="fuel" class="w-6 h-6 text-black stroke-[2.5]"></i>
+    <nav class="glass sticky top-[42px] z-40 px-6 py-4 mx-4 my-4 rounded-xl transition-all border border-black/5 shadow-xl">
+        <div class="max-w-7xl mx-auto flex flex-col gap-4 items-center justify-center sm:flex-row sm:justify-between">
+            <!-- Brand Logo Logo -->
+            <a href="#" class="flex flex-col items-center gap-2 group text-center sm:flex-row sm:text-left sm:gap-3">
+                <div class="relative w-10 h-10 bg-gradient-to-tr from-brand-red to-rose-700 rounded-lg flex items-center justify-center shadow-lg shadow-brand-red/20 group-hover:scale-105 transition-all">
+                    <i data-lucide="fuel" class="w-6 h-6 text-white stroke-[2.5]"></i>
                 </div>
                 <div>
-                    <span class="text-xl font-extrabold tracking-tight text-white block">CROSS ISLAND</span>
-                    <span class="text-[9px] font-bold uppercase tracking-[0.25em] text-amber-500 block -mt-1.5">Petroleum Supplies</span>
+                    <span class="text-xl font-extrabold tracking-tight text-black block">CROSS ISLAND</span>
+                    <span class="text-[9px] font-bold uppercase tracking-[0.25em] text-brand-red block -mt-1.5">Petroleum Supplies</span>
                 </div>
             </a>
 
             <!-- Menu Links (Desktop) -->
-            <div class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-300">
-                <a href="#services" class="hover:text-amber-500 transition-colors">Our Services</a>
-                <a href="#fleet" class="hover:text-amber-500 transition-colors">Fleet Telematics</a>
-                <a href="#quote" class="hover:text-amber-500 transition-colors">Haulage Estimator</a>
-                <a href="#about" class="hover:text-amber-500 transition-colors">Safety Standards</a>
+            <div class="flex flex-wrap justify-center items-center gap-6 font-medium text-sm text-zinc-700">
+                <a href="#services" class="hover:text-brand-red transition-colors">Our Services</a>
+                <a href="#quote" class="hover:text-brand-red transition-colors">Haulage Estimator</a>
+                <a href="#about" class="hover:text-brand-red transition-colors">Safety Standards</a>
             </div>
 
             <!-- CTA / Contact -->
-            <div class="flex items-center gap-4">
-                <a href="#quote" class="hidden sm:inline-flex bg-gradient-to-r from-amber-500 to-amber-600 text-black font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-xl shadow-lg shadow-amber-500/10 hover:shadow-amber-500/25 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
+            <div class="flex items-center justify-center">
+                <a href="#quote" class="bg-brand-red hover:bg-brand-redHover text-white font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-lg shadow-lg shadow-brand-red/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
                     Get Haulage Quote
                 </a>
-                <button onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white">
-                    <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
-                </button>
             </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden mt-4 pt-4 border-t border-white/5 space-y-3 flex flex-col md:hidden">
-            <a href="#services" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-amber-500 py-1.5 text-sm">Our Services</a>
-            <a href="#fleet" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-amber-500 py-1.5 text-sm">Fleet Telematics</a>
-            <a href="#quote" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-amber-500 py-1.5 text-sm">Haulage Estimator</a>
-            <a href="#about" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-amber-500 py-1.5 text-sm">Safety Standards</a>
-            <a href="#quote" onclick="toggleMobileMenu()" class="bg-amber-500 text-black text-center font-bold text-xs uppercase py-3 rounded-lg block">Request Tanker Now</a>
         </div>
     </nav>
 
-    <!-- HERO SECTION WITH INTEGRATED THREE.JS CANVAS -->
-    <section class="relative min-h-[85vh] flex items-center px-6 py-12 lg:py-20 max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full items-center">
+    <!-- HERO SECTION WITH INTEGRATED BACKGROUND PARTICLES -->
+    <section class="relative min-h-[95vh] flex flex-col items-center justify-center px-6 py-12 lg:py-16 max-w-7xl mx-auto text-center overflow-hidden">
+        
+        <!-- Interactive 3D Terrain & Moving Tanker Canvas -->
+        <div id="three-container" class="absolute inset-0 w-full h-full pointer-events-none z-0"></div>
+
+        <div class="relative z-10 space-y-6 flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-bold tracking-wider uppercase">
+                <span class="w-2 h-2 rounded-full bg-brand-red"></span> Islandwide Fuel & Oil Haulage Specialist
+            </div>
             
-            <!-- Left Narrative -->
-            <div class="lg:col-span-7 space-y-6 z-10">
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-500 text-xs font-bold tracking-wider uppercase">
-                    <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span> Islandwide Fuel & Oil Haulage Specialist
+            <!-- Three.js Premium 3D Logo Lockup Canvas Frame -->
+            <div class="relative w-full max-w-md h-64 md:h-80 mx-auto flex items-center justify-center">
+                <!-- Professional Loading Fallback -->
+                <div id="logo-loader" class="absolute inset-0 flex flex-col items-center justify-center bg-white/85 z-20 transition-opacity duration-500">
+                    <div class="w-10 h-10 border-4 border-brand-red/20 border-t-brand-red rounded-full animate-spin"></div>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-zinc-600 mt-3">Synthesizing 3D Logo Assets</span>
                 </div>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-white">
-                    High-Performance <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-glow-amber">
-                        Petroleum Logistics
-                    </span>
-                </h1>
-                <p class="text-slate-300 text-base sm:text-lg max-w-xl font-light leading-relaxed">
-                    Connecting refineries, depots, and power plants across the terrain with absolute precision. High-capacity Class-A tankers, live digital fuel monitoring, and zero-incident safety protocols.
-                </p>
-
-                <!-- Key Telemetry Metrics Hero -->
-                <div class="grid grid-cols-3 gap-4 py-4 max-w-md">
-                    <div class="border-l-2 border-amber-500 pl-4">
-                        <span class="text-2xl sm:text-3xl font-extrabold text-white block">100%</span>
-                        <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Compliance Rate</span>
-                    </div>
-                    <div class="border-l-2 border-petrol-500 pl-4">
-                        <span class="text-2xl sm:text-3xl font-extrabold text-white block">0</span>
-                        <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Spill Incidents</span>
-                    </div>
-                    <div class="border-l-2 border-amber-500 pl-4">
-                        <span class="text-2xl sm:text-3xl font-extrabold text-white block">24/7</span>
-                        <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">GPS Telematics</span>
-                    </div>
-                </div>
-
-                <!-- Action CTAs -->
-                <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                    <a href="#quote" class="bg-gradient-to-r from-amber-500 to-amber-600 text-black font-extrabold px-8 py-4 rounded-xl shadow-xl shadow-amber-500/20 hover:shadow-amber-500/30 text-center hover:scale-[1.02] transition-all duration-200">
-                        Initiate Transport Order
-                    </a>
-                    <a href="#fleet" class="glass text-white font-semibold px-8 py-4 rounded-xl border border-white/10 hover:bg-white/5 text-center flex items-center justify-center gap-2 transition-all">
-                        <i data-lucide="satellite" class="w-5 h-5 text-amber-500"></i> Track Real-Time Fleet
-                    </a>
-                </div>
+                <!-- 3D Logo Canvas -->
+                <canvas id="logo-3d-canvas" class="w-full h-full cursor-grab active:cursor-grabbing outline-none"></canvas>
             </div>
 
-            <!-- Right Interactive 3D Frame (Three.js WebGL Sandbox) -->
-            <div class="lg:col-span-5 relative w-full h-[350px] lg:h-[500px]">
-                <div class="absolute inset-0 bg-gradient-to-tr from-amber-500/10 via-transparent to-petrol-500/10 rounded-3xl blur-2xl"></div>
-                <div class="glass h-full w-full rounded-3xl overflow-hidden relative border border-white/10 flex flex-col justify-end shadow-2xl">
-                    
-                    <!-- Three.js Canvas Container -->
-                    <div id="three-container" class="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing"></div>
-
-                    <!-- Overlay UI Elements on the 3D Viewer -->
-                    <div class="absolute top-4 left-4 glass px-3 py-1.5 rounded-lg border border-white/10 flex items-center gap-2 pointer-events-none">
-                        <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></div>
-                        <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400">Live 3D Pipeline Simulator</span>
-                    </div>
-
-                    <div class="absolute top-4 right-4 glass p-2 rounded-lg border border-white/10 flex items-center gap-2 pointer-events-none text-slate-400">
-                        <i data-lucide="rotate-3d" class="w-4 h-4 text-amber-500 animate-spin" style="animation-duration: 8s;"></i>
-                        <span class="text-[9px] font-semibold tracking-wider">Drag to Orbit</span>
-                    </div>
-
-                    <div class="glass p-5 m-5 z-10 border border-white/10 rounded-2xl pointer-events-none">
-                        <span class="text-[10px] font-bold text-amber-500 tracking-widest uppercase block mb-1">CIPS Infrastructure Simulation</span>
-                        <h4 class="text-sm font-bold text-white">Dynamic Flow Dynamics</h4>
-                        <p class="text-[11px] text-slate-400 mt-1">Simulating real-time hydrocarbon transfer speed and viscosity values across pump sub-networks.</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- LIVE FLEET TELEMATICS & VISUAL METRIC TRACKING -->
-    <section id="fleet" class="py-20 px-6 max-w-7xl mx-auto">
-        <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
-            <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-amber-500 block">PROPRIETARY TELEMATICS</span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Real-Time Fleet & Dispatch Portal</h2>
-            <p class="text-slate-400 font-light text-sm sm:text-base">
-                We monitor every gallon from dispatch to decant. Track active routes, truck cargo temperatures, and digital seals live.
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-black">
+                High-Performance <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-black via-zinc-700 to-brand-red text-glow-red">
+                    Petroleum Logistics
+                </span>
+            </h1>
+            
+            <p class="text-zinc-600 text-base sm:text-lg max-w-2xl font-light leading-relaxed mx-auto">
+                Connecting refineries, depots, and industrial sites across the terrain with absolute precision. High-capacity Class-A tankers, real-time volume telematics, and zero-incident safety protocols.
             </p>
-        </div>
 
-        <!-- Telematics Dashboard Layout -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            
-            <!-- Active Dispatch List (Glass List) -->
-            <div class="lg:col-span-5 space-y-4 flex flex-col justify-between">
-                <div class="glass rounded-2xl p-6 border border-white/5 space-y-4">
-                    <div class="flex items-center justify-between border-b border-white/5 pb-4">
-                        <h3 class="font-bold text-base text-white flex items-center gap-2">
-                            <i data-lucide="activity" class="text-amber-500 w-5 h-5"></i> Active Tanker Runs
-                        </h3>
-                        <span class="text-[11px] font-bold text-slate-400 uppercase">3 Dispatch Active</span>
-                    </div>
-
-                    <!-- Pipeline/Haulage Rows -->
-                    <div class="space-y-3">
-                        <!-- Tanker 1 -->
-                        <div class="p-3.5 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all flex justify-between items-center cursor-pointer" onclick="selectTanker('CIPS-309', 'Kingston Terminal', 'Montego Bay Depot', 72, 'Diesel')">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
-                                    <i data-lucide="truck" class="w-5 h-5 text-amber-500"></i>
-                                </div>
-                                <div>
-                                    <span class="text-xs font-bold text-white block">Tanker ID: CIPS-309</span>
-                                    <span class="text-[10px] text-slate-400 block">Kingston → Montego Bay</span>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <span class="text-xs font-extrabold text-emerald-400 block">72% Route</span>
-                                <span class="text-[9px] text-slate-400 uppercase block">12,000 Gallons</span>
-                            </div>
-                        </div>
-
-                        <!-- Tanker 2 -->
-                        <div class="p-3.5 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all flex justify-between items-center cursor-pointer" onclick="selectTanker('CIPS-114', 'Ocho Rios Terminal', 'Savanna-la-Mar Depot', 44, 'Aviation Gas')">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-lg bg-petrol-500/10 border border-petrol-500/20 flex items-center justify-center">
-                                    <i data-lucide="truck" class="w-5 h-5 text-petrol-500"></i>
-                                </div>
-                                <div>
-                                    <span class="text-xs font-bold text-white block">Tanker ID: CIPS-114</span>
-                                    <span class="text-[10px] text-slate-400 block">Ocho Rios → Savanna-la-Mar</span>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <span class="text-xs font-extrabold text-amber-500 block">44% Route</span>
-                                <span class="text-[9px] text-slate-400 uppercase block">9,500 Gallons</span>
-                            </div>
-                        </div>
-
-                        <!-- Tanker 3 -->
-                        <div class="p-3.5 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-all flex justify-between items-center cursor-pointer" onclick="selectTanker('CIPS-455', 'Kingston Terminal', 'Port Antonio Depot', 89, 'Premium Gasoline')">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
-                                    <i data-lucide="truck" class="w-5 h-5 text-emerald-500"></i>
-                                </div>
-                                <div>
-                                    <span class="text-xs font-bold text-white block">Tanker ID: CIPS-455</span>
-                                    <span class="text-[10px] text-slate-400 block">Kingston → Port Antonio</span>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <span class="text-xs font-extrabold text-emerald-400 block">89% Route</span>
-                                <span class="text-[9px] text-slate-400 uppercase block">14,000 Gallons</span>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Key Telemetry Metrics Hero -->
+            <div class="grid grid-cols-3 gap-8 py-4 max-w-lg mx-auto w-full">
+                <div class="flex flex-col items-center text-center">
+                    <span class="text-2xl sm:text-3xl font-extrabold text-black block border-b-2 border-brand-red px-2 mb-1">100%</span>
+                    <span class="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">Compliance Rate</span>
                 </div>
-
-                <!-- Live Fleet Summary Stats -->
-                <div class="glass p-5 rounded-2xl border border-white/5 flex gap-4 items-center">
-                    <div class="p-3 bg-amber-500/10 rounded-xl text-amber-500">
-                        <i data-lucide="shield-check" class="w-6 h-6"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-xs font-bold text-white uppercase tracking-wider">Security Certificate Standard</h4>
-                        <p class="text-[11px] text-slate-400 mt-0.5">Fleet retrofitted with digital non-override valves. Absolute load integrity assured.</p>
-                    </div>
+                <div class="flex flex-col items-center text-center">
+                    <span class="text-2xl sm:text-3xl font-extrabold text-black block border-b-2 border-zinc-300 px-2 mb-1">0</span>
+                    <span class="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">Spill Incidents</span>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <span class="text-2xl sm:text-3xl font-extrabold text-black block border-b-2 border-brand-red px-2 mb-1">24/7</span>
+                    <span class="text-[10px] uppercase font-bold text-zinc-500 tracking-wider">GPS Telematics</span>
                 </div>
             </div>
 
-            <!-- Telematics Detail Visualizer Map Screen (Mock) -->
-            <div class="lg:col-span-7 glass rounded-3xl p-6 lg:p-8 border border-white/5 flex flex-col justify-between min-h-[400px]">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/5 pb-4">
-                    <div>
-                        <span id="tel-id" class="text-xs font-extrabold text-amber-500 uppercase tracking-widest block">ACTIVE FEED: CIPS-309</span>
-                        <h3 class="font-bold text-xl text-white">Live Route Telematics Tracking</h3>
-                    </div>
-                    <div class="flex gap-2">
-                        <span class="px-3 py-1 rounded-full bg-slate-800 text-xs font-semibold text-slate-300 flex items-center gap-1">
-                            <i data-lucide="droplet" class="w-3.5 h-3.5 text-amber-500"></i> <span id="tel-fuel">Diesel</span>
-                        </span>
-                        <span class="px-3 py-1 rounded-full bg-emerald-500/15 text-xs font-semibold text-emerald-400 flex items-center gap-1 animate-pulse">
-                            <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span> Telematics Live
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Map Grid Visualization Canvas (Mock GIS) -->
-                <div class="relative bg-slate-950/80 rounded-2xl border border-white/5 h-[220px] my-6 flex items-center justify-center overflow-hidden">
-                    <!-- Tech Grid Background -->
-                    <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
-                    
-                    <!-- Radar Sweep Circle Animation -->
-                    <div class="absolute w-[180px] h-[180px] border border-amber-500/20 rounded-full animate-ping" style="animation-duration: 4s;"></div>
-                    <div class="absolute w-[280px] h-[280px] border border-amber-500/10 rounded-full animate-ping" style="animation-duration: 6s;"></div>
-
-                    <!-- Moving Line Pathway (Simulated route) -->
-                    <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                        <path id="route-line" d="M 50,180 Q 200,60 380,110 T 600,80" fill="none" stroke="rgba(245, 158, 11, 0.4)" stroke-width="2" stroke-dasharray="8,4" />
-                        <!-- Route Node Markers -->
-                        <circle cx="50" cy="180" r="5" fill="#f59e0b" />
-                        <circle cx="600" cy="80" r="5" fill="#f59e0b" />
-                        <!-- Pulse vehicle location along the path -->
-                        <circle id="tanker-node" cx="240" cy="80" r="8" fill="#f59e0b" class="shadow-lg shadow-amber-500/40">
-                            <animate attributeName="r" values="6;9;6" dur="2s" repeatCount="indefinite" />
-                        </circle>
-                    </svg>
-
-                    <!-- Real-Time Metrics Floating Board -->
-                    <div class="absolute bottom-3 left-3 glass p-2.5 rounded-lg border border-white/5 flex gap-4 text-left">
-                        <div>
-                            <span class="text-[9px] text-slate-400 block uppercase">Transit Temp</span>
-                            <span class="text-xs font-bold text-white block">18.4 °C</span>
-                        </div>
-                        <div class="border-l border-white/10 pl-3">
-                            <span class="text-[9px] text-slate-400 block uppercase">Avg Speed</span>
-                            <span class="text-xs font-bold text-white block">48 mph</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Detail Diagnostics Bar -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
-                    <div class="bg-white/[0.02] border border-white/5 rounded-xl p-3 text-center">
-                        <span class="text-[9px] text-slate-400 block uppercase font-bold">Departure Terminal</span>
-                        <span id="tel-origin" class="text-xs font-bold text-white mt-1 block">Kingston Terminal</span>
-                    </div>
-                    <div class="bg-white/[0.02] border border-white/5 rounded-xl p-3 text-center">
-                        <span class="text-[9px] text-slate-400 block uppercase font-bold">Destination Depot</span>
-                        <span id="tel-destination" class="text-xs font-bold text-white mt-1 block font-semibold">Montego Bay Depot</span>
-                    </div>
-                    <div class="bg-white/[0.02] border border-white/5 rounded-xl p-3 text-center">
-                        <span class="text-[9px] text-slate-400 block uppercase font-bold">Route Progress</span>
-                        <span id="tel-prog" class="text-xs font-bold text-amber-500 mt-1 block">72% Completed</span>
-                    </div>
-                    <div class="bg-white/[0.02] border border-white/5 rounded-xl p-3 text-center">
-                        <span class="text-[9px] text-slate-400 block uppercase font-bold">Seal Integrity</span>
-                        <span class="text-xs font-bold text-emerald-400 mt-1 block flex items-center justify-center gap-1">
-                            <i data-lucide="lock" class="w-3 h-3"></i> Locked
-                        </span>
-                    </div>
-                </div>
+            <!-- Action CTAs -->
+            <div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center w-full max-w-md mx-auto">
+                <a href="#quote" class="bg-brand-red hover:bg-brand-redHover text-white font-extrabold px-8 py-4 rounded-lg shadow-xl shadow-brand-red/25 text-center hover:scale-[1.02] transition-all duration-200 w-full">
+                    Initiate Transport Order
+                </a>
+                <a href="#about" class="glass text-black font-semibold px-8 py-4 rounded-lg border border-black/10 hover:bg-black/5 text-center flex items-center justify-center gap-2 transition-all w-full">
+                    <i data-lucide="shield-check" class="w-5 h-5 text-brand-red"></i> View Safety Standards
+                </a>
             </div>
-
         </div>
     </section>
 
-    <!-- CORE LOGISTICS SERVICES -->
-    <section id="services" class="py-20 px-6 max-w-7xl mx-auto border-t border-white/5">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <!-- LOGISTICS SERVICES -->
+    <section id="services" class="py-20 px-6 max-w-7xl mx-auto border-t border-zinc-200 text-center">
+        <div class="flex flex-col items-center justify-center gap-12 w-full">
             
-            <!-- Left Info Cards -->
-            <div class="lg:col-span-4 space-y-6">
-                <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-amber-500 block">OUR CAPABILITIES</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Fuel Haulage, Masterfully Engineered</h2>
-                <p class="text-slate-400 font-light text-base leading-relaxed">
-                    Moving petroleum products requires deep responsibility, compliance expertise, and reliable distribution systems. We run operations across all major terminal hubs.
+            <!-- Centered Header -->
+            <div class="space-y-6 max-w-3xl mx-auto">
+                <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-red block">OUR CAPABILITIES</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">Fuel Haulage, Engineered for Precision</h2>
+                <p class="text-zinc-600 font-light text-base leading-relaxed">
+                    Moving bulk petroleum products requires maximum accountability, strict compliance, and high-efficiency distribution systems. We manage operations across all major state ports.
                 </p>
                 
-                <div class="space-y-4">
-                    <div class="flex gap-3 items-start">
-                        <div class="p-1.5 bg-amber-500/10 rounded-lg text-amber-500 mt-1">
+                <div class="flex flex-col sm:flex-row gap-6 items-center justify-center pt-2">
+                    <div class="flex gap-2.5 items-center justify-center max-w-xs">
+                        <div class="p-1.5 bg-brand-red/10 rounded-lg text-brand-red">
                             <i data-lucide="shield-alert" class="w-4 h-4"></i>
                         </div>
-                        <p class="text-xs text-slate-300">Class-A certified drivers with strict hazardous cargo management certification.</p>
+                        <p class="text-xs text-zinc-700 text-left">Class-A certified drivers with strict hazard management.</p>
                     </div>
-                    <div class="flex gap-3 items-start">
-                        <div class="p-1.5 bg-amber-500/10 rounded-lg text-amber-500 mt-1">
+                    <div class="flex gap-2.5 items-center justify-center max-w-xs">
+                        <div class="p-1.5 bg-brand-red/10 rounded-lg text-brand-red">
                             <i data-lucide="gauge" class="w-4 h-4"></i>
                         </div>
-                        <p class="text-xs text-slate-300">Custom volume telemetry preventing offload variance or product cross-contamination.</p>
+                        <p class="text-xs text-zinc-700 text-left">Custom volume telemetry preventing offload variance.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Right Service Grid -->
-            <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <!-- Centered Service Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-5xl mx-auto">
                 <!-- Gas/Diesel Card -->
-                <div class="glass-premium p-6 rounded-2xl border border-white/5 hover:border-amber-500/30 transition-all duration-300 group">
-                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500 group-hover:scale-110 transition-transform mb-6">
+                <div class="glass-premium p-6 rounded-xl border border-black/5 hover:border-brand-red/30 transition-all duration-300 group flex flex-col items-center text-center">
+                    <div class="w-12 h-12 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red group-hover:scale-110 transition-transform mb-6">
                         <i data-lucide="droplet" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Refined Hydrocarbons</h3>
-                    <p class="text-xs text-slate-400 font-light leading-relaxed">
-                        Continuous bulk haulage of Ultra-Low Sulfur Diesel, Premium Gasoline, and Heavy Fuel Oils (HFO) directly to distribution hubs and commercial reserves.
+                    <h3 class="text-lg font-bold text-black mb-2">Refined Hydrocarbons</h3>
+                    <p class="text-xs text-zinc-600 font-light leading-relaxed max-w-md">
+                        Continuous bulk haulage of Ultra-Low Sulfur Diesel, Premium Gasoline, and Heavy Fuel Oils (HFO) directly to distribution hubs and industrial reserves.
                     </p>
                 </div>
 
                 <!-- Jet Fuel / Aviation Card -->
-                <div class="glass-premium p-6 rounded-2xl border border-white/5 hover:border-amber-500/30 transition-all duration-300 group">
-                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500 group-hover:scale-110 transition-transform mb-6">
+                <div class="glass-premium p-6 rounded-xl border border-black/5 hover:border-brand-red/30 transition-all duration-300 group flex flex-col items-center text-center">
+                    <div class="w-12 h-12 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red group-hover:scale-110 transition-transform mb-6">
                         <i data-lucide="plane" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Aviation Fuel Logistics</h3>
-                    <p class="text-xs text-slate-400 font-light leading-relaxed">
+                    <h3 class="text-lg font-bold text-black mb-2">Aviation Fuel Logistics</h3>
+                    <p class="text-xs text-zinc-650 font-light leading-relaxed max-w-md">
                         Dedicated specialized aluminum-alloy tankers designed exclusively for pure Jet A-1 transport under absolute dust, water, and static charge containment protocols.
                     </p>
                 </div>
 
                 <!-- Lubricants Card -->
-                <div class="glass-premium p-6 rounded-2xl border border-white/5 hover:border-amber-500/30 transition-all duration-300 group">
-                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500 group-hover:scale-110 transition-transform mb-6">
+                <div class="glass-premium p-6 rounded-xl border border-black/5 hover:border-brand-red/30 transition-all duration-300 group flex flex-col items-center text-center">
+                    <div class="w-12 h-12 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red group-hover:scale-110 transition-transform mb-6">
                         <i data-lucide="package" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Bulk Industrial Lubricants</h3>
-                    <p class="text-xs text-slate-400 font-light leading-relaxed">
+                    <h3 class="text-lg font-bold text-black mb-2">Bulk Industrial Lubricants</h3>
+                    <p class="text-xs text-zinc-600 font-light leading-relaxed max-w-md">
                         Reliable supply chain transport of synthetic lubricants and manufacturing motor oils in multi-compartment vessels optimized for multi-client custom delivery.
                     </p>
                 </div>
 
                 <!-- Emergency Dispatch Card -->
-                <div class="glass-premium p-6 rounded-2xl border border-white/5 hover:border-amber-500/30 transition-all duration-300 group">
-                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500 group-hover:scale-110 transition-transform mb-6">
+                <div class="glass-premium p-6 rounded-xl border border-black/5 hover:border-brand-red/30 transition-all duration-300 group flex flex-col items-center text-center">
+                    <div class="w-12 h-12 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red group-hover:scale-110 transition-transform mb-6">
                         <i data-lucide="zap" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Crisis & Depletion Support</h3>
-                    <p class="text-xs text-slate-400 font-light leading-relaxed">
-                        On-demand reserve dispatch for major power plants, utility complexes, and remote hospitals experiencing severe volume drops or pipeline failures.
+                    <h3 class="text-lg font-bold text-black mb-2">Crisis & Depletion Support</h3>
+                    <p class="text-xs text-zinc-600 font-light leading-relaxed max-w-md">
+                        On-demand reserve dispatch for major power plants, utility complexes, and remote facilities experiencing severe volume drops or pipeline failures.
                     </p>
                 </div>
             </div>
@@ -464,48 +266,48 @@
     </section>
 
     <!-- HAULAGE COST CALCULATOR & QUOTE REQUEST -->
-    <section id="quote" class="py-20 px-6 max-w-7xl mx-auto border-t border-white/5">
+    <section id="quote" class="py-20 px-6 max-w-7xl mx-auto border-t border-zinc-200 text-center">
         <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
-            <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-amber-500 block">TRANSPARENT VALUE</span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Interactive Haulage Rate Calculator</h2>
-            <p class="text-slate-400 font-light text-sm sm:text-base">
+            <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-red block">TRANSPARENT VALUE</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">Interactive Haulage Rate Calculator</h2>
+            <p class="text-zinc-600 font-light text-sm sm:text-base">
                 Input your volume demands and routing requirements below to get an instant digital cost estimate and carbon impact breakdown.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div class="grid grid-cols-1 gap-8 items-stretch max-w-5xl mx-auto">
             
-            <!-- Calculator Settings Box -->
-            <div class="lg:col-span-7 glass rounded-3xl p-6 lg:p-8 border border-white/5 flex flex-col justify-between">
-                <div class="space-y-6">
-                    <h3 class="font-bold text-lg text-white flex items-center gap-2">
-                        <i data-lucide="sliders" class="text-amber-500 w-5 h-5"></i> Logistics Parameters
+            <!-- Centered Calculator Settings Box -->
+            <div class="glass rounded-2xl p-6 lg:p-8 border border-black/5 flex flex-col justify-between items-center text-center w-full">
+                <div class="space-y-8 w-full max-w-3xl">
+                    <h3 class="font-bold text-lg text-black flex items-center justify-center gap-2 mx-auto">
+                        <i data-lucide="sliders" class="text-brand-red w-5 h-5"></i> Logistics Parameters
                     </h3>
 
                     <!-- Parameter 1: Fuel Product Select -->
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Select Fuel Product</label>
-                        <div class="grid grid-cols-3 gap-3">
-                            <button onclick="setProduct('diesel', 1.2)" id="btn-prod-diesel" class="py-3 px-4 rounded-xl border border-amber-500 text-amber-500 font-bold text-xs hover:bg-amber-500/5 transition-all focus:outline-none">
+                    <div class="flex flex-col items-center">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-3 text-center">Select Fuel Product</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-xl">
+                            <button onclick="setProduct('diesel', 1.2)" id="btn-prod-diesel" class="py-3 px-4 rounded-lg border border-brand-red text-brand-red font-bold text-xs hover:bg-brand-red/5 transition-all focus:outline-none text-center">
                                 Diesel (HFO/ULSD)
                             </button>
-                            <button onclick="setProduct('gasoline', 1.0)" id="btn-prod-gasoline" class="py-3 px-4 rounded-xl border border-white/10 text-slate-300 font-semibold text-xs hover:bg-white/5 transition-all focus:outline-none">
+                            <button onclick="setProduct('gasoline', 1.0)" id="btn-prod-gasoline" class="py-3 px-4 rounded-lg border border-white/10 text-zinc-650 font-semibold text-xs hover:bg-black/5 transition-all focus:outline-none text-center">
                                 Premium Gasoline
                             </button>
-                            <button onclick="setProduct('aviation', 1.6)" id="btn-prod-aviation" class="py-3 px-4 rounded-xl border border-white/10 text-slate-300 font-semibold text-xs hover:bg-white/5 transition-all focus:outline-none">
+                            <button onclick="setProduct('aviation', 1.6)" id="btn-prod-aviation" class="py-3 px-4 rounded-lg border border-white/10 text-zinc-650 font-semibold text-xs hover:bg-black/5 transition-all focus:outline-none text-center">
                                 Jet Fuel / A-1
                             </button>
                         </div>
                     </div>
 
                     <!-- Parameter 2: Delivery Distance Slider -->
-                    <div>
+                    <div class="w-full max-w-xl mx-auto">
                         <div class="flex justify-between items-center mb-2">
-                            <label class="text-xs font-bold uppercase tracking-wider text-slate-400">Haulage Distance</label>
-                            <span id="dist-display" class="text-sm font-bold text-amber-500">60 miles</span>
+                            <label class="text-xs font-bold uppercase tracking-wider text-zinc-500">Haulage Distance</label>
+                            <span id="dist-display" class="text-sm font-bold text-brand-red">60 miles</span>
                         </div>
-                        <input id="dist-input" type="range" min="10" max="250" value="60" oninput="calculateRate()" class="w-full accent-amber-500 h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer">
-                        <div class="flex justify-between text-[10px] text-slate-500 mt-1.5 font-semibold">
+                        <input id="dist-input" type="range" min="10" max="250" value="60" oninput="calculateRate()" class="w-full accent-brand-red h-1.5 bg-zinc-200 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between text-[10px] text-zinc-500 mt-1.5 font-semibold">
                             <span>10 Miles</span>
                             <span>130 Miles</span>
                             <span>250 Miles</span>
@@ -513,67 +315,67 @@
                     </div>
 
                     <!-- Parameter 3: Quantity Slider -->
-                    <div>
+                    <div class="w-full max-w-xl mx-auto">
                         <div class="flex justify-between items-center mb-2">
-                            <label class="text-xs font-bold uppercase tracking-wider text-slate-400">Required Load Volume</label>
-                            <span id="vol-display" class="text-sm font-bold text-amber-500">8,500 Gallons</span>
+                            <label class="text-xs font-bold uppercase tracking-wider text-zinc-500">Required Load Volume</label>
+                            <span id="vol-display" class="text-sm font-bold text-brand-red">8,500 Gallons</span>
                         </div>
-                        <input id="vol-input" type="range" min="2000" max="15000" step="500" value="8500" oninput="calculateRate()" class="w-full accent-amber-500 h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer">
-                        <div class="flex justify-between text-[10px] text-slate-500 mt-1.5 font-semibold">
-                            <span>2k Gallons (Sub-Tanker)</span>
-                            <span>8.5k Gallons</span>
-                            <span>15k Gallons (Max Payload)</span>
+                        <input id="vol-input" type="range" min="2000" max="15000" step="500" value="8500" oninput="calculateRate()" class="w-full accent-brand-red h-1.5 bg-zinc-200 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between text-[10px] text-zinc-500 mt-1.5 font-semibold">
+                            <span>2k Gals (Sub-Tanker)</span>
+                            <span>8.5k Gals</span>
+                            <span>15k Gals (Max Payload)</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="border-t border-white/5 pt-6 mt-6 flex flex-col sm:flex-row gap-4 items-center justify-between text-slate-400 text-xs">
-                    <p class="flex items-center gap-1.5">
-                        <i data-lucide="info" class="w-4 h-4 text-amber-500 shrink-0"></i> Standard calculations based on local arterial road fuel taxes and routing safety.
+                <div class="border-t border-black/5 pt-6 mt-6 w-full max-w-3xl flex flex-col sm:flex-row gap-4 items-center justify-center text-zinc-650 text-xs">
+                    <p class="flex items-center justify-center gap-1.5">
+                        <i data-lucide="info" class="w-4 h-4 text-brand-red shrink-0"></i> Calculations structured on active arterial road tariffs and hazard regulations.
                     </p>
                 </div>
             </div>
 
-            <!-- Cost Estimates Screen -->
-            <div class="lg:col-span-5 bg-gradient-to-br from-zinc-900 to-black rounded-3xl p-6 lg:p-8 border border-amber-500/20 shadow-xl flex flex-col justify-between">
-                <div>
-                    <span class="text-xs font-extrabold text-amber-500 tracking-widest uppercase block mb-1">CIPS RATE SHEET MOCKUP</span>
-                    <h3 class="font-extrabold text-2xl text-white">Estimated Proposal</h3>
-                    <p class="text-xs text-slate-400 font-light mt-1">Real-time quote for single active delivery dispatch.</p>
+            <!-- Centered Cost Estimates Screen -->
+            <div class="bg-gradient-to-br from-zinc-50 to-white rounded-2xl p-6 lg:p-8 border border-brand-red/20 shadow-xl flex flex-col justify-between items-center text-center w-full max-w-xl mx-auto">
+                <div class="w-full">
+                    <span class="text-xs font-extrabold text-brand-red tracking-widest uppercase block mb-1 text-center">PROPOSAL ESTIMATOR</span>
+                    <h3 class="font-extrabold text-2xl text-black text-center">Estimated Run Pricing</h3>
+                    <p class="text-xs text-zinc-555 font-light mt-1 text-center">Real-time quote for single active route allocation.</p>
 
-                    <div class="space-y-4 my-8">
-                        <div class="flex justify-between items-center border-b border-white/5 pb-3">
-                            <span class="text-slate-400 text-sm">Logistics Transport Base</span>
-                            <span id="val-base" class="font-bold text-white text-base">$480.00</span>
+                    <div class="space-y-4 my-8 font-mono w-full max-w-md mx-auto">
+                        <div class="flex justify-between items-center border-b border-black/5 pb-3">
+                            <span class="text-zinc-555 text-sm">Logistics Base</span>
+                            <span id="val-base" class="font-bold text-black text-base">$480.00</span>
                         </div>
-                        <div class="flex justify-between items-center border-b border-white/5 pb-3">
-                            <span class="text-slate-400 text-sm">Regulatory Security Levy</span>
-                            <span id="val-levy" class="font-bold text-white text-base">$85.00</span>
+                        <div class="flex justify-between items-center border-b border-black/5 pb-3">
+                            <span class="text-zinc-555 text-sm">Regulatory Levy</span>
+                            <span id="val-levy" class="font-bold text-black text-base">$85.00</span>
                         </div>
-                        <div class="flex justify-between items-center border-b border-white/5 pb-3">
-                            <span class="text-slate-400 text-sm">Environmental Fuel Tax</span>
-                            <span id="val-tax" class="font-bold text-white text-base">$110.00</span>
+                        <div class="flex justify-between items-center border-b border-black/5 pb-3">
+                            <span class="text-zinc-555 text-sm">Environmental Tax</span>
+                            <span id="val-tax" class="font-bold text-black text-base">$110.00</span>
                         </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-slate-400 text-sm font-semibold">Total Estimated Run Cost</span>
-                            <span id="val-total" class="font-extrabold text-amber-500 text-2xl text-glow-amber">$675.00</span>
+                        <div class="flex justify-between items-center pt-2">
+                            <span class="text-zinc-600 text-sm font-semibold">Total Estimated Cost</span>
+                            <span id="val-total" class="font-extrabold text-brand-red text-2xl text-glow-red">$675.00</span>
                         </div>
                     </div>
 
                     <!-- Carbon Impact Alert -->
-                    <div class="p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl flex gap-3 items-center">
-                        <div class="p-2 bg-emerald-500/20 rounded-xl text-emerald-400">
+                    <div class="p-4 bg-zinc-100 border border-brand-red/20 rounded-xl flex gap-3 items-center justify-center w-full max-w-md mx-auto text-center">
+                        <div class="p-2 bg-brand-red/10 rounded-lg text-brand-red shrink-0">
                             <i data-lucide="leaf" class="w-5 h-5"></i>
                         </div>
-                        <div>
-                            <span class="text-[10px] uppercase font-bold text-emerald-400 tracking-wider block">Carbon Neutral Offset Ready</span>
-                            <p class="text-[11px] text-slate-300 mt-0.5">Estimated route offset value: <span id="val-carbon" class="font-semibold text-emerald-300">32 kg CO2e</span> via high-efficiency diesel engines.</p>
+                        <div class="text-left">
+                            <span class="text-[10px] uppercase font-bold text-brand-red tracking-wider block">Carbon Neutral Offset Program</span>
+                            <p class="text-[11px] text-zinc-700 mt-0.5">Estimated route offset value: <span id="val-carbon" class="font-semibold text-black">32 kg CO2e</span> via tier-4 diesel fleet integration.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Submit Button to client -->
-                <button onclick="triggerQuoteSent()" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-extrabold text-xs uppercase tracking-wider py-4 rounded-xl shadow-lg mt-6 hover:scale-[1.01] active:scale-[0.99] transition-all">
+                <button onclick="triggerQuoteSent()" class="w-full max-w-md bg-brand-red hover:bg-brand-redHover text-white font-extrabold text-xs uppercase tracking-wider py-4 rounded-lg shadow-lg mt-6 hover:scale-[1.01] active:scale-[0.99] transition-all">
                     Generate Formal SLA Document
                 </button>
             </div>
@@ -582,67 +384,69 @@
     </section>
 
     <!-- TRUST & SAFETY ASSURANCE SECTION -->
-    <section id="about" class="py-20 px-6 max-w-7xl mx-auto border-t border-white/5">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section id="about" class="py-20 px-6 max-w-7xl mx-auto border-t border-zinc-200 text-center">
+        <div class="grid grid-cols-1 gap-12 items-center justify-center max-w-4xl mx-auto">
             
-            <div class="space-y-6">
-                <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-amber-500 block">ZERO TOLERANCE CRITERIA</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Zero incident. Absolute protection of resources.</h2>
-                <p class="text-slate-300 font-light text-base leading-relaxed">
-                    At Cross Island Petroleum Supplies, safety is not a checkbox—it is a mandatory condition. We employ strict containment architectures, continuous safety training, and digital telematics override controls to prevent environmental accidents or cargo loss under any atmospheric condition.
+            <div class="space-y-6 flex flex-col items-center">
+                <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-red block">ZERO TOLERANCE CRITERIA</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">Zero incidents. Absolute protection of cargo.</h2>
+                <p class="text-zinc-750 font-light text-base leading-relaxed max-w-2xl">
+                    At Cross Island Petroleum Supplies, safety is a strict operating constraint. We utilize double-containment hardware, high-frequency driver training, and automated telemetry tracking to neutralize resource loss under any atmospheric conditions.
                 </p>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
-                    <div class="p-5 bg-white/[0.02] border border-white/5 rounded-2xl space-y-2">
-                        <h4 class="font-bold text-white text-sm flex items-center gap-2">
-                            <i data-lucide="shield-check" class="text-amber-500 w-4.5 h-4.5"></i> Hazmat Qualified
-                        </h4>
-                        <p class="text-xs text-slate-400">All drivers pass intensive federal hazardous liquid transportation courses annually.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8 w-full max-w-2xl">
+                    <div class="p-5 bg-zinc-50 border border-black/5 rounded-lg space-y-2 flex flex-col items-center">
+                        <div class="p-2 bg-brand-red/10 rounded-full text-brand-red mb-1">
+                            <i data-lucide="shield-check" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="font-bold text-black text-sm">Hazmat Qualified</h4>
+                        <p class="text-xs text-zinc-555 max-w-xs">All dispatch crews pass intensive fluid safety protocols annually.</p>
                     </div>
-                    <div class="p-5 bg-white/[0.02] border border-white/5 rounded-2xl space-y-2">
-                        <h4 class="font-bold text-white text-sm flex items-center gap-2">
-                            <i data-lucide="heart-pulse" class="text-amber-500 w-4.5 h-4.5"></i> Automated Shut-Offs
-                        </h4>
-                        <p class="text-xs text-slate-400">Every manifold valve contains hydraulic fail-safes designed to instantly lock-off product.</p>
+                    <div class="p-5 bg-zinc-50 border border-black/5 rounded-lg space-y-2 flex flex-col items-center">
+                        <div class="p-2 bg-brand-red/10 rounded-full text-brand-red mb-1">
+                            <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="font-bold text-black text-sm">Automated Shut-Offs</h4>
+                        <p class="text-xs text-zinc-555 max-w-xs">Every manifold contains pneumatic relief systems designed to isolate line leaks instantly.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Interactive Terminal Graphics Box -->
-            <div class="relative rounded-3xl border border-white/10 p-8 overflow-hidden bg-slate-900 shadow-2xl">
-                <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px); background-size: 24px 24px;"></div>
+            <!-- Terminal Graphics Box (Centered) -->
+            <div class="relative rounded-2xl border border-black/5 p-8 overflow-hidden bg-zinc-50 shadow-2xl w-full max-w-2xl mx-auto flex flex-col items-center">
+                <div class="absolute inset-0 opacity-[0.02] pointer-events-none" style="background-image: radial-gradient(rgba(0,0,0,0.15) 1px, transparent 1px); background-size: 24px 24px;"></div>
                 
-                <h3 class="font-bold text-white text-lg mb-4">Quality Control Verification</h3>
-                <p class="text-xs text-slate-400 mb-6">Our automated safety verification framework monitors standard operating metrics of fuel loads live.</p>
+                <h3 class="font-bold text-black text-lg mb-2">Quality Control Verification</h3>
+                <p class="text-xs text-zinc-550 mb-6 max-w-md">Our automated fuel verification framework monitors chemical purity values live.</p>
 
-                <!-- Fuel Lab Quality Specs Grid -->
-                <div class="space-y-4">
+                <!-- Fuel Lab Quality Specs Grid (Centered layout) -->
+                <div class="space-y-5 w-full max-w-md mx-auto text-left">
                     <div class="space-y-1.5">
                         <div class="flex justify-between text-xs font-semibold">
-                            <span class="text-slate-300">Sulfur Content Threshold (ULSD)</span>
-                            <span class="text-emerald-400 font-bold">&lt; 15 ppm</span>
+                            <span class="text-zinc-600">Sulfur Content Threshold (ULSD)</span>
+                            <span class="text-brand-red font-bold">&lt; 15 ppm</span>
                         </div>
-                        <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-                            <div class="h-full bg-emerald-500 rounded-full" style="width: 15%;"></div>
+                        <div class="h-1.5 w-full bg-zinc-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-brand-red rounded-full" style="width: 15%;"></div>
                         </div>
                     </div>
 
                     <div class="space-y-1.5">
                         <div class="flex justify-between text-xs font-semibold">
-                            <span class="text-slate-300">Hydrocarbon Viscosity Index</span>
-                            <span class="text-amber-500 font-bold">2.8 cSt (Normal)</span>
+                            <span class="text-zinc-600">Hydrocarbon Viscosity Index</span>
+                            <span class="text-black font-bold">2.8 hSt (Normal)</span>
                         </div>
-                        <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
-                            <div class="h-full bg-amber-500 rounded-full" style="width: 65%;"></div>
+                        <div class="h-1.5 w-full bg-zinc-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-black rounded-full" style="width: 65%;"></div>
                         </div>
                     </div>
 
                     <div class="space-y-1.5">
                         <div class="flex justify-between text-xs font-semibold">
-                            <span class="text-slate-300">Moisture Containment Tolerance</span>
-                            <span class="text-emerald-400 font-bold">0.02% (Optimal)</span>
+                            <span class="text-zinc-600">Moisture Containment Tolerance</span>
+                            <span class="text-emerald-600 font-bold">0.02% (Optimal)</span>
                         </div>
-                        <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                        <div class="h-1.5 w-full bg-zinc-200 rounded-full overflow-hidden">
                             <div class="h-full bg-emerald-500 rounded-full" style="width: 5%;"></div>
                         </div>
                     </div>
@@ -653,122 +457,121 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-slate-950 border-t border-white/10 py-12 px-6 mt-20">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 bg-amber-500 rounded-lg flex items-center justify-center">
-                    <i data-lucide="fuel" class="w-5 h-5 text-black"></i>
+    <footer class="bg-zinc-50 border-t border-zinc-200 py-12 px-6 mt-20 text-center">
+        <div class="max-w-7xl mx-auto flex flex-col items-center justify-center gap-6">
+            <div class="flex flex-col items-center justify-center gap-3">
+                <div class="w-8 h-8 bg-brand-red rounded flex items-center justify-center mx-auto">
+                    <i data-lucide="fuel" class="w-5 h-5 text-white"></i>
                 </div>
                 <div>
-                    <span class="text-sm font-bold text-white block">CROSS ISLAND PETROLEUM SUPPLIES</span>
-                    <span class="text-[9px] text-slate-500 uppercase tracking-wider block">Logistics & Distribution Engineering © 2026</span>
+                    <span class="text-sm font-bold text-black block">CROSS ISLAND PETROLEUM SUPPLIES</span>
+                    <span class="text-[9px] text-zinc-555 uppercase tracking-wider block">Logistics & Distribution Engineering © 2026</span>
                 </div>
             </div>
             
-            <div class="flex gap-6 text-xs text-slate-400 font-medium">
-                <a href="#services" class="hover:text-amber-500">Services</a>
-                <a href="#fleet" class="hover:text-amber-500">Fleet Map</a>
-                <a href="#quote" class="hover:text-amber-500">Estimate Rates</a>
-                <a href="#about" class="hover:text-amber-500">Incidents Protocol</a>
+            <div class="flex flex-wrap justify-center gap-6 text-xs text-zinc-500 font-medium">
+                <a href="#services" class="hover:text-brand-red">Our Services</a>
+                <a href="#quote" class="hover:text-brand-red">Haulage Estimator</a>
+                <a href="#about" class="hover:text-brand-red">Safety Standards</a>
             </div>
         </div>
     </footer>
 
-    <!-- DEVELOPER PITCH & PROPOSAL DRAWER / PANEL (MODAL INTERACTIVE OVERLAY) -->
-    <div id="pitch-panel" class="fixed inset-y-0 right-0 w-full md:w-[600px] bg-zinc-950/98 border-l border-amber-500/30 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 overflow-y-auto hidden">
-        <div class="p-6 md:p-8 space-y-8">
+    <!-- DEVELOPER PITCH & PROPOSAL DRAWER -->
+    <div id="pitch-panel" class="fixed inset-y-0 right-0 w-full md:w-[600px] bg-white border-l border-brand-red/30 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 overflow-y-auto hidden">
+        <div class="p-6 md:p-8 space-y-8 text-center flex flex-col items-center">
             
             <!-- Pitch Drawer Header -->
-            <div class="flex justify-between items-center border-b border-white/10 pb-5">
-                <div class="flex items-center gap-3">
-                    <div class="p-2.5 bg-amber-500/15 rounded-xl text-amber-500 border border-amber-500/20">
+            <div class="flex justify-between items-center border-b border-zinc-200 pb-5 w-full">
+                <div class="flex items-center gap-3 mx-auto">
+                    <div class="p-2.5 bg-brand-red/10 rounded-lg text-brand-red border border-brand-red/20">
                         <i data-lucide="presentation" class="w-6 h-6"></i>
                     </div>
-                    <div>
-                        <h2 class="text-xl font-extrabold text-white">Client Proposal Engine</h2>
-                        <span class="text-xs text-amber-500 font-bold block">How to sell this site for $3,500 – $5,000</span>
+                    <div class="text-left">
+                        <h2 class="text-xl font-extrabold text-black">Client Proposal Engine</h2>
+                        <span class="text-xs text-brand-red font-bold block">How to sell this site for $3,500 – $5,000</span>
                     </div>
                 </div>
-                <button onclick="togglePitchPanel()" class="p-2 hover:bg-white/5 rounded-lg text-slate-400 hover:text-white transition-colors">
+                <button onclick="togglePitchPanel()" class="p-2 hover:bg-zinc-100 rounded-lg text-zinc-500 hover:text-black transition-colors">
                     <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
             </div>
 
             <!-- Pitch Content Section 1: Business Overview -->
-            <div class="space-y-4">
-                <span class="text-[10px] font-extrabold text-amber-500 uppercase tracking-widest block">THE TARGET PROBLEM</span>
-                <h3 class="font-extrabold text-lg text-white">Why Cross Island Petroleum Supplies needs this</h3>
-                <p class="text-xs text-slate-300 leading-relaxed font-light">
-                    Traditional haulage and logistics providers usually have broken, outdated, text-heavy websites. By offering this modern **"Blasphemorphic" Interactive Logistics Board**, you position them instantly as an elite, ultra-professional logistics network.
+            <div class="space-y-4 w-full">
+                <span class="text-[10px] font-extrabold text-brand-red uppercase tracking-widest block text-center">THE TARGET PROBLEM</span>
+                <h3 class="font-extrabold text-lg text-black text-center">Why Cross Island Petroleum Supplies needs this</h3>
+                <p class="text-xs text-zinc-700 leading-relaxed font-light text-center max-w-md mx-auto">
+                    Traditional fuel-haulers usually rely on outdated, text-heavy designs. By presenting this customized **Interactive Logistics Board with Black and Crimson accents**, you frame their team as an elite, high-performance operational network.
                 </p>
             </div>
 
             <!-- Pitch Content Section 2: Pricing Strategy Blueprint -->
-            <div class="space-y-4">
-                <span class="text-[10px] font-extrabold text-amber-500 uppercase tracking-widest block">THE BUSINESS ARCHITECTURE</span>
-                <h3 class="font-extrabold text-lg text-white">Pricing Model Recommendations</h3>
+            <div class="space-y-4 w-full">
+                <span class="text-[10px] font-extrabold text-brand-red uppercase tracking-widest block text-center">THE BUSINESS ARCHITECTURE</span>
+                <h3 class="font-extrabold text-lg text-black text-center">Pricing Model Recommendations</h3>
                 
-                <div class="space-y-3">
-                    <div class="p-4 rounded-xl border border-white/5 bg-white/[0.02]">
+                <div class="space-y-3 w-full max-w-md mx-auto">
+                    <div class="p-4 rounded-lg border border-black/5 bg-zinc-50 text-center">
                         <div class="flex justify-between items-center mb-1">
-                            <span class="text-xs font-extrabold text-white">Upfront Flat Build Fee</span>
-                            <span class="text-sm font-extrabold text-amber-500">$3,500 - $4,800</span>
+                            <span class="text-xs font-extrabold text-black">Upfront Flat Build Fee</span>
+                            <span class="text-sm font-extrabold text-brand-red">$3,500 - $4,800</span>
                         </div>
-                        <p class="text-[11px] text-slate-400">Includes Next.js design, custom Three.js animated interactive pipeline, customized localized SEO, and routing database integration.</p>
+                        <p class="text-[11px] text-zinc-600 text-left">Includes Next.js optimization, custom WebGL pipeline flows, metadata-driven local SEO, and rate calculation architectures.</p>
                     </div>
 
-                    <div class="p-4 rounded-xl border border-white/5 bg-white/[0.02]">
+                    <div class="p-4 rounded-lg border border-black/5 bg-zinc-50 text-center">
                         <div class="flex justify-between items-center mb-1">
-                            <span class="text-xs font-extrabold text-white">Monthly Recurrent Retention</span>
-                            <span class="text-sm font-extrabold text-amber-500">$99 / month</span>
+                            <span class="text-xs font-extrabold text-black">Monthly Recurrent Retention</span>
+                            <span class="text-sm font-extrabold text-brand-red">$99 / month</span>
                         </div>
-                        <p class="text-[11px] text-slate-400">Includes secure, blazing-fast deployment hosting with Cloudflare/Vercel, periodic telematics parameter updates, and quarterly SLA audit updates.</p>
+                        <p class="text-[11px] text-zinc-600 text-left">Covers ultra-fast static CDN hosting (Vercel/Cloudflare integration), minor content edits, and server maintenance.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Pitch Content Section 3: Copy-Paste Client Pitch Script -->
-            <div class="space-y-4">
-                <span class="text-[10px] font-extrabold text-amber-500 uppercase tracking-widest block">CLIENT EMAIL & PITCH TEMPLATE</span>
-                <h3 class="font-extrabold text-lg text-white">Pitch Framework to Secure Interest</h3>
+            <div class="space-y-4 w-full">
+                <span class="text-[10px] font-extrabold text-brand-red uppercase tracking-widest block text-center">CLIENT EMAIL & PITCH TEMPLATE</span>
+                <h3 class="font-extrabold text-lg text-black text-center">Pitch Framework to Secure Interest</h3>
                 
-                <div class="relative bg-slate-900 border border-white/10 p-4 rounded-xl">
-                    <p class="text-[11px] text-slate-300 italic whitespace-pre-line leading-relaxed select-all">
+                <div class="relative bg-zinc-50 border border-zinc-200 p-4 rounded-lg w-full max-w-md mx-auto text-left">
+                    <p class="text-[11px] text-zinc-700 italic whitespace-pre-line leading-relaxed select-all">
 "Hi [Decision Maker's Name],
 
-I’ve designed an interactive, high-fidelity digital logistics platform customized specifically for Cross Island Petroleum Supplies. 
+I’ve engineered an interactive, high-fidelity digital logistics platform customized specifically for Cross Island Petroleum Supplies. 
 
-Most haulage competitors rely on generic brochure layouts. By integrating customized visual assets, a live haulage cost estimator, and interactive GPS dispatch simulations, your business immediately signals absolute digital precision, elite compliance standards, and modern professionalism.
+Most haulage competitors rely on basic templates. By integrating custom visual assets, a live dispatch rate estimator, and simulated telematics modules, your business instantly signals absolute precision, modern compliance standards, and industry authority.
 
-I've put together a fully functional sandbox prototype showing how this operates live: [Insert GitHub/Vercel link]
+I've put together a fully functional sandbox showing how this operates live: [Insert GitHub/Vercel link]
 
-Let’s lock in a 10-minute preview run to show you how we can deploy this to supercharge your contract win rates."
+Let’s lock in a brief 10-minute preview run to show you how we can deploy this to supercharge your commercial contract win rates."
                     </p>
-                    <div class="absolute bottom-2 right-2 bg-amber-500 text-black font-extrabold text-[10px] py-1 px-2.5 rounded-md cursor-pointer uppercase shadow select-none hover:bg-amber-400 transition-colors" onclick="copyPitchText()">
-                        Copy Text
+                    <div class="absolute bottom-2 right-2 bg-brand-red text-white font-extrabold text-[10px] py-1 px-2.5 rounded-lg cursor-pointer uppercase shadow select-none hover:bg-brand-redHover transition-colors" onclick="copyPitchText()">
+                        Copy Script
                     </div>
                 </div>
             </div>
 
             <!-- Pitch Content Section 4: AI Workflow Optimization -->
-            <div class="space-y-4">
-                <span class="text-[10px] font-extrabold text-amber-500 uppercase tracking-widest block">DEVELOPER ADVANTAGE</span>
-                <h3 class="font-extrabold text-lg text-white">Why This Custom Stack Dominates</h3>
-                <ul class="space-y-2 text-xs text-slate-300 font-light">
+            <div class="space-y-4 w-full text-center">
+                <span class="text-[10px] font-extrabold text-brand-red uppercase tracking-widest block">DEVELOPER ADVANTAGE</span>
+                <h3 class="font-extrabold text-lg text-black">Why This Custom Stack Dominates</h3>
+                <ul class="space-y-2 text-xs text-zinc-700 font-light max-w-md mx-auto text-left">
                     <li class="flex gap-2 items-start">
-                        <i data-lucide="check-circle" class="w-4.5 h-4.5 text-amber-500 shrink-0 mt-0.5"></i>
-                        <span><strong>Zero Database Costs:</strong> Built cleanly using Next.js static output structure. Hosting is free for low-to-medium business traffic.</span>
+                        <i data-lucide="check-circle" class="w-4.5 h-4.5 text-brand-red shrink-0 mt-0.5"></i>
+                        <span><strong>Zero Database Upkeep:</strong> Fully compiled into lightweight static files. Vercel/Cloudflare bandwidth bounds are essentially free.</span>
                     </li>
                     <li class="flex gap-2 items-start">
-                        <i data-lucide="check-circle" class="w-4.5 h-4.5 text-amber-500 shrink-0 mt-0.5"></i>
-                        <span><strong>Highly Extensible:</strong> Ready to hook into standard telematics APIs or vehicle asset GPS sensors whenever they want to transition from simulation to live tracking.</span>
+                        <i data-lucide="check-circle" class="w-4.5 h-4.5 text-brand-red shrink-0 mt-0.5"></i>
+                        <span><strong>Highly Extensible:</strong> Ready to hook into active telematics or GPS asset sensors as soon as they decide to scale past simulations.</span>
                     </li>
                 </ul>
             </div>
 
             <!-- Pitch Drawer Footer -->
-            <div class="pt-4 border-t border-white/10 text-center">
-                <button onclick="togglePitchPanel()" class="bg-amber-500 text-black font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-xl w-full">
+            <div class="pt-4 border-t border-zinc-200 text-center w-full max-w-md mx-auto">
+                <button onclick="togglePitchPanel()" class="bg-brand-red text-white font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-lg w-full border-none">
                     Return to Live Client Preview
                 </button>
             </div>
@@ -776,23 +579,24 @@ Let’s lock in a 10-minute preview run to show you how we can deploy this to su
     </div>
 
     <!-- Toast Notice Component -->
-    <div id="toast-notice" class="fixed bottom-6 right-6 glass border-amber-500/40 border p-4 rounded-xl shadow-2xl z-50 flex items-center gap-3 transition-opacity duration-300 opacity-0 pointer-events-none">
-        <div class="p-1.5 bg-amber-500/10 rounded-lg text-amber-500">
+    <div id="toast-notice" class="fixed bottom-6 right-6 glass border-brand-red/45 border p-4 rounded-xl shadow-2xl z-50 flex items-center gap-3 transition-opacity duration-300 opacity-0 pointer-events-none">
+        <div class="p-1.5 bg-brand-red/10 rounded-lg text-brand-red">
             <i data-lucide="check" class="w-5 h-5"></i>
         </div>
         <div>
-            <span id="toast-title" class="text-xs font-bold text-white block">Success</span>
-            <span id="toast-msg" class="text-[11px] text-slate-300 block">Operation completed successfully.</span>
+            <span id="toast-title" class="text-xs font-bold text-black block">Success</span>
+            <span id="toast-msg" class="text-[11px] text-zinc-650 block">Operation completed successfully.</span>
         </div>
     </div>
 
-    <!-- Script Logic: UI Controllers, Interactive Calculators, Three.js Setup -->
+    <!-- Script Logic -->
     <script>
         // Start Lucide Icons on Ready
         window.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
             calculateRate();
             initThreeDRefinery();
+            init3DLogo();
         });
 
         // Toggle Mobile Navigation Menu
@@ -813,6 +617,7 @@ Let’s lock in a 10-minute preview run to show you how we can deploy this to su
         // Dynamic State Variables for Logistics Calculator
         let selectedProductModifier = 1.2;
 
+        // Set fuel calculation modifiers based on selection
         function setProduct(type, modifier) {
             selectedProductModifier = modifier;
             
@@ -821,16 +626,17 @@ Let’s lock in a 10-minute preview run to show you how we can deploy this to su
             btns.forEach(b => {
                 const el = document.getElementById(`btn-prod-${b}`);
                 if (b === type) {
-                    el.className = "py-3 px-4 rounded-xl border border-amber-500 text-amber-500 font-bold text-xs hover:bg-amber-500/5 transition-all focus:outline-none";
+                    el.className = "py-3 px-4 rounded-lg border border-brand-red text-brand-red font-bold text-xs hover:bg-brand-red/5 transition-all focus:outline-none text-center";
                 } else {
-                    el.className = "py-3 px-4 rounded-xl border border-white/10 text-slate-300 font-semibold text-xs hover:bg-white/5 transition-all focus:outline-none";
+                    el.className = "py-3 px-4 rounded-lg border border-white/10 text-zinc-650 font-semibold text-xs hover:bg-black/5 transition-all focus:outline-none text-center";
                 }
             });
 
             calculateRate();
-            showToast("Product Selected", `Switched pricing standard to ${type.toUpperCase()}`);
+            showToast("Product Chosen", `Switched rate logic to ${type.toUpperCase()}`);
         }
 
+        // Interactive calculation logic matching road regulations
         function calculateRate() {
             const distance = parseFloat(document.getElementById('dist-input').value);
             const volume = parseFloat(document.getElementById('vol-input').value);
@@ -859,25 +665,6 @@ Let’s lock in a 10-minute preview run to show you how we can deploy this to su
             document.getElementById('val-carbon').textContent = `${estimatedCarbonOffset} kg CO2e`;
         }
 
-        // Telematics Fleet Simulator Row Click Toggles
-        function selectTanker(id, origin, destination, progressPercent, fuelType) {
-            document.getElementById('tel-id').textContent = `ACTIVE FEED: ${id}`;
-            document.getElementById('tel-fuel').textContent = fuelType;
-            document.getElementById('tel-origin').textContent = origin;
-            document.getElementById('tel-destination').textContent = destination;
-            document.getElementById('tel-prog').textContent = `${progressPercent}% Completed`;
-
-            // Reposition the moving SVG dot on mock dispatch path map
-            const tankerNode = document.getElementById('tanker-node');
-            const newXValue = 50 + (550 * (progressPercent / 100));
-            const newYValue = 180 - (100 * Math.sin(Math.PI * (progressPercent / 100)));
-            
-            tankerNode.setAttribute('cx', newXValue);
-            tankerNode.setAttribute('cy', newYValue);
-
-            showToast("Tanker Connected", `Feed established for dispatch telemetry unit ${id}`);
-        }
-
         // Custom UI Notification Overlay Popups
         function showToast(title, msg) {
             const toast = document.getElementById('toast-notice');
@@ -892,20 +679,20 @@ Let’s lock in a 10-minute preview run to show you how we can deploy this to su
 
         // Trigger action quote mockup alerts
         function triggerQuoteSent() {
-            showToast("SLA Document Created", "Your digital haulage transport invoice agreement has been drafted!");
+            showToast("SLA Document Created", "Your digital transport invoice agreement has been drafted!");
         }
 
         // Copy Pitch script function for developer drawer utility
         function copyPitchText() {
             const copyContent = `Hi [Decision Maker's Name],
 
-I’ve designed an interactive, high-fidelity digital logistics platform customized specifically for Cross Island Petroleum Supplies. 
+I’ve engineered an interactive, high-fidelity digital logistics platform customized specifically for Cross Island Petroleum Supplies. 
 
-Most haulage competitors rely on generic brochure layouts. By integrating customized visual assets, a live haulage cost estimator, and interactive GPS dispatch simulations, your business immediately signals absolute digital precision, elite compliance standards, and modern professionalism.
+Most haulage competitors rely on basic templates. By integrating custom visual assets, a live dispatch rate estimator, and simulated telematics modules, your business instantly signals absolute precision, modern compliance standards, and industry authority.
 
-I've put together a fully functional sandbox prototype showing how this operates live: [Insert GitHub/Vercel link]
+I've put together a fully functional sandbox showing how this operates live: [Insert GitHub/Vercel link]
 
-Let’s lock in a 10-minute preview run to show you how we can deploy this to supercharge your contract win rates.`;
+Let’s lock in a brief 10-minute preview run to show you how we can deploy this to supercharge your commercial contract win rates.`;
             
             // Clipboard Copy API
             const dummy = document.createElement("textarea");
@@ -915,171 +702,480 @@ Let’s lock in a 10-minute preview run to show you how we can deploy this to su
             document.execCommand("copy");
             document.body.removeChild(dummy);
 
-            showToast("Copied!", "Client pitch draft successfully copied to your dashboard clipboard.");
+            showToast("Copied!", "Proposal script successfully copied to clipboard.");
         }
 
-        // IMMERSIVE THREE.JS 3D FLOW LOGISTICS INFRASTRUCTURE ENGINE
-        let scene, camera, renderer, tubes = [], particles = [];
-        let mouseX = 0, mouseY = 0;
-        let targetRotationX = 0, targetRotationY = 0;
+        // BACKGROUND THREE.JS PARTICLE CONSTELLATION ENGINE
+        let sceneBackground, cameraBackground, rendererBackground, particleSystemBackground;
+        let bgMouseX = 0, bgMouseY = 0;
 
         function initThreeDRefinery() {
             const container = document.getElementById('three-container');
             const width = container.clientWidth;
             const height = container.clientHeight;
 
-            // Create WebGL 3D Scene
-            scene = new THREE.Scene();
-            scene.fog = new THREE.FogExp2(0x020617, 0.015);
+            sceneBackground = new THREE.Scene();
+            sceneBackground.fog = new THREE.FogExp2(0xffffff, 0.002);
 
-            // Setup Camera View
-            camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
-            camera.position.set(0, 15, 35);
+            cameraBackground = new THREE.PerspectiveCamera(50, width / height, 1, 2000);
+            cameraBackground.position.set(0, 0, 320);
 
-            // WebGL Renderer Setup
-            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-            renderer.setSize(width, height);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            container.appendChild(renderer.domElement);
+            rendererBackground = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            rendererBackground.setSize(width, height);
+            rendererBackground.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            container.appendChild(rendererBackground.domElement);
 
-            // Lighting Elements
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
-            scene.add(ambientLight);
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+            sceneBackground.add(ambientLight);
 
-            // Custom Glowing Amber Directional Refiner Lights
-            const pointLight1 = new THREE.PointLight(0xf59e0b, 2.5, 50);
-            pointLight1.position.set(10, 10, 10);
-            scene.add(pointLight1);
+            const dirLight = new THREE.DirectionalLight(0xe11d48, 1.2);
+            dirLight.position.set(100, 150, 50);
+            sceneBackground.add(dirLight);
 
-            const pointLight2 = new THREE.PointLight(0x0ea5e9, 2.0, 50);
-            pointLight2.position.set(-10, -10, -10);
-            scene.add(pointLight2);
+            const particleCount = 800;
+            const particlesGeo = new THREE.BufferGeometry();
+            const positions = new Float32Array(particleCount * 3);
 
-            // Generate 3D Grid Systems
-            const gridHelper = new THREE.GridHelper(50, 40, 0xf59e0b, 0x1e293b);
-            gridHelper.position.y = -8;
-            scene.add(gridHelper);
+            for (let i = 0; i < particleCount * 3; i += 3) {
+                positions[i] = (Math.random() - 0.5) * 800;
+                positions[i + 1] = (Math.random() - 0.5) * 400;
+                positions[i + 2] = (Math.random() - 0.5) * 800;
+            }
 
-            // Create Curved Industrial Flow Pipelines (Spline-Path Geometries)
-            createPipelinePath(new THREE.Vector3(-15, -4, 0), new THREE.Vector3(15, 4, 0), 0xf59e0b);
-            createPipelinePath(new THREE.Vector3(0, -8, -10), new THREE.Vector3(0, 8, 10), 0x0ea5e9);
-            createPipelinePath(new THREE.Vector3(-10, 2, -15), new THREE.Vector3(10, -2, 15), 0xf59e0b);
+            particlesGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
-            // Listeners for Interactive Drag Camera Orbit
-            container.addEventListener('mousemove', onContainerMouseMove);
-            container.addEventListener('touchmove', onContainerTouchMove);
-            window.addEventListener('resize', onWindowResize);
+            function createCircleTexture() {
+                const canvas = document.createElement('canvas');
+                canvas.width = 128;
+                canvas.height = 128;
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, 128, 128);
+                
+                const gradient = ctx.createRadialGradient(64, 64, 0, 64, 64, 64);
+                gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
+                gradient.addColorStop(0.85, 'rgba(255, 255, 255, 1)');
+                gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+                
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(64, 64, 62, 0, Math.PI * 2);
+                ctx.fill();
+                
+                const texture = new THREE.CanvasTexture(canvas);
+                texture.minFilter = THREE.LinearFilter;
+                texture.magFilter = THREE.LinearFilter;
+                return texture;
+            }
 
-            // Trigger Animation Loop
-            animate();
-        }
-
-        function createPipelinePath(start, end, colorHex) {
-            // Define curved pipeline points
-            const curve = new THREE.CatmullRomCurve3([
-                start,
-                new THREE.Vector3((start.x + end.x)/2, start.y + 4, (start.z + end.z)/2),
-                new THREE.Vector3((start.x + end.x)/2, start.y - 4, (start.z + end.z)/2),
-                end
-            ]);
-
-            // Build structural Tube Geometry
-            const tubeGeo = new THREE.TubeGeometry(curve, 64, 0.4, 8, false);
-            const tubeMat = new THREE.MeshPhongMaterial({
-                color: 0x1e293b,
-                emissive: colorHex,
-                emissiveIntensity: 0.15,
+            const pointsMaterial = new THREE.PointsMaterial({
+                color: 0xe11d48,
+                size: 5,
+                map: createCircleTexture(),
                 transparent: true,
-                opacity: 0.85,
-                wireframe: true
+                opacity: 0.5,
+                depthWrite: false,
+                blending: THREE.NormalBlending
             });
 
-            const tubeMesh = new THREE.Mesh(tubeGeo, tubeMat);
-            scene.add(tubeMesh);
-            tubes.push(tubeMesh);
+            particleSystemBackground = new THREE.Points(particlesGeo, pointsMaterial);
+            sceneBackground.add(particleSystemBackground);
 
-            // Spawn flow indicator particles (moving oil droplets along paths)
-            const numParticles = 8;
-            for (let i = 0; i < numParticles; i++) {
-                const particleGeo = new THREE.SphereGeometry(0.35, 8, 8);
-                const particleMat = new THREE.MeshBasicMaterial({
-                    color: colorHex,
-                    transparent: true,
-                    opacity: 0.9
-                });
+            window.addEventListener('mousemove', onBGMouseMove);
+            window.addEventListener('resize', onBGWindowResize);
 
-                const particleMesh = new THREE.Mesh(particleGeo, particleMat);
-                scene.add(particleMesh);
-                
-                // Track current path speed offset position
-                particles.push({
-                    mesh: particleMesh,
-                    curve: curve,
-                    progress: (i / numParticles)
-                });
-            }
+            animateBackground();
         }
 
-        // Interactive mouse pointer offset orbit calculation
-        function onContainerMouseMove(event) {
-            const container = document.getElementById('three-container');
-            const rect = container.getBoundingClientRect();
-            
-            // Normalize coordinates
-            mouseX = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-            mouseY = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-
-            targetRotationY = mouseX * 0.8;
-            targetRotationX = mouseY * 0.8;
+        function onBGMouseMove(event) {
+            bgMouseX = (event.clientX - window.innerWidth / 2) * 0.15;
+            bgMouseY = (event.clientY - window.innerHeight / 2) * 0.15;
         }
 
-        // Support touch alternatives for screens/devices
-        function onContainerTouchMove(event) {
-            if (event.touches.length === 1) {
-                const container = document.getElementById('three-container');
-                const rect = container.getBoundingClientRect();
-                
-                mouseX = ((event.touches[0].clientX - rect.left) / rect.width) * 2 - 1;
-                mouseY = -((event.touches[0].clientY - rect.top) / rect.height) * 2 + 1;
-
-                targetRotationY = mouseX * 0.8;
-                targetRotationX = mouseY * 0.8;
-            }
-        }
-
-        function onWindowResize() {
+        function onBGWindowResize() {
             const container = document.getElementById('three-container');
             const width = container.clientWidth;
             const height = container.clientHeight;
 
-            camera.aspect = width / height;
-            camera.updateProjectionMatrix();
+            cameraBackground.aspect = width / height;
+            cameraBackground.updateProjectionMatrix();
 
-            renderer.setSize(width, height);
+            rendererBackground.setSize(width, height);
         }
 
-        // Main Animation Render Tick Loop
-        function animate() {
-            requestAnimationFrame(animate);
+        function animateBackground() {
+            requestAnimationFrame(animateBackground);
 
-            // Interpolate towards mouse orbit position offsets smoothly
-            scene.rotation.y += (targetRotationY - scene.rotation.y) * 0.05;
-            scene.rotation.x += (targetRotationX - scene.rotation.x) * 0.05;
+            if (particleSystemBackground) {
+                particleSystemBackground.rotation.y += 0.0004;
+                particleSystemBackground.rotation.x += 0.0001;
+            }
 
-            // Slow idle rotatory movement when mouse inactive
-            scene.rotation.y += 0.001;
+            const targetX = bgMouseX;
+            const targetY = -bgMouseY * 0.5;
 
-            // Advance Flow Particles along pipeline splines
-            particles.forEach(p => {
-                p.progress += 0.0025; // Speed multiplier of fuel movement
-                if (p.progress > 1) p.progress = 0;
+            cameraBackground.position.x += (targetX - cameraBackground.position.x) * 0.02;
+            cameraBackground.position.y += (targetY - cameraBackground.position.y) * 0.02;
+            cameraBackground.lookAt(sceneBackground.position);
 
-                // Update physical coordinate vector position
-                const pos = p.curve.getPointAt(p.progress);
-                p.mesh.position.copy(pos);
+            rendererBackground.render(sceneBackground, cameraBackground);
+        }
+
+        // ==========================================
+        // PREMIUM THREE.JS 3D LOGO ANIMATION ENGINE
+        // ==========================================
+        let logoScene, logoCamera, logoRenderer, logoGroup, glassPlaque, logoPlane, glowPlane;
+        let ring1, ring2;
+        let logoMouseX = 0, logoMouseY = 0;
+        let initialZoom = 450;
+        let targetZoom = 180;
+        let animationTime = 0;
+
+        function init3DLogo() {
+            const container = document.getElementById('logo-3d-canvas');
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+
+            // Initialize Scene
+            logoScene = new THREE.Scene();
+
+            // Set up cinematic Camera with initial zoom far away
+            logoCamera = new THREE.PerspectiveCamera(40, width / height, 1, 1000);
+            logoCamera.position.set(0, 0, initialZoom);
+
+            // WebGL Renderer Setup (Transparent overlay)
+            logoRenderer = new THREE.WebGLRenderer({ canvas: container, antialias: true, alpha: true });
+            logoRenderer.setSize(width, height);
+            logoRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            // Lighting Setup for Premium specularity and clearcoat highlights
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.45);
+            logoScene.add(ambientLight);
+
+            // Intense white key light
+            const keyLight = new THREE.DirectionalLight(0xffffff, 1.2);
+            keyLight.position.set(60, 80, 100);
+            logoScene.add(keyLight);
+
+            // Crimson red fill light for glass edge highlights
+            const redFillLight = new THREE.DirectionalLight(0xe11d48, 1.8);
+            redFillLight.position.set(-80, -40, 50);
+            logoScene.add(redFillLight);
+
+            // Back rim light to enhance depth
+            const backRimLight = new THREE.PointLight(0xe11d48, 2.5, 300);
+            backRimLight.position.set(0, 0, -50);
+            logoScene.add(backRimLight);
+
+            // Initialize Consolidated 3D Logo parent node
+            logoGroup = new THREE.Group();
+            logoGroup.scale.set(0.001, 0.001, 0.001); // Initial scale for scale-in animation
+            logoScene.add(logoGroup);
+
+            // 1. EXTRACT / DESIGN 3D PLATFORM: Thin Extruded Capsule Plaque (Obsidian Premium Glass)
+            const plaqueShape = new THREE.Shape();
+            const pW = 42, pH = 26, pR = 5;
+            
+            // Winding Bevel Rounded Rectangle Path
+            plaqueShape.moveTo(-pW/2 + pR, -pH/2);
+            plaqueShape.lineTo(pW/2 - pR, -pH/2);
+            plaqueShape.quadraticCurveTo(pW/2, -pH/2, pW/2, -pH/2 + pR);
+            plaqueShape.lineTo(pW/2, pH/2 - pR);
+            plaqueShape.quadraticCurveTo(pW/2, pH/2, pW/2 - pR, pH/2);
+            plaqueShape.lineTo(-pW/2 + pR, pH/2);
+            plaqueShape.quadraticCurveTo(-pW/2, pH/2, -pW/2, pH/2 - pR);
+            plaqueShape.lineTo(-pW/2, -pH/2 + pR);
+            plaqueShape.quadraticCurveTo(-pW/2, -pH/2, -pW/2 + pR, -pH/2);
+
+            const extrudeSettings = {
+                steps: 1,
+                depth: 1.8,
+                bevelEnabled: true,
+                bevelThickness: 0.6,
+                bevelSize: 0.5,
+                bevelSegments: 4
+            };
+
+            const plaqueGeo = new THREE.ExtrudeGeometry(plaqueShape, extrudeSettings);
+            plaqueGeo.center(); // Perfect pivot point alignment
+
+            const glassMaterial = new THREE.MeshPhysicalMaterial({
+                color: 0x0c0c0e,
+                roughness: 0.15,
+                metalness: 0.1,
+                transmission: 0.65,
+                ior: 1.5,
+                thickness: 3.5,
+                specularIntensity: 1.2,
+                clearcoat: 1.0,
+                clearcoatRoughness: 0.1,
+                transparent: true,
+                opacity: 0.95
             });
 
-            renderer.render(scene, camera);
+            glassPlaque = new THREE.Mesh(plaqueGeo, glassMaterial);
+            logoGroup.add(glassPlaque);
+
+            // 2. EMBED COMPOSITE LOGO TEXTURE (Procedurally Rendered High-Res CIPS Logo)
+            generateLogoTexture((logoTexture) => {
+                
+                // Front Plane for projected vector overlay
+                const planeGeo = new THREE.PlaneGeometry(32, 22);
+                const logoMaterial = new THREE.MeshBasicMaterial({
+                    map: logoTexture,
+                    transparent: true,
+                    side: THREE.DoubleSide,
+                    depthWrite: false
+                });
+
+                logoPlane = new THREE.Mesh(planeGeo, logoMaterial);
+                logoPlane.position.z = 1.45; // Positioned slightly on top of beveled front surface
+                logoGroup.add(logoPlane);
+
+                // Hide loader once texture is generated and parsed successfully
+                const loader = document.getElementById('logo-loader');
+                if (loader) {
+                    loader.classList.add('opacity-0');
+                    setTimeout(() => loader.remove(), 500);
+                }
+            });
+
+            // 3. EMIT BACKPLATE GLOW MASK (Soft Glowing Crimson Radial Gradient Backdrop Plane)
+            const glowCanvas = document.createElement('canvas');
+            glowCanvas.width = 256;
+            glowCanvas.height = 256;
+            const glowCtx = glowCanvas.getContext('2d');
+            const glowGrad = glowCtx.createRadialGradient(128, 128, 0, 128, 128, 128);
+            glowGrad.addColorStop(0, 'rgba(225, 29, 72, 0.85)');
+            glowGrad.addColorStop(0.5, 'rgba(225, 29, 72, 0.25)');
+            glowGrad.addColorStop(1, 'rgba(225, 29, 72, 0)');
+            glowCtx.fillStyle = glowGrad;
+            glowCtx.fillRect(0, 0, 256, 256);
+
+            const glowTexture = new THREE.CanvasTexture(glowCanvas);
+            const glowGeo = new THREE.PlaneGeometry(62, 45);
+            const glowMat = new THREE.MeshBasicMaterial({
+                map: glowTexture,
+                transparent: true,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false,
+                opacity: 0.35
+            });
+
+            glowPlane = new THREE.Mesh(glowGeo, glowMat);
+            glowPlane.position.z = -2.5; // Offset backward to establish true glowing rim light
+            logoGroup.add(glowPlane);
+
+            // 4. METALLIC TECH RINGS (Fine, Polished Crimson Torus Rings Orbiting scene)
+            const ringGeo = new THREE.TorusGeometry(26, 0.25, 12, 100);
+            const ringMat = new THREE.MeshStandardMaterial({
+                color: 0xe11d48,
+                metalness: 0.95,
+                roughness: 0.1,
+                transparent: true,
+                opacity: 0.65
+            });
+
+            ring1 = new THREE.Mesh(ringGeo, ringMat);
+            ring1.rotation.x = Math.PI / 4;
+            logoGroup.add(ring1);
+
+            ring2 = new THREE.Mesh(ringGeo, ringMat);
+            ring2.rotation.y = Math.PI / 3;
+            logoGroup.add(ring2);
+
+            // Input handlers
+            window.addEventListener('mousemove', onLogoMouseMove);
+            window.addEventListener('resize', onLogoWindowResize);
+
+            // Init loop
+            animateLogo();
+        }
+
+        // Procedural Vector Asset Generator (Draws high-fidelity logo onto texture canvas)
+        function generateLogoTexture(onComplete) {
+            let completed = false;
+            
+            const handleComplete = (texture) => {
+                if (completed) return;
+                completed = true;
+                onComplete(texture);
+            };
+
+            const fallbackProcedural = () => {
+                if (completed) return;
+                console.log("Locating asset fallback: Rendering high-res procedural vector representation");
+                const canvas = document.createElement('canvas');
+                canvas.width = 1024;
+                canvas.height = 720;
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, 1024, 720);
+
+                // Draw Core Letters "C", "i", "P", "S"
+                ctx.font = "bold 260px Inter, system-ui, sans-serif";
+                ctx.fillStyle = "#000000";
+                
+                // letter C
+                ctx.fillText("C", 180, 450);
+                
+                // Draw "i" stem (rounded)
+                ctx.fillStyle = "#000000";
+                
+                // Safe browser-compatible rounded rect draw
+                const drawRoundedRectLocal = (cx, cy, cw, ch, cr) => {
+                    ctx.beginPath();
+                    ctx.moveTo(cx + cr, cy);
+                    ctx.lineTo(cx + cw - cr, cy);
+                    ctx.quadraticCurveTo(cx + cw, cy, cx + cw, cy + cr);
+                    ctx.lineTo(cx + cw, cy + ch - cr);
+                    ctx.quadraticCurveTo(cx + cw, cy + ch, cx + cw - cr, cy + ch);
+                    ctx.lineTo(cx + cr, cy + ch);
+                    ctx.quadraticCurveTo(cx, cy + ch, cx, cy + ch - cr);
+                    ctx.lineTo(cx, cy + cr);
+                    ctx.quadraticCurveTo(cx, cy, cx + cr, cy);
+                    ctx.closePath();
+                    ctx.fill();
+                };
+                drawRoundedRectLocal(375, 335, 45, 120, 10);
+                
+                // Draw Red/Orange play triangle on top of "i" stem
+                ctx.fillStyle = "#e11d48";
+                ctx.beginPath();
+                ctx.moveTo(375, 210);
+                ctx.lineTo(470, 272);
+                ctx.lineTo(375, 335);
+                ctx.closePath();
+                ctx.fill();
+                
+                // Draw "P"
+                ctx.fillStyle = "#000000";
+                ctx.fillText("P", 445, 450);
+                
+                // Draw "S"
+                ctx.fillText("S", 605, 450);
+
+                // Subtext: "Moving forward"
+                ctx.font = "600 54px Inter, system-ui, sans-serif";
+                ctx.fillStyle = "#000000";
+                ctx.fillText("Moving forward", 180, 560);
+
+                // Chevrons >>>
+                const drawChevron = (x, y) => {
+                    ctx.beginPath();
+                    ctx.lineWidth = 14;
+                    ctx.lineCap = 'round';
+                    ctx.lineJoin = 'round';
+                    ctx.strokeStyle = '#e11d48';
+                    ctx.moveTo(x, y);
+                    ctx.lineTo(x + 18, y + 18);
+                    ctx.lineTo(x, y + 36);
+                    ctx.stroke();
+                };
+                drawChevron(605, 522);
+                drawChevron(630, 522);
+                drawChevron(655, 522);
+
+                const texture = new THREE.CanvasTexture(canvas);
+                texture.minFilter = THREE.LinearFilter;
+                texture.magFilter = THREE.LinearFilter;
+                handleComplete(texture);
+            };
+
+            // Set strict safety timeout (500ms) to ensure loader never hangs if image fetch blocks
+            const timeoutId = setTimeout(() => {
+                fallbackProcedural();
+            }, 500);
+
+            // Attempt to load clean local SVG asset first
+            const loader = new THREE.TextureLoader();
+            loader.load(
+                "Screenshot-2026-05-21-212944.svg",
+                (texture) => {
+                    clearTimeout(timeoutId);
+                    texture.minFilter = THREE.LinearFilter;
+                    texture.magFilter = THREE.LinearFilter;
+                    handleComplete(texture);
+                },
+                undefined,
+                (err) => {
+                    // Falls back to PNG loader if SVG path isn't exposed
+                    loader.load(
+                        "Screenshot 2026-05-21 212944.png",
+                        (pngTexture) => {
+                            clearTimeout(timeoutId);
+                            pngTexture.minFilter = THREE.LinearFilter;
+                            pngTexture.magFilter = THREE.LinearFilter;
+                            handleComplete(pngTexture);
+                        },
+                        undefined,
+                        () => {
+                            clearTimeout(timeoutId);
+                            fallbackProcedural(); // Ultimate safe procedural rendering
+                        }
+                    );
+                }
+            );
+        }
+
+        function onLogoMouseMove(event) {
+            const container = document.getElementById('logo-3d-canvas');
+            const rect = container.getBoundingClientRect();
+            logoMouseX = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+            logoMouseY = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+        }
+
+        function onLogoWindowResize() {
+            const container = document.getElementById('logo-3d-canvas');
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+
+            logoCamera.aspect = width / height;
+            logoCamera.updateProjectionMatrix();
+
+            logoRenderer.setSize(width, height);
+        }
+
+        // Render Frame Loop for 3D Logo Presentation
+        function animateLogo() {
+            requestAnimationFrame(animateLogo);
+            animationTime += 0.015;
+
+            // 1. Zoom-In Cinematic Easing on startup
+            logoCamera.position.z += (targetZoom - logoCamera.position.z) * 0.035;
+
+            // 2. Scale-In / Fade-In Easing on startup
+            if (logoGroup.scale.x < 1.0) {
+                const currentScale = logoGroup.scale.x + (1.0 - logoGroup.scale.x) * 0.04;
+                logoGroup.scale.set(currentScale, currentScale, currentScale);
+            }
+
+            // 3. Floating (Smooth Breathing) Motion using Sine waves
+            const bobbingValue = Math.sin(animationTime * 1.4) * 1.5;
+            logoGroup.position.y = bobbingValue;
+
+            // Breating Emissive Backlight mask
+            if (glowPlane) {
+                glowPlane.scale.setScalar(1.0 + Math.sin(animationTime * 1.4) * 0.04);
+            }
+
+            // 4. Parallax Orientation Offset responding to hover coordinates
+            const targetRotationY = logoMouseX * 0.35;
+            const targetRotationX = logoMouseY * 0.22;
+
+            logoGroup.rotation.y += (targetRotationY - logoGroup.rotation.y) * 0.08;
+            logoGroup.rotation.x += (targetRotationX - logoGroup.rotation.x) * 0.08;
+
+            // Slow constant diagnostic idle pan
+            logoGroup.rotation.y += Math.sin(animationTime * 0.4) * 0.001;
+
+            // 5. Orbiting Tech rings continuous spin on independent axes
+            if (ring1 && ring2) {
+                ring1.rotation.x += 0.006;
+                ring1.rotation.y += 0.003;
+                ring2.rotation.x -= 0.004;
+                ring2.rotation.y += 0.005;
+            }
+
+            logoRenderer.render(logoScene, logoCamera);
         }
     </script>
 </body>
