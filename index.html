@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cross Island Petroleum Supplies | Elite Fuel Haulage & Logistics</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -30,15 +29,10 @@
             }
         }
     </script>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Three.js Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <!-- SVGLoader Extension for Three.js -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/SVGLoader.js"></script>
-    <!-- Custom CSS for Blasphemorphic UI -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -83,11 +77,9 @@
 </head>
 <body class="selection:bg-brand-red selection:text-white">
 
-    <!-- Top Ambient Lights -->
     <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-red/5 rounded-full blur-[120px] pointer-events-none"></div>
     <div class="absolute top-[80vh] right-1/4 w-96 h-96 bg-brand-red/5 rounded-full blur-[150px] pointer-events-none"></div>
 
-    <!-- Developer Pitch Indicator Bar -->
     <div class="bg-gradient-to-r from-brand-red to-[#9f1239] text-white py-2.5 px-4 font-semibold text-xs md:text-sm shadow-lg sticky top-0 z-50 flex justify-between items-center backdrop-blur-md">
         <div class="flex items-center gap-2 mx-auto sm:mx-0">
             <span class="bg-black text-brand-red rounded-full px-2.5 py-0.5 text-[10px] tracking-wider uppercase font-bold">PROPOSAL READY</span>
@@ -98,10 +90,8 @@
         </button>
     </div>
 
-    <!-- MAIN NAVBAR -->
     <nav class="glass sticky top-[42px] z-40 px-6 py-4 mx-4 my-4 rounded-xl transition-all border border-black/5 shadow-xl">
         <div class="max-w-7xl mx-auto flex flex-col gap-4 items-center justify-center sm:flex-row sm:justify-between">
-            <!-- Brand Logo Logo -->
             <a href="#" class="flex flex-col items-center gap-2 group text-center sm:flex-row sm:text-left sm:gap-3">
                 <div class="relative w-10 h-10 bg-gradient-to-tr from-brand-red to-rose-700 rounded-lg flex items-center justify-center shadow-lg shadow-brand-red/20 group-hover:scale-105 transition-all">
                     <i data-lucide="fuel" class="w-6 h-6 text-white stroke-[2.5]"></i>
@@ -112,7 +102,6 @@
                 </div>
             </a>
 
-            <!-- Menu Links (Desktop) -->
             <div class="flex flex-wrap justify-center items-center gap-6 font-medium text-sm text-zinc-700">
                 <a href="#services" class="hover:text-brand-red transition-colors">Our Services</a>
                 <a href="#quote" class="hover:text-brand-red transition-colors">Haulage Estimator</a>
@@ -120,7 +109,6 @@
                 <a href="#contact" class="hover:text-brand-red transition-colors">Contact Us</a>
             </div>
 
-            <!-- CTA / Contact -->
             <div class="flex items-center justify-center">
                 <a href="#quote" class="bg-brand-red hover:bg-brand-redHover text-white font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-lg shadow-lg shadow-brand-red/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
                     Get Haulage Quote
@@ -129,10 +117,8 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION WITH INTEGRATED BACKGROUND PARTICLES -->
     <section class="relative min-h-[95vh] flex flex-col items-center justify-center px-6 py-12 lg:py-16 max-w-7xl mx-auto text-center overflow-hidden">
         
-        <!-- Interactive 3D Background constellation canvas -->
         <div id="three-container" class="absolute inset-0 w-full h-full pointer-events-none z-0"></div>
 
         <div class="relative z-10 space-y-6 flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
@@ -140,14 +126,11 @@
                 <span class="w-2 h-2 rounded-full bg-brand-red animate-ping"></span> Islandwide Fuel & Oil Haulage Specialist
             </div>
             
-            <!-- Three.js Premium 3D Logo Lockup Canvas Frame -->
             <div class="relative w-full max-w-xl h-72 md:h-96 mx-auto flex items-center justify-center">
-                <!-- Professional Loading Fallback -->
                 <div id="logo-loader" class="absolute inset-0 flex flex-col items-center justify-center bg-white/85 z-20 transition-opacity duration-500">
                     <div class="w-10 h-10 border-4 border-brand-red/20 border-t-brand-red rounded-full animate-spin"></div>
                     <span class="text-[10px] uppercase font-bold tracking-widest text-zinc-600 mt-3">Compiling 3D Wordmark Meshes</span>
                 </div>
-                <!-- 3D Logo Canvas -->
                 <canvas id="logo-3d-canvas" class="w-full h-full cursor-grab active:cursor-grabbing outline-none"></canvas>
             </div>
 
@@ -162,7 +145,6 @@
                 Connecting refineries, depots, and industrial sites across the terrain with absolute precision. High-capacity Class-A tankers, real-time volume telematics, and zero-incident safety protocols.
             </p>
 
-            <!-- Key Telemetry Metrics Hero -->
             <div class="grid grid-cols-3 gap-8 py-4 max-lg mx-auto w-full">
                 <div class="flex flex-col items-center text-center">
                     <span class="text-2xl sm:text-3xl font-extrabold text-black block border-b-2 border-brand-red px-2 mb-1">100%</span>
@@ -178,7 +160,6 @@
                 </div>
             </div>
 
-            <!-- Action CTAs -->
             <div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center w-full max-w-md mx-auto">
                 <a href="#quote" class="bg-brand-red hover:bg-brand-redHover text-white font-extrabold px-8 py-4 rounded-lg shadow-xl shadow-brand-red/25 text-center hover:scale-[1.02] transition-all duration-200 w-full">
                     Initiate Transport Order
@@ -190,11 +171,9 @@
         </div>
     </section>
 
-    <!-- LOGISTICS SERVICES -->
     <section id="services" class="py-20 px-6 max-w-7xl mx-auto border-t border-zinc-200 text-center">
         <div class="flex flex-col items-center justify-center gap-12 w-full">
             
-            <!-- Centered Header -->
             <div class="space-y-6 max-w-3xl mx-auto">
                 <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-red block">OUR CAPABILITIES</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">Fuel Haulage, Engineered for Precision</h2>
@@ -218,9 +197,7 @@
                 </div>
             </div>
 
-            <!-- Centered Service Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-5xl mx-auto">
-                <!-- Gas/Diesel Card -->
                 <div class="glass-premium p-6 rounded-xl border border-black/5 hover:border-brand-red/30 transition-all duration-300 group flex flex-col items-center text-center">
                     <div class="w-12 h-12 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red group-hover:scale-110 transition-transform mb-6">
                         <i data-lucide="droplet" class="w-6 h-6"></i>
@@ -231,7 +208,6 @@
                     </p>
                 </div>
 
-                <!-- Jet Fuel / Aviation Card -->
                 <div class="glass-premium p-6 rounded-xl border border-black/5 hover:border-brand-red/30 transition-all duration-300 group flex flex-col items-center text-center">
                     <div class="w-12 h-12 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red group-hover:scale-110 transition-transform mb-6">
                         <i data-lucide="plane" class="w-6 h-6"></i>
@@ -242,7 +218,6 @@
                     </p>
                 </div>
 
-                <!-- Lubricants Card -->
                 <div class="glass-premium p-6 rounded-xl border border-black/5 hover:border-brand-red/30 transition-all duration-300 group flex flex-col items-center text-center">
                     <div class="w-12 h-12 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red group-hover:scale-110 transition-transform mb-6">
                         <i data-lucide="package" class="w-6 h-6"></i>
@@ -253,7 +228,6 @@
                     </p>
                 </div>
 
-                <!-- Emergency Dispatch Card -->
                 <div class="glass-premium p-6 rounded-xl border border-black/5 hover:border-brand-red/30 transition-all duration-300 group flex flex-col items-center text-center">
                     <div class="w-12 h-12 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red group-hover:scale-110 transition-transform mb-6">
                         <i data-lucide="zap" class="w-6 h-6"></i>
@@ -268,7 +242,6 @@
         </div>
     </section>
 
-    <!-- HAULAGE COST CALCULATOR & QUOTE REQUEST -->
     <section id="quote" class="py-20 px-6 max-w-7xl mx-auto border-t border-zinc-200 text-center">
         <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
             <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-red block">TRANSPARENT VALUE</span>
@@ -280,14 +253,12 @@
 
         <div class="grid grid-cols-1 gap-8 items-stretch max-w-5xl mx-auto">
             
-            <!-- Centered Calculator Settings Box -->
             <div class="glass rounded-2xl p-6 lg:p-8 border border-black/5 flex flex-col justify-between items-center text-center w-full">
                 <div class="space-y-8 w-full max-w-3xl">
                     <h3 class="font-bold text-lg text-black flex items-center justify-center gap-2 mx-auto">
                         <i data-lucide="sliders" class="text-brand-red w-5 h-5"></i> Logistics Parameters
                     </h3>
 
-                    <!-- Parameter 1: Fuel Product Select -->
                     <div class="flex flex-col items-center">
                         <label class="block text-xs font-bold uppercase tracking-wider text-zinc-555 mb-3 text-center">Select Fuel Product</label>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-xl">
@@ -303,7 +274,6 @@
                         </div>
                     </div>
 
-                    <!-- Parameter 2: Delivery Distance Slider -->
                     <div class="w-full max-w-xl mx-auto">
                         <div class="flex justify-between items-center mb-2">
                             <label class="text-xs font-bold uppercase tracking-wider text-zinc-500">Haulage Distance</label>
@@ -317,7 +287,6 @@
                         </div>
                     </div>
 
-                    <!-- Parameter 3: Quantity Slider -->
                     <div class="w-full max-w-xl mx-auto">
                         <div class="flex justify-between items-center mb-2">
                             <label class="text-xs font-bold uppercase tracking-wider text-zinc-500">Required Load Volume</label>
@@ -339,7 +308,6 @@
                 </div>
             </div>
 
-            <!-- Centered Cost Estimates Screen -->
             <div class="bg-gradient-to-br from-zinc-50 to-white rounded-2xl p-6 lg:p-8 border border-brand-red/20 shadow-xl flex flex-col justify-between items-center text-center w-full max-w-xl mx-auto">
                 <div class="w-full">
                     <span class="text-xs font-extrabold text-brand-red tracking-widest uppercase block mb-1 text-center">PROPOSAL ESTIMATOR</span>
@@ -365,7 +333,6 @@
                         </div>
                     </div>
 
-                    <!-- Carbon Impact Alert -->
                     <div class="p-4 bg-zinc-100 border border-brand-red/20 rounded-xl flex gap-3 items-center justify-center w-full max-w-md mx-auto text-center">
                         <div class="p-2 bg-brand-red/10 rounded-lg text-brand-red shrink-0">
                             <i data-lucide="leaf" class="w-5 h-5"></i>
@@ -377,8 +344,7 @@
                     </div>
                 </div>
 
-                <!-- Submit Button to client -->
-                <button onclick="triggerQuoteSent()" class="w-full max-w-md bg-brand-red hover:bg-brand-redHover text-white font-extrabold text-xs uppercase tracking-wider py-4 rounded-lg shadow-lg mt-6 hover:scale-[1.01] active:scale-[0.99] transition-all">
+                <button onclick="triggerQuoteSent()" class="w-full max-w-md bg-brand-red hover:bg-brand-redHover text-white font-extrabold text-xs uppercase tracking-wider py-4 rounded-lg shadow-lg mt-6 hover:scale-[1.01] active:scale-[0.99] transition-all border-none">
                     Generate Formal SLA Document
                 </button>
             </div>
@@ -386,7 +352,6 @@
         </div>
     </section>
 
-    <!-- TRUST & SAFETY ASSURANCE SECTION -->
     <section id="about" class="py-20 px-6 max-w-7xl mx-auto border-t border-zinc-200 text-center">
         <div class="grid grid-cols-1 gap-12 items-center justify-center max-w-4xl mx-auto">
             
@@ -415,14 +380,12 @@
                 </div>
             </div>
 
-            <!-- Terminal Graphics Box (Centered) -->
             <div class="relative rounded-2xl border border-black/5 p-8 overflow-hidden bg-zinc-50 shadow-2xl w-full max-w-2xl mx-auto flex flex-col items-center">
                 <div class="absolute inset-0 opacity-[0.02] pointer-events-none" style="background-image: radial-gradient(rgba(0,0,0,0.15) 1px, transparent 1px); background-size: 24px 24px;"></div>
                 
                 <h3 class="font-bold text-black text-lg mb-2">Quality Control Verification</h3>
                 <p class="text-xs text-zinc-550 mb-6 max-w-md">Our automated fuel verification framework monitors chemical purity values live.</p>
 
-                <!-- Fuel Lab Quality Specs Grid (Centered layout) -->
                 <div class="space-y-5 w-full max-w-md mx-auto text-left">
                     <div class="space-y-1.5">
                         <div class="flex justify-between text-xs font-semibold">
@@ -459,7 +422,6 @@
         </div>
     </section>
 
-    <!-- CORPORATE HEADQUARTERS & CONTACT INFO SECTION -->
     <section id="contact" class="py-20 px-6 max-w-7xl mx-auto border-t border-zinc-200 text-center">
         <div class="space-y-4 max-w-2xl mx-auto mb-12">
             <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-red block">HEADQUARTERS & CONTACT</span>
@@ -470,7 +432,6 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto items-stretch">
-            <!-- Office Address Card -->
             <div class="p-6 bg-zinc-50 border border-black/5 rounded-xl flex flex-col items-center text-center space-y-4 shadow-sm hover:shadow-md transition-shadow">
                 <div class="p-3.5 bg-brand-red/10 rounded-full text-brand-red">
                     <i data-lucide="map-pin" class="w-6 h-6"></i>
@@ -483,7 +444,6 @@
                 </div>
             </div>
 
-            <!-- Direct Lines Card -->
             <div class="p-6 bg-zinc-50 border border-black/5 rounded-xl flex flex-col items-center text-center space-y-4 shadow-sm hover:shadow-md transition-shadow">
                 <div class="p-3.5 bg-brand-red/10 rounded-full text-brand-red">
                     <i data-lucide="phone" class="w-6 h-6"></i>
@@ -496,7 +456,6 @@
                 </div>
             </div>
 
-            <!-- Email Inquiries Card -->
             <div class="p-6 bg-zinc-50 border border-black/5 rounded-xl flex flex-col items-center text-center space-y-4 shadow-sm hover:shadow-md transition-shadow">
                 <div class="p-3.5 bg-brand-red/10 rounded-full text-brand-red">
                     <i data-lucide="mail" class="w-6 h-6"></i>
@@ -510,7 +469,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="bg-zinc-50 border-t border-zinc-200 py-12 px-6 text-center">
         <div class="max-w-7xl mx-auto flex flex-col items-center justify-center gap-8">
             <div class="flex flex-col items-center justify-center gap-3">
@@ -533,11 +491,9 @@
         </div>
     </footer>
 
-    <!-- DEVELOPER PITCH & PROPOSAL DRAWER -->
     <div id="pitch-panel" class="fixed inset-y-0 right-0 w-full md:w-[600px] bg-white border-l border-brand-red/30 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 overflow-y-auto hidden">
         <div class="p-6 md:p-8 space-y-8 text-center flex flex-col items-center">
             
-            <!-- Pitch Drawer Header -->
             <div class="flex justify-between items-center border-b border-zinc-200 pb-5 w-full">
                 <div class="flex items-center gap-3 mx-auto">
                     <div class="p-2.5 bg-brand-red/10 rounded-lg text-brand-red border border-brand-red/20">
@@ -553,7 +509,6 @@
                 </button>
             </div>
 
-            <!-- Pitch Content Section 1: Business Overview -->
             <div class="space-y-4 w-full">
                 <span class="text-[10px] font-extrabold text-brand-red uppercase tracking-widest block text-center">THE TARGET PROBLEM</span>
                 <h3 class="font-extrabold text-lg text-black text-center">Why Cross Island Petroleum Supplies needs this</h3>
@@ -562,7 +517,6 @@
                 </p>
             </div>
 
-            <!-- Pitch Content Section 2: Pricing Strategy Blueprint -->
             <div class="space-y-4 w-full">
                 <span class="text-[10px] font-extrabold text-brand-red uppercase tracking-widest block text-center">THE BUSINESS ARCHITECTURE</span>
                 <h3 class="font-extrabold text-lg text-black text-center">Pricing Model Recommendations</h3>
@@ -586,7 +540,6 @@
                 </div>
             </div>
 
-            <!-- Pitch Content Section 3: Copy-Paste Client Pitch Script -->
             <div class="space-y-4 w-full">
                 <span class="text-[10px] font-extrabold text-brand-red uppercase tracking-widest block text-center">CLIENT EMAIL & PITCH TEMPLATE</span>
                 <h3 class="font-extrabold text-lg text-black text-center">Pitch Framework to Secure Interest</h3>
@@ -609,7 +562,6 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 </div>
             </div>
 
-            <!-- Pitch Drawer Footer -->
             <div class="pt-4 border-t border-zinc-200 text-center w-full max-w-md mx-auto">
                 <button onclick="togglePitchPanel()" class="bg-brand-red text-white font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-lg w-full border-none">
                     Return to Live Client Preview
@@ -618,7 +570,6 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
         </div>
     </div>
 
-    <!-- Toast Notice Component -->
     <div id="toast-notice" class="fixed bottom-6 right-6 glass border-brand-red/45 border p-4 rounded-xl shadow-2xl z-50 flex items-center gap-3 transition-opacity duration-300 opacity-0 pointer-events-none">
         <div class="p-1.5 bg-brand-red/10 rounded-lg text-brand-red">
             <i data-lucide="check" class="w-5 h-5"></i>
@@ -629,7 +580,6 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
         </div>
     </div>
 
-    <!-- Script Logic -->
     <script>
         // Start Lucide Icons on Ready
         window.addEventListener('DOMContentLoaded', () => {
@@ -882,10 +832,9 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
         let ring1, ring2;
         let logoMouseX = 0, logoMouseY = 0;
         let initialZoom = 450;
-        let targetZoom = 130; // Closer zoom to make the logo dominant
+        let targetZoom = 130; 
         let animationTime = 0;
 
-        // SPECIFIED CONFIGURATION PATH
         const logoPath = "./logo.svg";
 
         function init3DLogo() {
@@ -894,46 +843,36 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
             const width = container.clientWidth;
             const height = container.clientHeight;
 
-            // Initialize Scene
             logoScene = new THREE.Scene();
 
-            // Set up cinematic Camera with initial zoom far away
             logoCamera = new THREE.PerspectiveCamera(40, width / height, 1, 1000);
             logoCamera.position.set(0, 0, initialZoom);
 
-            // WebGL Renderer Setup (Transparent overlay)
             logoRenderer = new THREE.WebGLRenderer({ canvas: container, antialias: true, alpha: true });
             logoRenderer.setSize(width, height);
             logoRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-            // Lighting Setup for Premium specularity and highlights
             const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
             logoScene.add(ambientLight);
 
-            // Dynamic spotlights for rim lighting and reflections on letters
             const keyLight = new THREE.SpotLight(0xffffff, 2, 300, Math.PI / 4, 0.5, 1);
             keyLight.position.set(50, 80, 100);
             logoScene.add(keyLight);
 
-            // Crimson red fill light for luxury edge highlights
             const redFillLight = new THREE.DirectionalLight(0xe11d48, 3.5);
             redFillLight.position.set(-80, 40, 50);
             logoScene.add(redFillLight);
 
-            // Back spotlight for extreme rim lighting
             const backSpot = new THREE.SpotLight(0xe11d48, 6, 200, Math.PI / 3, 0.8, 1);
             backSpot.position.set(0, 0, -60);
             logoScene.add(backSpot);
 
-            // Initialize Consolidated 3D Logo parent group
             logoGroup = new THREE.Group();
-            logoGroup.scale.set(0.001, 0.001, 0.001); // Initial scale for scale-in animation
+            logoGroup.scale.set(0.001, 0.001, 0.001); 
             logoScene.add(logoGroup);
 
-            // 1. EMBED COMPOSITE LOGO TEXTURE (Directly extrudes paths from logo.svg or fallback shapes)
             generateLogoTexture();
 
-            // 2. EMIT BACKPLATE GLOW MASK (Soft Glowing Crimson Backdrop)
             const glowCanvas = document.createElement('canvas');
             glowCanvas.width = 256;
             glowCanvas.height = 256;
@@ -956,10 +895,9 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
             });
 
             glowPlane = new THREE.Mesh(glowGeo, glowMat);
-            glowPlane.position.z = -12; // Farther back since plaque is gone
+            glowPlane.position.z = -12; 
             logoGroup.add(glowPlane);
 
-            // 3. METALLIC TECH RINGS (Fine, Polished Crimson Torus Rings Orbiting scene)
             const ringGeo = new THREE.TorusGeometry(32, 0.2, 12, 100);
             const ringMat = new THREE.MeshStandardMaterial({
                 color: 0xe11d48,
@@ -977,15 +915,12 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
             ring2.rotation.y = Math.PI / 3;
             logoGroup.add(ring2);
 
-            // Input handlers
             window.addEventListener('mousemove', onLogoMouseMove);
             window.addEventListener('resize', onLogoWindowResize);
 
-            // Init loop
             animateLogo();
         }
 
-        // Resilient XML SVG Asset Fetcher & 3D Extruder
         function generateLogoTexture() {
             let completed = false;
             
@@ -995,7 +930,6 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 
                 logoGroup.add(meshGroup);
 
-                // Hide loader once meshes are generated and rendered successfully
                 const loader = document.getElementById('logo-loader');
                 if (loader) {
                     loader.classList.add('opacity-0');
@@ -1003,23 +937,20 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 }
             };
 
-            // High-fidelity fallback vector generator (recreates beautiful individual 3D letter shapes)
+            // Procedural CAD-style pure 3D generation to ensure accurate orientations
             const fallbackProcedural = () => {
                 if (completed) return;
-                console.log("CIPS Engine Fallback: Generating pristine high-contrast 3D extruded lettering");
                 
                 const letterGroup = new THREE.Group();
 
-                // High-contrast, polished dark chrome/obsidian metal material for clean light-background visibility
                 const darkMetalMaterial = new THREE.MeshStandardMaterial({
-                    color: 0x18181c, // Sleek polished gunmetal/black chrome
+                    color: 0x18181c, 
                     metalness: 0.9,
                     roughness: 0.15,
                     side: THREE.DoubleSide,
                     depthWrite: true
                 });
 
-                // Shared luxury brand red material for chevrons & play button
                 const crimsonMetalMaterial = new THREE.MeshStandardMaterial({
                     color: 0xe11d48,
                     metalness: 0.9,
@@ -1028,7 +959,6 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                     depthWrite: true
                 });
 
-                // Standard subtle extrusion settings
                 const extrudeConfig = {
                     depth: 1.8,
                     bevelEnabled: true,
@@ -1038,11 +968,10 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                     steps: 1
                 };
 
-                // ---- Draw 'C' Shape ----
+                // ---- C Shape ----
                 const cShape = new THREE.Shape();
                 const rOut = 9, rIn = 5.2, angle = 0.52;
-                const cos = Math.cos(angle), sin = Math.sin(angle);
-                cShape.moveTo(rOut * cos, rOut * sin);
+                cShape.moveTo(rOut * Math.cos(angle), rOut * Math.sin(angle));
                 cShape.absarc(0, 0, rOut, angle, Math.PI * 2 - angle, false);
                 cShape.lineTo(rIn * Math.cos(Math.PI * 2 - angle), rIn * Math.sin(Math.PI * 2 - angle));
                 cShape.absarc(0, 0, rIn, Math.PI * 2 - angle, angle, true);
@@ -1052,7 +981,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 cMesh.position.set(-14, 2, 0);
                 letterGroup.add(cMesh);
 
-                // ---- Draw 'i' Stem (Capsule) ----
+                // ---- i Stem ----
                 const iShape = new THREE.Shape();
                 const w = 3.2, h = 8.5, r = 1.6;
                 iShape.moveTo(-w/2 + r, -h/2);
@@ -1069,7 +998,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 iMesh.position.set(-4.8, -1.2, 0);
                 letterGroup.add(iMesh);
 
-                // ---- Draw Red Play Triangle (Dot of 'i') ----
+                // ---- Orange/Red play triangle (i dot) ----
                 const triShape = new THREE.Shape();
                 triShape.moveTo(-3, 3.5);
                 triShape.lineTo(4.5, -0.8);
@@ -1080,7 +1009,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 triMesh.position.set(-4.8, 6.2, 0);
                 letterGroup.add(triMesh);
 
-                // ---- Draw 'P' Shape (with Inner Hole) ----
+                // ---- P Shape ----
                 const pShape = new THREE.Shape();
                 pShape.moveTo(-4.5, -8.5);
                 pShape.lineTo(-1.5, -8.5);
@@ -1102,29 +1031,50 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 pMesh.position.set(3, 2, 0);
                 letterGroup.add(pMesh);
 
-                // ---- Draw 'S' Shape (Corrected, standard non-inverted orientation) ----
+                // ---- S Shape mathematically fixed orientation ----
                 const sShape = new THREE.Shape();
-                sShape.moveTo(-4, 4.5);
-                sShape.quadraticCurveTo(-4, 8.5, 0, 8.5);
-                sShape.quadraticCurveTo(4, 8.5, 4, 4.5);
-                sShape.quadraticCurveTo(4, 1.5, 0, 0);
-                sShape.quadraticCurveTo(-4, -1.5, -4, -4.5);
+                // Outer Top Curve
+                sShape.moveTo(4, 3.5);
+                sShape.quadraticCurveTo(4, 8.5, 0, 8.5);
+                sShape.quadraticCurveTo(-4, 8.5, -4, 4.5);
+                sShape.lineTo(-1.3, 4.5);
+                sShape.quadraticCurveTo(-1.3, 6.2, 0, 6.2);
+                sShape.quadraticCurveTo(1.4, 6.2, 1.4, 4.0);
+                sShape.quadraticCurveTo(1.4, 1.8, -1.5, 0.5);
+                // Outer Bottom Curve
+                sShape.quadraticCurveTo(-4, -0.8, -4, -4.5);
                 sShape.quadraticCurveTo(-4, -8.5, 0, -8.5);
-                sShape.quadraticCurveTo(4, -8.5, 4, -4.5);
-                sShape.lineTo(1.8, -4.5);
-                sShape.quadraticCurveTo(1.8, -6.3, 0, -6.3);
-                sShape.quadraticCurveTo(-1.8, -6.3, -1.8, -4.5);
-                sShape.quadraticCurveTo(-1.8, -2.5, 0, -1.5);
-                sShape.quadraticCurveTo(1.8, -0.5, 1.8, 4.5);
-                sShape.quadraticCurveTo(1.8, 6.3, 0, 6.3);
-                sShape.quadraticCurveTo(-1.8, 6.3, -1.8, 4.5);
+                sShape.quadraticCurveTo(4, -8.5, 4, -3.5);
+                sShape.lineTo(1.3, -3.5);
+                sShape.quadraticCurveTo(1.3, -6.2, 0, -6.2);
+                sShape.quadraticCurveTo(-1.4, -6.2, -1.4, -4.0);
+                sShape.quadraticCurveTo(-1.4, -1.8, 1.5, -0.5);
+                sShape.quadraticCurveTo(4, 0.8, 4, 3.5);
                 sShape.closePath();
 
                 const sMesh = new THREE.Mesh(new THREE.ExtrudeGeometry(sShape, extrudeConfig), darkMetalMaterial);
                 sMesh.position.set(13.5, 2, 0);
                 letterGroup.add(sMesh);
 
-                // ---- Chevrons underneath wordmark >>> ----
+                // Add edge geometry contour line overlays to add clean bold outlines
+                const addOutlines = (mesh, material) => {
+                    const edges = new THREE.EdgesGeometry(mesh.geometry, 25);
+                    const lineMat = new THREE.LineBasicMaterial({ color: 0x000000, linewidth: 2 });
+                    const line = new THREE.LineSegments(edges, lineMat);
+                    line.position.copy(mesh.position);
+                    line.scale.copy(mesh.scale);
+                    line.rotation.copy(mesh.rotation);
+                    letterGroup.add(line);
+                };
+
+                // Apply premium outer contour overlays
+                addOutlines(cMesh);
+                addOutlines(iMesh);
+                addOutlines(triMesh);
+                addOutlines(pMesh);
+                addOutlines(sMesh);
+
+                // ---- Chevrons >>> ----
                 const drawChevronShape = () => {
                     const shape = new THREE.Shape();
                     shape.moveTo(0, 0);
@@ -1148,7 +1098,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 chevGroup.position.set(10.5, -12.5, 0);
                 letterGroup.add(chevGroup);
 
-                // Add 3D "Moving forward" flat lettering backing (charcoal text for light-mode readability)
+                // Subtext Plane
                 const subtextCanvas = document.createElement('canvas');
                 subtextCanvas.width = 512;
                 subtextCanvas.height = 128;
@@ -1169,14 +1119,12 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 subtextMesh.position.set(-3.5, -11, 0.2);
                 letterGroup.add(subtextMesh);
 
-                // Center LetterGroup
                 const box = new THREE.Box3().setFromObject(letterGroup);
                 const center = new THREE.Vector3();
                 box.getCenter(center);
                 letterGroup.position.sub(center);
 
-                // Scale Group up significantly as requested (from 1.35 to 1.75 for non-oversized dominance)
-                letterGroup.scale.setScalar(1.75);
+                letterGroup.scale.setScalar(1.95);
 
                 handleComplete(letterGroup);
             };
@@ -1185,7 +1133,6 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 fallbackProcedural();
             }, 600);
 
-            // DETECT BLOB OR LOCAL FILE PROTOCOL TO INSTANTLY BYPASS XMLHTTPREQUEST INVALID URL ERROR
             const isBlobOrFile = window.location.protocol.startsWith('blob') || window.location.protocol.startsWith('file');
             if (isBlobOrFile) {
                 clearTimeout(timeoutId);
@@ -1193,7 +1140,6 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 return;
             }
 
-            // Execute SVG Extrusion Loader
             const svgLoader = new THREE.SVGLoader();
             try {
                 svgLoader.load(
@@ -1223,7 +1169,6 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                             const path = paths[i];
                             const fillColor = path.userData.style.fill;
                             
-                            // Smart brand color selector logic
                             let mat = darkMetalMaterial;
                             if (fillColor && (fillColor.includes('e11d48') || fillColor.includes('red') || fillColor.includes('ff3b30'))) {
                                 mat = crimsonMetalMaterial;
@@ -1242,13 +1187,15 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                                 });
                                 const mesh = new THREE.Mesh(geometry, mat);
                                 svgGroup.add(mesh);
+                                
+                                // Generate CAD contours outline overlay
+                                const edges = new THREE.EdgesGeometry(geometry, 25);
+                                const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0x000000 }));
+                                svgGroup.add(line);
                             }
                         }
                         
-                        // Normalize loaded SVG transformations
                         const box = new THREE.Box3().setFromObject(svgGroup);
-                        const size = new THREE.Vector3();
-                        box.getSize(size);
                         const center = new THREE.Vector3();
                         box.getCenter(center);
                         
@@ -1258,88 +1205,14 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                         
                         const pivot = new THREE.Group();
                         pivot.add(svgGroup);
-                        pivot.scale.set(1.4, -1.4, 1.4); // Scale up & flip inverted Y space
+                        pivot.scale.set(1.6, -1.6, 1.6); 
                         
                         handleComplete(pivot);
                     },
                     undefined,
                     () => {
-                        // Try screenshot fallback SVG
-                        try {
-                            svgLoader.load(
-                                "Screenshot-2026-05-21-212944.svg",
-                                (svgData2) => {
-                                    clearTimeout(timeoutId);
-                                    const paths = svgData2.paths;
-                                    const svgGroup = new THREE.Group();
-                                    
-                                    const darkMetalMaterial = new THREE.MeshStandardMaterial({
-                                        color: 0x18181c,
-                                        metalness: 0.9,
-                                        roughness: 0.15,
-                                        side: THREE.DoubleSide,
-                                        depthWrite: true
-                                    });
-
-                                    const crimsonMetalMaterial = new THREE.MeshStandardMaterial({
-                                        color: 0xe11d48,
-                                        metalness: 0.9,
-                                        roughness: 0.15,
-                                        side: THREE.DoubleSide,
-                                        depthWrite: true
-                                    });
-
-                                    for (let i = 0; i < paths.length; i++) {
-                                        const path = paths[i];
-                                        const fillColor = path.userData.style.fill;
-                                        
-                                        let mat = darkMetalMaterial;
-                                        if (fillColor && (fillColor.includes('e11d48') || fillColor.includes('red') || fillColor.includes('ff3b30') || fillColor.includes('triangle'))) {
-                                            mat = crimsonMetalMaterial;
-                                        }
-                                        
-                                        const shapes = THREE.SVGLoader.createShapes(path);
-                                        for (let j = 0; j < shapes.length; j++) {
-                                            const shape = shapes[j];
-                                            const geometry = new THREE.ExtrudeGeometry(shape, {
-                                                depth: 2.2,
-                                                bevelEnabled: true,
-                                                bevelSegments: 3,
-                                                steps: 1,
-                                                bevelSize: 0.15,
-                                                bevelThickness: 0.15
-                                            });
-                                            const mesh = new THREE.Mesh(geometry, mat);
-                                            svgGroup.add(mesh);
-                                        }
-                                    }
-                                    
-                                    const box = new THREE.Box3().setFromObject(svgGroup);
-                                    const size = new THREE.Vector3();
-                                    box.getSize(size);
-                                    const center = new THREE.Vector3();
-                                    box.getCenter(center);
-                                    
-                                    svgGroup.position.x = -center.x;
-                                    svgGroup.position.y = -center.y;
-                                    svgGroup.position.z = -center.z;
-                                    
-                                    const pivot = new THREE.Group();
-                                    pivot.add(svgGroup);
-                                    pivot.scale.set(1.4, -1.4, 1.4);
-                                    
-                                    handleComplete(pivot);
-                                },
-                                undefined,
-                                () => {
-                                    clearTimeout(timeoutId);
-                                    fallbackProcedural();
-                                }
-                            );
-                        } catch (errInner) {
-                            clearTimeout(timeoutId);
-                            fallbackProcedural();
-                        }
+                        clearTimeout(timeoutId);
+                        fallbackProcedural();
                     }
                 );
             } catch (errOuter) {
@@ -1368,40 +1241,31 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
             logoRenderer.setSize(width, height);
         }
 
-        // Render Frame Loop for 3D Logo Presentation
         function animateLogo() {
             requestAnimationFrame(animateLogo);
             animationTime += 0.015;
 
-            // 1. Zoom-In Cinematic Easing on startup
             logoCamera.position.z += (targetZoom - logoCamera.position.z) * 0.035;
 
-            // 2. Scale-In / Fade-In Easing on startup
             if (logoGroup.scale.x < 1.0) {
                 const currentScale = logoGroup.scale.x + (1.0 - logoGroup.scale.x) * 0.04;
                 logoGroup.scale.set(currentScale, currentScale, currentScale);
             }
 
-            // 3. Floating (Smooth Breathing) Motion using Sine waves
             const bobbingValue = Math.sin(animationTime * 1.4) * 1.5;
             logoGroup.position.y = bobbingValue;
 
-            // Breating Emissive Backlight mask
             if (glowPlane) {
                 glowPlane.scale.setScalar(1.0 + Math.sin(animationTime * 1.4) * 0.04);
             }
 
-            // 4. Parallax Orientation Offset responding to hover coordinates
             const targetRotationY = logoMouseX * 0.35;
             const targetRotationX = logoMouseY * 0.22;
 
             logoGroup.rotation.y += (targetRotationY - logoGroup.rotation.y) * 0.08;
             logoGroup.rotation.x += (targetRotationX - logoGroup.rotation.x) * 0.08;
-
-            // Slow constant diagnostic idle pan
             logoGroup.rotation.y += Math.sin(animationTime * 0.4) * 0.001;
 
-            // 5. Orbiting Tech rings continuous spin on independent axes
             if (ring1 && ring2) {
                 ring1.rotation.x += 0.006;
                 ring1.rotation.y += 0.003;
