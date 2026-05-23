@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cross Island Petroleum Supplies | Elite Fuel Haulage & Logistics</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -29,10 +30,15 @@
             }
         }
     </script>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Three.js Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- SVGLoader Extension for Three.js -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/SVGLoader.js"></script>
+    <!-- Custom CSS for Blasphemorphic UI -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -77,9 +83,11 @@
 </head>
 <body class="selection:bg-brand-red selection:text-white">
 
+    <!-- Top Ambient Lights -->
     <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-red/5 rounded-full blur-[120px] pointer-events-none"></div>
     <div class="absolute top-[80vh] right-1/4 w-96 h-96 bg-brand-red/5 rounded-full blur-[150px] pointer-events-none"></div>
 
+    <!-- Developer Pitch Indicator Bar -->
     <div class="bg-gradient-to-r from-brand-red to-[#9f1239] text-white py-2.5 px-4 font-semibold text-xs md:text-sm shadow-lg sticky top-0 z-50 flex justify-between items-center backdrop-blur-md">
         <div class="flex items-center gap-2 mx-auto sm:mx-0">
             <span class="bg-black text-brand-red rounded-full px-2.5 py-0.5 text-[10px] tracking-wider uppercase font-bold">PROPOSAL READY</span>
@@ -90,8 +98,10 @@
         </button>
     </div>
 
+    <!-- MAIN NAVBAR -->
     <nav class="glass sticky top-[42px] z-40 px-6 py-4 mx-4 my-4 rounded-xl transition-all border border-black/5 shadow-xl">
         <div class="max-w-7xl mx-auto flex flex-col gap-4 items-center justify-center sm:flex-row sm:justify-between">
+            <!-- Brand Logo Logo -->
             <a href="#" class="flex flex-col items-center gap-2 group text-center sm:flex-row sm:text-left sm:gap-3">
                 <div class="relative w-10 h-10 bg-gradient-to-tr from-brand-red to-rose-700 rounded-lg flex items-center justify-center shadow-lg shadow-brand-red/20 group-hover:scale-105 transition-all">
                     <i data-lucide="fuel" class="w-6 h-6 text-white stroke-[2.5]"></i>
@@ -102,6 +112,7 @@
                 </div>
             </a>
 
+            <!-- Menu Links (Desktop) -->
             <div class="flex flex-wrap justify-center items-center gap-6 font-medium text-sm text-zinc-700">
                 <a href="#services" class="hover:text-brand-red transition-colors">Our Services</a>
                 <a href="#quote" class="hover:text-brand-red transition-colors">Haulage Estimator</a>
@@ -109,6 +120,7 @@
                 <a href="#contact" class="hover:text-brand-red transition-colors">Contact Us</a>
             </div>
 
+            <!-- CTA / Contact -->
             <div class="flex items-center justify-center">
                 <a href="#quote" class="bg-brand-red hover:bg-brand-redHover text-white font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-lg shadow-lg shadow-brand-red/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
                     Get Haulage Quote
@@ -117,8 +129,10 @@
         </div>
     </nav>
 
+    <!-- HERO SECTION WITH INTEGRATED BACKGROUND PARTICLES -->
     <section class="relative min-h-[95vh] flex flex-col items-center justify-center px-6 py-12 lg:py-16 max-w-7xl mx-auto text-center overflow-hidden">
         
+        <!-- Interactive 3D Background constellation canvas -->
         <div id="three-container" class="absolute inset-0 w-full h-full pointer-events-none z-0"></div>
 
         <div class="relative z-10 space-y-6 flex flex-col items-center justify-center text-center max-w-4xl mx-auto">
@@ -126,11 +140,14 @@
                 <span class="w-2 h-2 rounded-full bg-brand-red animate-ping"></span> Islandwide Fuel & Oil Haulage Specialist
             </div>
             
+            <!-- Three.js Premium 3D Logo Lockup Canvas Frame -->
             <div class="relative w-full max-w-xl h-72 md:h-96 mx-auto flex items-center justify-center">
+                <!-- Professional Loading Fallback -->
                 <div id="logo-loader" class="absolute inset-0 flex flex-col items-center justify-center bg-white/85 z-20 transition-opacity duration-500">
                     <div class="w-10 h-10 border-4 border-brand-red/20 border-t-brand-red rounded-full animate-spin"></div>
                     <span class="text-[10px] uppercase font-bold tracking-widest text-zinc-600 mt-3">Compiling 3D Wordmark Meshes</span>
                 </div>
+                <!-- 3D Logo Canvas -->
                 <canvas id="logo-3d-canvas" class="w-full h-full cursor-grab active:cursor-grabbing outline-none"></canvas>
             </div>
 
@@ -145,6 +162,7 @@
                 Connecting refineries, depots, and industrial sites across the terrain with absolute precision. High-capacity Class-A tankers, real-time volume telematics, and zero-incident safety protocols.
             </p>
 
+            <!-- Key Telemetry Metrics Hero -->
             <div class="grid grid-cols-3 gap-8 py-4 max-lg mx-auto w-full">
                 <div class="flex flex-col items-center text-center">
                     <span class="text-2xl sm:text-3xl font-extrabold text-black block border-b-2 border-brand-red px-2 mb-1">100%</span>
@@ -160,9 +178,10 @@
                 </div>
             </div>
 
+            <!-- Action CTAs -->
             <div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center w-full max-w-md mx-auto">
-                <a href="#quote" class="bg-brand-red hover:bg-brand-redHover text-white font-extrabold px-8 py-4 rounded-lg shadow-xl shadow-brand-red/25 text-center hover:scale-[1.02] transition-all duration-200 w-full">
-                    Initiate Transport Order
+                <a href="#quote" class="bg-brand-red hover:bg-brand-redHover text-white font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-lg shadow-lg shadow-brand-red/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
+                    Get Haulage Quote
                 </a>
                 <a href="#about" class="glass text-black font-semibold px-8 py-4 rounded-lg border border-black/10 hover:bg-black/5 text-center flex items-center justify-center gap-2 transition-all w-full">
                     <i data-lucide="shield-check" class="w-5 h-5 text-brand-red"></i> View Safety Standards
@@ -171,9 +190,11 @@
         </div>
     </section>
 
+    <!-- LOGISTICS SERVICES -->
     <section id="services" class="py-20 px-6 max-w-7xl mx-auto border-t border-zinc-200 text-center">
         <div class="flex flex-col items-center justify-center gap-12 w-full">
             
+            <!-- Centered Header -->
             <div class="space-y-6 max-w-3xl mx-auto">
                 <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-red block">OUR CAPABILITIES</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">Fuel Haulage, Engineered for Precision</h2>
@@ -197,7 +218,9 @@
                 </div>
             </div>
 
+            <!-- Centered Service Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-5xl mx-auto">
+                <!-- Gas/Diesel Card -->
                 <div class="glass-premium p-6 rounded-xl border border-black/5 hover:border-brand-red/30 transition-all duration-300 group flex flex-col items-center text-center">
                     <div class="w-12 h-12 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red group-hover:scale-110 transition-transform mb-6">
                         <i data-lucide="droplet" class="w-6 h-6"></i>
@@ -208,6 +231,7 @@
                     </p>
                 </div>
 
+                <!-- Jet Fuel / Aviation Card -->
                 <div class="glass-premium p-6 rounded-xl border border-black/5 hover:border-brand-red/30 transition-all duration-300 group flex flex-col items-center text-center">
                     <div class="w-12 h-12 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red group-hover:scale-110 transition-transform mb-6">
                         <i data-lucide="plane" class="w-6 h-6"></i>
@@ -218,6 +242,7 @@
                     </p>
                 </div>
 
+                <!-- Lubricants Card -->
                 <div class="glass-premium p-6 rounded-xl border border-black/5 hover:border-brand-red/30 transition-all duration-300 group flex flex-col items-center text-center">
                     <div class="w-12 h-12 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red group-hover:scale-110 transition-transform mb-6">
                         <i data-lucide="package" class="w-6 h-6"></i>
@@ -228,12 +253,13 @@
                     </p>
                 </div>
 
+                <!-- Emergency Dispatch Card -->
                 <div class="glass-premium p-6 rounded-xl border border-black/5 hover:border-brand-red/30 transition-all duration-300 group flex flex-col items-center text-center">
                     <div class="w-12 h-12 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red group-hover:scale-110 transition-transform mb-6">
                         <i data-lucide="zap" class="w-6 h-6"></i>
                     </div>
                     <h3 class="text-lg font-bold text-black mb-2">Crisis & Depletion Support</h3>
-                    <p class="text-xs text-zinc-600 font-light leading-relaxed max-w-md">
+                    <p class="text-xs text-zinc-650 font-light leading-relaxed max-w-md">
                         On-demand reserve dispatch for major power plants, utility complexes, and remote facilities experiencing severe volume drops or pipeline failures.
                     </p>
                 </div>
@@ -242,6 +268,7 @@
         </div>
     </section>
 
+    <!-- HAULAGE COST CALCULATOR & QUOTE REQUEST -->
     <section id="quote" class="py-20 px-6 max-w-7xl mx-auto border-t border-zinc-200 text-center">
         <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
             <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-red block">TRANSPARENT VALUE</span>
@@ -253,12 +280,14 @@
 
         <div class="grid grid-cols-1 gap-8 items-stretch max-w-5xl mx-auto">
             
+            <!-- Centered Calculator Settings Box -->
             <div class="glass rounded-2xl p-6 lg:p-8 border border-black/5 flex flex-col justify-between items-center text-center w-full">
                 <div class="space-y-8 w-full max-w-3xl">
                     <h3 class="font-bold text-lg text-black flex items-center justify-center gap-2 mx-auto">
                         <i data-lucide="sliders" class="text-brand-red w-5 h-5"></i> Logistics Parameters
                     </h3>
 
+                    <!-- Parameter 1: Fuel Product Select -->
                     <div class="flex flex-col items-center">
                         <label class="block text-xs font-bold uppercase tracking-wider text-zinc-555 mb-3 text-center">Select Fuel Product</label>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-xl">
@@ -274,22 +303,24 @@
                         </div>
                     </div>
 
+                    <!-- Parameter 2: Delivery Distance Slider -->
                     <div class="w-full max-w-xl mx-auto">
                         <div class="flex justify-between items-center mb-2">
-                            <label class="text-xs font-bold uppercase tracking-wider text-zinc-500">Haulage Distance</label>
+                            <label class="text-xs font-bold uppercase tracking-wider text-zinc-555">Haulage Distance</label>
                             <span id="dist-display" class="text-sm font-bold text-brand-red">60 miles</span>
                         </div>
                         <input id="dist-input" type="range" min="10" max="250" value="60" oninput="calculateRate()" class="w-full accent-brand-red h-1.5 bg-zinc-200 rounded-lg appearance-none cursor-pointer">
-                        <div class="flex justify-between text-[10px] text-zinc-500 mt-1.5 font-semibold">
+                        <div class="flex justify-between text-[10px] text-zinc-555 mt-1.5 font-semibold">
                             <span>10 Miles</span>
                             <span>130 Miles</span>
                             <span>250 Miles</span>
                         </div>
                     </div>
 
+                    <!-- Parameter 3: Quantity Slider -->
                     <div class="w-full max-w-xl mx-auto">
                         <div class="flex justify-between items-center mb-2">
-                            <label class="text-xs font-bold uppercase tracking-wider text-zinc-500">Required Load Volume</label>
+                            <label class="text-xs font-bold uppercase tracking-wider text-zinc-555">Required Load Volume</label>
                             <span id="vol-display" class="text-sm font-bold text-brand-red">8,500 Gallons</span>
                         </div>
                         <input id="vol-input" type="range" min="2000" max="15000" step="500" value="8500" oninput="calculateRate()" class="w-full accent-brand-red h-1.5 bg-zinc-200 rounded-lg appearance-none cursor-pointer">
@@ -301,13 +332,14 @@
                     </div>
                 </div>
 
-                <div class="border-t border-black/5 pt-6 mt-6 w-full max-w-3xl flex flex-col sm:flex-row gap-4 items-center justify-center text-zinc-650 text-xs">
+                <div class="border-t border-black/5 pt-6 mt-6 w-full max-w-3xl flex flex-col sm:flex-row gap-4 items-center justify-center text-zinc-655 text-xs">
                     <p class="flex items-center justify-center gap-1.5">
                         <i data-lucide="info" class="w-4 h-4 text-brand-red shrink-0"></i> Calculations structured on active arterial road tariffs and hazard regulations.
                     </p>
                 </div>
             </div>
 
+            <!-- Centered Cost Estimates Screen -->
             <div class="bg-gradient-to-br from-zinc-50 to-white rounded-2xl p-6 lg:p-8 border border-brand-red/20 shadow-xl flex flex-col justify-between items-center text-center w-full max-w-xl mx-auto">
                 <div class="w-full">
                     <span class="text-xs font-extrabold text-brand-red tracking-widest uppercase block mb-1 text-center">PROPOSAL ESTIMATOR</span>
@@ -333,6 +365,7 @@
                         </div>
                     </div>
 
+                    <!-- Carbon Impact Alert -->
                     <div class="p-4 bg-zinc-100 border border-brand-red/20 rounded-xl flex gap-3 items-center justify-center w-full max-w-md mx-auto text-center">
                         <div class="p-2 bg-brand-red/10 rounded-lg text-brand-red shrink-0">
                             <i data-lucide="leaf" class="w-5 h-5"></i>
@@ -344,6 +377,7 @@
                     </div>
                 </div>
 
+                <!-- Submit Button to client -->
                 <button onclick="triggerQuoteSent()" class="w-full max-w-md bg-brand-red hover:bg-brand-redHover text-white font-extrabold text-xs uppercase tracking-wider py-4 rounded-lg shadow-lg mt-6 hover:scale-[1.01] active:scale-[0.99] transition-all border-none">
                     Generate Formal SLA Document
                 </button>
@@ -352,13 +386,14 @@
         </div>
     </section>
 
+    <!-- TRUST & SAFETY ASSURANCE SECTION -->
     <section id="about" class="py-20 px-6 max-w-7xl mx-auto border-t border-zinc-200 text-center">
         <div class="grid grid-cols-1 gap-12 items-center justify-center max-w-4xl mx-auto">
             
             <div class="space-y-6 flex flex-col items-center">
                 <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-red block">ZERO TOLERANCE CRITERIA</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">Zero incidents. Absolute protection of cargo.</h2>
-                <p class="text-zinc-750 font-light text-base leading-relaxed max-w-2xl">
+                <p class="text-zinc-755 font-light text-base leading-relaxed max-w-2xl">
                     At Cross Island Petroleum Supplies, safety is a strict operating constraint. We utilize double-containment hardware, high-frequency driver training, and automated telemetry tracking to neutralize resource loss under any atmospheric conditions.
                 </p>
 
@@ -380,12 +415,14 @@
                 </div>
             </div>
 
+            <!-- Terminal Graphics Box (Centered) -->
             <div class="relative rounded-2xl border border-black/5 p-8 overflow-hidden bg-zinc-50 shadow-2xl w-full max-w-2xl mx-auto flex flex-col items-center">
                 <div class="absolute inset-0 opacity-[0.02] pointer-events-none" style="background-image: radial-gradient(rgba(0,0,0,0.15) 1px, transparent 1px); background-size: 24px 24px;"></div>
                 
                 <h3 class="font-bold text-black text-lg mb-2">Quality Control Verification</h3>
                 <p class="text-xs text-zinc-550 mb-6 max-w-md">Our automated fuel verification framework monitors chemical purity values live.</p>
 
+                <!-- Fuel Lab Quality Specs Grid (Centered layout) -->
                 <div class="space-y-5 w-full max-w-md mx-auto text-left">
                     <div class="space-y-1.5">
                         <div class="flex justify-between text-xs font-semibold">
@@ -422,16 +459,18 @@
         </div>
     </section>
 
+    <!-- CORPORATE HEADQUARTERS & CONTACT INFO SECTION -->
     <section id="contact" class="py-20 px-6 max-w-7xl mx-auto border-t border-zinc-200 text-center">
         <div class="space-y-4 max-w-2xl mx-auto mb-12">
             <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-red block">HEADQUARTERS & CONTACT</span>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">Connect with Our Logistics Team</h2>
-            <p class="text-zinc-650 font-light text-sm sm:text-base">
+            <p class="text-zinc-655 font-light text-sm sm:text-base">
                 Reach out to our operations hub in Kingston for high-performance bulk fuel haulage and logistics coordination across Jamaica.
             </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto items-stretch">
+            <!-- Office Address Card -->
             <div class="p-6 bg-zinc-50 border border-black/5 rounded-xl flex flex-col items-center text-center space-y-4 shadow-sm hover:shadow-md transition-shadow">
                 <div class="p-3.5 bg-brand-red/10 rounded-full text-brand-red">
                     <i data-lucide="map-pin" class="w-6 h-6"></i>
@@ -444,6 +483,7 @@
                 </div>
             </div>
 
+            <!-- Direct Lines Card -->
             <div class="p-6 bg-zinc-50 border border-black/5 rounded-xl flex flex-col items-center text-center space-y-4 shadow-sm hover:shadow-md transition-shadow">
                 <div class="p-3.5 bg-brand-red/10 rounded-full text-brand-red">
                     <i data-lucide="phone" class="w-6 h-6"></i>
@@ -456,6 +496,7 @@
                 </div>
             </div>
 
+            <!-- Email Inquiries Card -->
             <div class="p-6 bg-zinc-50 border border-black/5 rounded-xl flex flex-col items-center text-center space-y-4 shadow-sm hover:shadow-md transition-shadow">
                 <div class="p-3.5 bg-brand-red/10 rounded-full text-brand-red">
                     <i data-lucide="mail" class="w-6 h-6"></i>
@@ -469,6 +510,7 @@
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="bg-zinc-50 border-t border-zinc-200 py-12 px-6 text-center">
         <div class="max-w-7xl mx-auto flex flex-col items-center justify-center gap-8">
             <div class="flex flex-col items-center justify-center gap-3">
@@ -477,7 +519,7 @@
                 </div>
                 <div class="space-y-1">
                     <span class="text-sm font-bold text-black block">CROSS ISLAND PETROLEUM SUPPLIES LTD</span>
-                    <span class="text-[10px] text-zinc-500 uppercase tracking-wider block">Entrance At 6 Lewis Villa Rd &bull; 18 Clairdale Avenue, Kingston 10, Jamaica</span>
+                    <span class="text-[10px] text-zinc-555 uppercase tracking-wider block">Entrance At 6 Lewis Villa Rd &bull; 18 Clairdale Avenue, Kingston 10, Jamaica</span>
                     <span class="text-[9px] text-zinc-400 block">Logistics & Distribution Engineering &bull; All Rights Reserved &copy; 2026</span>
                 </div>
             </div>
@@ -491,6 +533,7 @@
         </div>
     </footer>
 
+    <!-- DEVELOPER PITCH & PROPOSAL DRAWER -->
     <div id="pitch-panel" class="fixed inset-y-0 right-0 w-full md:w-[600px] bg-white border-l border-brand-red/30 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 overflow-y-auto hidden">
         <div class="p-6 md:p-8 space-y-8 text-center flex flex-col items-center">
             
@@ -545,7 +588,7 @@
                 <h3 class="font-extrabold text-lg text-black text-center">Pitch Framework to Secure Interest</h3>
                 
                 <div class="relative bg-zinc-50 border border-zinc-200 p-4 rounded-lg w-full max-w-md mx-auto text-left">
-                    <p class="text-[11px] text-zinc-700 italic whitespace-pre-line leading-relaxed select-all">
+                    <p class="text-[11px] text-zinc-300 italic whitespace-pre-line leading-relaxed select-all">
 "Hi [Decision Maker's Name],
 
 I’ve engineered an interactive, high-fidelity digital logistics platform customized specifically for Cross Island Petroleum Supplies. 
@@ -570,6 +613,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
         </div>
     </div>
 
+    <!-- Toast Notice Component -->
     <div id="toast-notice" class="fixed bottom-6 right-6 glass border-brand-red/45 border p-4 rounded-xl shadow-2xl z-50 flex items-center gap-3 transition-opacity duration-300 opacity-0 pointer-events-none">
         <div class="p-1.5 bg-brand-red/10 rounded-lg text-brand-red">
             <i data-lucide="check" class="w-5 h-5"></i>
@@ -921,6 +965,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
             animateLogo();
         }
 
+        // Resilient XML SVG Asset Fetcher & 3D Extruder
         function generateLogoTexture() {
             let completed = false;
             
@@ -937,20 +982,23 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 }
             };
 
-            // Procedural CAD-style pure 3D generation to ensure accurate orientations
+            // High-fidelity fallback vector generator (recreates beautiful individual 3D letter shapes)
             const fallbackProcedural = () => {
                 if (completed) return;
+                console.log("CIPS Engine Fallback: Generating pristine high-contrast 3D extruded lettering");
                 
                 const letterGroup = new THREE.Group();
 
+                // High-contrast, polished dark chrome/obsidian metal material for clean light-background visibility
                 const darkMetalMaterial = new THREE.MeshStandardMaterial({
-                    color: 0x18181c, 
+                    color: 0x18181c, // Sleek polished gunmetal/black chrome
                     metalness: 0.9,
                     roughness: 0.15,
                     side: THREE.DoubleSide,
                     depthWrite: true
                 });
 
+                // Shared luxury brand red material for chevrons & play button
                 const crimsonMetalMaterial = new THREE.MeshStandardMaterial({
                     color: 0xe11d48,
                     metalness: 0.9,
@@ -968,7 +1016,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                     steps: 1
                 };
 
-                // ---- C Shape ----
+                // ---- Draw 'C' Shape ----
                 const cShape = new THREE.Shape();
                 const rOut = 9, rIn = 5.2, angle = 0.52;
                 cShape.moveTo(rOut * Math.cos(angle), rOut * Math.sin(angle));
@@ -981,7 +1029,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 cMesh.position.set(-14, 2, 0);
                 letterGroup.add(cMesh);
 
-                // ---- i Stem ----
+                // ---- Draw 'i' Stem ----
                 const iShape = new THREE.Shape();
                 const w = 3.2, h = 8.5, r = 1.6;
                 iShape.moveTo(-w/2 + r, -h/2);
@@ -998,7 +1046,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 iMesh.position.set(-4.8, -1.2, 0);
                 letterGroup.add(iMesh);
 
-                // ---- Orange/Red play triangle (i dot) ----
+                // ---- Draw Red Play Triangle (Dot of 'i') ----
                 const triShape = new THREE.Shape();
                 triShape.moveTo(-3, 3.5);
                 triShape.lineTo(4.5, -0.8);
@@ -1009,7 +1057,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 triMesh.position.set(-4.8, 6.2, 0);
                 letterGroup.add(triMesh);
 
-                // ---- P Shape ----
+                // ---- Draw 'P' Shape ----
                 const pShape = new THREE.Shape();
                 pShape.moveTo(-4.5, -8.5);
                 pShape.lineTo(-1.5, -8.5);
@@ -1031,7 +1079,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 pMesh.position.set(3, 2, 0);
                 letterGroup.add(pMesh);
 
-                // ---- S Shape mathematically fixed orientation ----
+                // ---- Draw 'S' Shape mathematically fixed orientation ----
                 const sShape = new THREE.Shape();
                 // Outer Top Curve
                 sShape.moveTo(4, 3.5);
@@ -1124,7 +1172,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                 box.getCenter(center);
                 letterGroup.position.sub(center);
 
-                letterGroup.scale.setScalar(1.95);
+                letterGroup.scale.setScalar(1.75);
 
                 handleComplete(letterGroup);
             };
@@ -1165,36 +1213,92 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                             depthWrite: true
                         });
 
-                        for (let i = 0; i < paths.length; i++) {
-                            const path = paths[i];
-                            const fillColor = path.userData.style.fill;
+                        // COLLECT SHAPES & AUTOMATICALLY DETECT/SUBTRACT INTERIOR HOLES
+                        const allShapes = [];
+                        paths.forEach(path => {
+                            const shapes = THREE.SVGLoader.createShapes(path);
+                            shapes.forEach(shape => {
+                                // Preserve path properties
+                                shape.userData = {
+                                    fill: path.userData.style.fill,
+                                    stroke: path.userData.style.stroke
+                                };
+                                allShapes.push(shape);
+                            });
+                        });
+
+                        // Calculate Bounding Boxes and Areas for precise containment checks
+                        const shapeData = allShapes.map(shape => {
+                            const geometry = new THREE.ShapeGeometry(shape);
+                            geometry.computeBoundingBox();
+                            return {
+                                shape: shape,
+                                box: geometry.boundingBox,
+                                area: (geometry.boundingBox.max.x - geometry.boundingBox.min.x) * (geometry.boundingBox.max.y - geometry.boundingBox.min.y)
+                            };
+                        });
+
+                        // Sort shapes descending (largest outer contours first, nested holes last)
+                        shapeData.sort((a, b) => b.area - a.area);
+
+                        const parentShapes = [];
+                        const processedIndices = new Set();
+
+                        // Group nested paths into holes
+                        for (let i = 0; i < shapeData.length; i++) {
+                            if (processedIndices.has(i)) continue;
+                            const current = shapeData[i];
+                            
+                            let isHole = false;
+                            for (let j = 0; j < parentShapes.length; j++) {
+                                const parent = parentShapes[j];
+                                const center = new THREE.Vector3();
+                                current.box.getCenter(center);
+                                
+                                // Raycast or bounding box center coordinate containment validation
+                                if (parent.box.containsPoint(center)) {
+                                    parent.shape.holes.push(new THREE.Path(current.shape.getPoints()));
+                                    isHole = true;
+                                    processedIndices.add(i);
+                                    break;
+                                }
+                            }
+                            
+                            if (!isHole) {
+                                parentShapes.push(current);
+                                processedIndices.add(i);
+                            }
+                        }
+
+                        // Render the nested outer contours with hollow interiors
+                        parentShapes.forEach(data => {
+                            const shape = data.shape;
+                            const fillColor = shape.userData.fill;
                             
                             let mat = darkMetalMaterial;
                             if (fillColor && (fillColor.includes('e11d48') || fillColor.includes('red') || fillColor.includes('ff3b30'))) {
                                 mat = crimsonMetalMaterial;
                             }
                             
-                            const shapes = THREE.SVGLoader.createShapes(path);
-                            for (let j = 0; j < shapes.length; j++) {
-                                const shape = shapes[j];
-                                const geometry = new THREE.ExtrudeGeometry(shape, {
-                                    depth: 2.2,
-                                    bevelEnabled: true,
-                                    bevelSegments: 3,
-                                    steps: 1,
-                                    bevelSize: 0.15,
-                                    bevelThickness: 0.15
-                                });
-                                const mesh = new THREE.Mesh(geometry, mat);
-                                svgGroup.add(mesh);
-                                
-                                // Generate CAD contours outline overlay
-                                const edges = new THREE.EdgesGeometry(geometry, 25);
-                                const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0x000000 }));
-                                svgGroup.add(line);
-                            }
-                        }
+                            const geometry = new THREE.ExtrudeGeometry(shape, {
+                                depth: 2.2,
+                                bevelEnabled: true,
+                                bevelSegments: 3,
+                                steps: 1,
+                                bevelSize: 0.15,
+                                bevelThickness: 0.15
+                            });
+                            
+                            const mesh = new THREE.Mesh(geometry, mat);
+                            svgGroup.add(mesh);
+                            
+                            // Generate CAD contours outline overlay
+                            const edges = new THREE.EdgesGeometry(geometry, 25);
+                            const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0x000000, linewidth: 2 }));
+                            svgGroup.add(line);
+                        });
                         
+                        // Center and scale the group
                         const box = new THREE.Box3().setFromObject(svgGroup);
                         const center = new THREE.Vector3();
                         box.getCenter(center);
@@ -1205,7 +1309,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
                         
                         const pivot = new THREE.Group();
                         pivot.add(svgGroup);
-                        pivot.scale.set(1.6, -1.6, 1.6); 
+                        pivot.scale.set(1.6, -1.6, 1.6); // Scale up & flip inverted Y space
                         
                         handleComplete(pivot);
                     },
