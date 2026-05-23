@@ -228,6 +228,24 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* SVG Route Map Logistics Animations */
+        @keyframes pulseHub {
+            0% { transform: scale(1); opacity: 0.6; }
+            70% { transform: scale(2.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+        .animate-hub-pulse {
+            transform-origin: 600px 250px;
+            animation: pulseHub 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes flowDash {
+            to { stroke-dashoffset: -100; }
+        }
+        .animate-route-flow {
+            stroke-dasharray: 6 18;
+            animation: flowDash 1.5s linear infinite;
+        }
     </style>
 </head>
 <body class="selection:bg-brand-red selection:text-white">
@@ -243,7 +261,7 @@
             <span>Viewing the Centered 3D Kinetic <strong>Cross Island Petroleum Supplies</strong> Showcase.</span>
         </div>
         <button onclick="togglePitchPanel()" class="hidden sm:flex bg-black text-white hover:bg-zinc-900 transition-all px-4 py-1.5 rounded-md text-xs font-bold items-center gap-1.5 shadow border border-brand-red/30">
-            <i data-lucide="presentation" class="w-3.5 h-3.5 text-brand-red"></i> Pitch Panel
+            <i data-lucide="presentation" class="w-3.5 h-3.5 text-brand-red"></i> Proposal Panel
         </button>
     </div>
 
@@ -514,7 +532,7 @@
                             <span id="dist-display" class="text-sm font-bold text-brand-red">60 miles</span>
                         </div>
                         <input id="dist-input" type="range" min="10" max="250" value="60" oninput="calculateRate()" class="w-full accent-brand-red h-1.5 bg-zinc-200 rounded-lg appearance-none cursor-pointer">
-                        <div class="flex justify-between text-[10px] text-zinc-500 mt-1.5 font-semibold">
+                        <div class="flex justify-between text-[10px] text-zinc-555 mt-1.5 font-semibold">
                             <span>10 Miles</span>
                             <span>130 Miles</span>
                             <span>250 Miles</span>
@@ -668,7 +686,7 @@
         <div class="space-y-4 max-w-2xl mx-auto mb-12">
             <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-red block">LOGISTICS COVERAGE</span>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">Islandwide Network & Route Operations</h2>
-            <p class="text-zinc-650 font-light text-sm sm:text-base">
+            <p class="text-zinc-655 font-light text-sm sm:text-base">
                 Reliable petroleum haulage routes connecting the Kingston Petrojam depot with key commercial, aviation, and industrial regions across Jamaica.
             </p>
         </div>
@@ -872,14 +890,15 @@
     <div id="pitch-panel" class="fixed inset-y-0 right-0 w-full md:w-[600px] bg-white border-l border-brand-red/30 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 overflow-y-auto hidden">
         <div class="p-6 md:p-8 space-y-8 text-center flex flex-col items-center">
             
+            <!-- Pitch Drawer Header -->
             <div class="flex justify-between items-center border-b border-zinc-200 pb-5 w-full">
                 <div class="flex items-center gap-3 mx-auto">
                     <div class="p-2.5 bg-brand-red/10 rounded-lg text-brand-red border border-brand-red/20">
                         <i data-lucide="presentation" class="w-6 h-6"></i>
                     </div>
                     <div class="text-left">
-                        <h2 class="text-xl font-extrabold text-black">Client Proposal Engine</h2>
-                        <span class="text-xs text-brand-red font-bold block">How to sell this site for $3,500 – $5,000</span>
+                        <h2 class="text-xl font-extrabold text-black">Project Proposal</h2>
+                        <span class="text-xs text-brand-red font-bold block">Cross Island Petroleum Supplies Ltd</span>
                     </div>
                 </div>
                 <button onclick="togglePitchPanel()" class="p-2 hover:bg-zinc-100 rounded-lg text-zinc-500 hover:text-black transition-colors">
@@ -887,6 +906,7 @@
                 </button>
             </div>
 
+            <!-- Pitch Content Section 1: Business Overview (Preserved Exactly) -->
             <div class="space-y-4 w-full">
                 <span class="text-[10px] font-extrabold text-brand-red uppercase tracking-widest block text-center">THE TARGET PROBLEM</span>
                 <h3 class="font-extrabold text-lg text-black text-center">Why Cross Island Petroleum Supplies needs this</h3>
@@ -895,51 +915,31 @@
                 </p>
             </div>
 
-            <div class="space-y-4 w-full">
-                <span class="text-[10px] font-extrabold text-brand-red uppercase tracking-widest block text-center">THE BUSINESS ARCHITECTURE</span>
-                <h3 class="font-extrabold text-lg text-black text-center">Pricing Model Recommendations</h3>
-                
-                <div class="space-y-3 w-full max-w-md mx-auto">
-                    <div class="p-4 rounded-lg border border-black/5 bg-zinc-50 text-center">
-                        <div class="flex justify-between items-center mb-1">
-                            <span class="text-xs font-extrabold text-black">Upfront Flat Build Fee</span>
-                            <span class="text-sm font-extrabold text-brand-red">$3,500 - $4,800</span>
-                        </div>
-                        <p class="text-[11px] text-zinc-600 text-left">Includes Next.js optimization, custom WebGL pipeline flows, metadata-driven local SEO, and rate calculation architectures.</p>
-                    </div>
+            <!-- Pitch Content Section 2: Pricing Proposal -->
+            <div class="space-y-4 w-full border-t border-zinc-100 pt-6">
+                <span class="text-[10px] font-extrabold text-brand-red uppercase tracking-widest block text-center">INVESTMENT DETAILED</span>
+                <h3 class="font-extrabold text-2xl text-black text-center">Client Proposal: USD $1,800</h3>
+                <p class="text-xs text-zinc-600 leading-relaxed font-light text-center max-w-sm mx-auto mb-4">
+                    This proposal reflects a custom-built, lightweight, premium web presence designed for Cross Island Petroleum Supplies Ltd. The price covers the design, integration, visual polish, route/logistics presentation, fleet showcase, responsive layout, and deployment-ready structure required to present the company professionally online.
+                </p>
 
-                    <div class="p-4 rounded-lg border border-black/5 bg-zinc-50 text-center">
-                        <div class="flex justify-between items-center mb-1">
-                            <span class="text-xs font-extrabold text-black">Monthly Recurrent Retention</span>
-                            <span class="text-sm font-extrabold text-brand-red">$99 / month</span>
-                        </div>
-                        <p class="text-[11px] text-zinc-600 text-left">Covers ultra-fast static CDN hosting (Vercel/Cloudflare integration), minor content edits, and server maintenance.</p>
-                    </div>
+                <div class="bg-zinc-50 border border-black/5 rounded-lg p-5 text-left w-full max-w-md mx-auto space-y-3">
+                    <h4 class="text-xs font-bold text-black uppercase tracking-wider mb-2 border-b border-zinc-200 pb-2">Included Deliverables:</h4>
+                    <ul class="text-[11px] text-zinc-600 space-y-2.5">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-red shrink-0"></i> Custom premium landing page design</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-red shrink-0"></i> Responsive mobile and desktop layout</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-red shrink-0"></i> Animated SVG logo integration</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-red shrink-0"></i> Logistics/routes section</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-red shrink-0"></i> Fleet showcase section</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-red shrink-0"></i> Contact/company information integration</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-red shrink-0"></i> Proposal-ready visual polish</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-red shrink-0"></i> Deployment-ready static website structure</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-red shrink-0"></i> Performance-conscious lightweight build</li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="space-y-4 w-full">
-                <span class="text-[10px] font-extrabold text-brand-red uppercase tracking-widest block text-center">CLIENT EMAIL & PITCH TEMPLATE</span>
-                <h3 class="font-extrabold text-lg text-black text-center">Pitch Framework to Secure Interest</h3>
-                
-                <div class="relative bg-zinc-50 border border-zinc-200 p-4 rounded-lg w-full max-w-md mx-auto text-left">
-                    <p class="text-[11px] text-zinc-300 italic whitespace-pre-line leading-relaxed select-all">
-"Hi [Decision Maker's Name],
-
-I’ve engineered an interactive, high-fidelity digital logistics platform customized specifically for Cross Island Petroleum Supplies. 
-
-Most haulage competitors rely on basic templates. By integrating custom visual assets, a live dispatch rate estimator, and simulated telematics modules, your business instantly signals absolute precision, modern compliance standards, and industry authority.
-
-I've put together a fully functional sandbox showing how this operates live: [Insert GitHub/Vercel link]
-
-Let’s lock in a brief 10-minute preview run to show you how we can deploy this to supercharge your commercial contract win rates."
-                    </p>
-                    <div class="absolute bottom-2 right-2 bg-brand-red text-white font-extrabold text-[10px] py-1 px-2.5 rounded-lg cursor-pointer uppercase shadow select-none hover:bg-brand-redHover transition-colors" onclick="copyPitchText()">
-                        Copy Script
-                    </div>
-                </div>
-            </div>
-
+            <!-- Pitch Drawer Footer -->
             <div class="pt-4 border-t border-zinc-200 text-center w-full max-w-md mx-auto">
                 <button onclick="togglePitchPanel()" class="bg-brand-red text-white font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-lg w-full border-none">
                     Return to Live Client Preview
