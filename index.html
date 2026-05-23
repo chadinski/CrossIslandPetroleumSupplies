@@ -117,6 +117,7 @@
                 <a href="#services" class="hover:text-brand-red transition-colors">Our Services</a>
                 <a href="#quote" class="hover:text-brand-red transition-colors">Haulage Estimator</a>
                 <a href="#about" class="hover:text-brand-red transition-colors">Safety Standards</a>
+                <a href="#contact" class="hover:text-brand-red transition-colors">Contact Us</a>
             </div>
 
             <!-- CTA / Contact -->
@@ -288,7 +289,7 @@
 
                     <!-- Parameter 1: Fuel Product Select -->
                     <div class="flex flex-col items-center">
-                        <label class="block text-xs font-bold uppercase tracking-wider text-zinc-550 mb-3 text-center">Select Fuel Product</label>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-zinc-555 mb-3 text-center">Select Fuel Product</label>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-xl">
                             <button onclick="setProduct('diesel', 1.2)" id="btn-prod-diesel" class="py-3 px-4 rounded-lg border border-brand-red text-brand-red font-bold text-xs hover:bg-brand-red/5 transition-all focus:outline-none text-center">
                                 Diesel (HFO/ULSD)
@@ -377,7 +378,7 @@
                 </div>
 
                 <!-- Submit Button to client -->
-                <button onclick="triggerQuoteSent()" class="w-full max-w-md bg-brand-red hover:bg-brand-redHover text-white font-extrabold text-xs uppercase tracking-wider py-4 rounded-lg shadow-lg mt-6 hover:scale-[1.01] active:scale-[0.99] transition-all border-none">
+                <button onclick="triggerQuoteSent()" class="w-full max-w-md bg-brand-red hover:bg-brand-redHover text-white font-extrabold text-xs uppercase tracking-wider py-4 rounded-lg shadow-lg mt-6 hover:scale-[1.01] active:scale-[0.99] transition-all">
                     Generate Formal SLA Document
                 </button>
             </div>
@@ -458,23 +459,76 @@
         </div>
     </section>
 
+    <!-- CORPORATE HEADQUARTERS & CONTACT INFO SECTION -->
+    <section id="contact" class="py-20 px-6 max-w-7xl mx-auto border-t border-zinc-200 text-center">
+        <div class="space-y-4 max-w-2xl mx-auto mb-12">
+            <span class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-red block">HEADQUARTERS & CONTACT</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-black tracking-tight">Connect with Our Logistics Team</h2>
+            <p class="text-zinc-650 font-light text-sm sm:text-base">
+                Reach out to our operations hub in Kingston for high-performance bulk fuel haulage and logistics coordination across Jamaica.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto items-stretch">
+            <!-- Office Address Card -->
+            <div class="p-6 bg-zinc-50 border border-black/5 rounded-xl flex flex-col items-center text-center space-y-4 shadow-sm hover:shadow-md transition-shadow">
+                <div class="p-3.5 bg-brand-red/10 rounded-full text-brand-red">
+                    <i data-lucide="map-pin" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-black text-sm uppercase tracking-wider mb-2">Office Headquarters</h4>
+                    <p class="text-xs font-extrabold text-zinc-850 mb-1">Cross Island Petroleum Supplies Ltd</p>
+                    <p class="text-xs text-zinc-500">Entrance At 6 Lewis Villa Rd</p>
+                    <p class="text-xs text-zinc-500">18 Clairdale Avenue, Kingston 10, Jamaica</p>
+                </div>
+            </div>
+
+            <!-- Direct Lines Card -->
+            <div class="p-6 bg-zinc-50 border border-black/5 rounded-xl flex flex-col items-center text-center space-y-4 shadow-sm hover:shadow-md transition-shadow">
+                <div class="p-3.5 bg-brand-red/10 rounded-full text-brand-red">
+                    <i data-lucide="phone" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-black text-sm uppercase tracking-wider mb-2">Direct Lines</h4>
+                    <p class="text-xs font-extrabold text-zinc-850 mb-1">Logistics & Dispatch</p>
+                    <p class="text-xs text-zinc-500 font-mono">876-929-3466</p>
+                    <p class="text-xs text-zinc-500 font-mono">876-929-3406</p>
+                </div>
+            </div>
+
+            <!-- Email Inquiries Card -->
+            <div class="p-6 bg-zinc-50 border border-black/5 rounded-xl flex flex-col items-center text-center space-y-4 shadow-sm hover:shadow-md transition-shadow">
+                <div class="p-3.5 bg-brand-red/10 rounded-full text-brand-red">
+                    <i data-lucide="mail" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-black text-sm uppercase tracking-wider mb-2">Electronic Mail</h4>
+                    <p class="text-xs font-extrabold text-zinc-850 mb-1">Corporate & Logistics</p>
+                    <a href="mailto:cipsjamaica@gmail.com" class="text-xs text-brand-red hover:underline block font-semibold">cipsjamaica@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
-    <footer class="bg-zinc-50 border-t border-zinc-200 py-12 px-6 mt-20 text-center">
-        <div class="max-w-7xl mx-auto flex flex-col items-center justify-center gap-6">
+    <footer class="bg-zinc-50 border-t border-zinc-200 py-12 px-6 text-center">
+        <div class="max-w-7xl mx-auto flex flex-col items-center justify-center gap-8">
             <div class="flex flex-col items-center justify-center gap-3">
                 <div class="w-8 h-8 bg-brand-red rounded flex items-center justify-center mx-auto">
                     <i data-lucide="fuel" class="w-5 h-5 text-white"></i>
                 </div>
-                <div>
-                    <span class="text-sm font-bold text-black block">CROSS ISLAND PETROLEUM SUPPLIES</span>
-                    <span class="text-[9px] text-zinc-550 uppercase tracking-wider block">Logistics & Distribution Engineering © 2026</span>
+                <div class="space-y-1">
+                    <span class="text-sm font-bold text-black block">CROSS ISLAND PETROLEUM SUPPLIES LTD</span>
+                    <span class="text-[10px] text-zinc-500 uppercase tracking-wider block">Entrance At 6 Lewis Villa Rd &bull; 18 Clairdale Avenue, Kingston 10, Jamaica</span>
+                    <span class="text-[9px] text-zinc-400 block">Logistics & Distribution Engineering &bull; All Rights Reserved &copy; 2026</span>
                 </div>
             </div>
             
-            <div class="flex flex-wrap justify-center gap-6 text-xs text-zinc-555 font-medium">
+            <div class="flex flex-wrap justify-center gap-6 text-xs text-zinc-500 font-medium">
                 <a href="#services" class="hover:text-brand-red">Our Services</a>
                 <a href="#quote" class="hover:text-brand-red">Haulage Estimator</a>
                 <a href="#about" class="hover:text-brand-red">Safety Standards</a>
+                <a href="#contact" class="hover:text-brand-red">Contact Us</a>
             </div>
         </div>
     </footer>
@@ -537,8 +591,8 @@
                 <span class="text-[10px] font-extrabold text-brand-red uppercase tracking-widest block text-center">CLIENT EMAIL & PITCH TEMPLATE</span>
                 <h3 class="font-extrabold text-lg text-black text-center">Pitch Framework to Secure Interest</h3>
                 
-                <div class="relative bg-zinc-900 border border-zinc-200 p-4 rounded-lg w-full max-w-md mx-auto text-left">
-                    <p class="text-[11px] text-zinc-300 italic whitespace-pre-line leading-relaxed select-all">
+                <div class="relative bg-zinc-50 border border-zinc-200 p-4 rounded-lg w-full max-w-md mx-auto text-left">
+                    <p class="text-[11px] text-zinc-700 italic whitespace-pre-line leading-relaxed select-all">
 "Hi [Decision Maker's Name],
 
 I’ve engineered an interactive, high-fidelity digital logistics platform customized specifically for Cross Island Petroleum Supplies. 
