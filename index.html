@@ -36,8 +36,6 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Three.js Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <!-- SVGLoader Extension for Three.js -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/SVGLoader.js"></script>
     <!-- Custom CSS for Blasphemorphic UI -->
     <style>
         body {
@@ -78,6 +76,87 @@
         }
         ::-webkit-scrollbar-thumb:hover {
             background: rgba(225, 29, 72, 0.6);
+        }
+
+        /* 2D SVG Line-Drawing Path Tracing Animations */
+        @keyframes drawTrace {
+            0% {
+                stroke-dashoffset: 1200;
+                opacity: 0;
+            }
+            15% {
+                opacity: 1;
+            }
+            80% {
+                stroke-dashoffset: 0;
+                fill-opacity: 0;
+            }
+            100% {
+                stroke-dashoffset: 0;
+                fill-opacity: 0; /* Keep letters perfectly hollow */
+                opacity: 1;
+            }
+        }
+        @keyframes drawTraceRed {
+            0% {
+                stroke-dashoffset: 600;
+                fill-opacity: 0;
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            85% {
+                stroke-dashoffset: 0;
+                fill-opacity: 0;
+            }
+            100% {
+                stroke-dashoffset: 0;
+                fill-opacity: 1; /* Triangle & chevrons fill solid brand crimson */
+                opacity: 1;
+            }
+        }
+        @keyframes pulseGlowEffect {
+            0%, 100% {
+                filter: drop-shadow(0 0 8px rgba(225, 29, 72, 0.3));
+            }
+            50% {
+                filter: drop-shadow(0 0 20px rgba(225, 29, 72, 0.65));
+            }
+        }
+        @keyframes floatLogoSlight {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-8px) rotate(0.4deg);
+            }
+        }
+        @keyframes fadeInTextAnimation {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .trace-path {
+            stroke-dasharray: 1200;
+            stroke-dashoffset: 1200;
+            animation: drawTrace 3.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        .trace-path-red {
+            stroke-dasharray: 600;
+            stroke-dashoffset: 600;
+            animation: drawTraceRed 2.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        .animate-logo-float {
+            transform-origin: center;
+            animation: floatLogoSlight 6.5s ease-in-out infinite;
+        }
+        .glow-effect {
+            animation: pulseGlowEffect 4s ease-in-out infinite;
+        }
+        .fade-in-text {
+            opacity: 0;
+            animation: fadeInTextAnimation 1.6s cubic-bezier(0.16, 1, 0.3, 1) 1.8s forwards;
         }
     </style>
 </head>
@@ -140,15 +219,17 @@
                 <span class="w-2 h-2 rounded-full bg-brand-red animate-ping"></span> Islandwide Fuel & Oil Haulage Specialist
             </div>
             
-            <!-- Three.js Premium 3D Logo Lockup Canvas Frame -->
+            <!-- Three.js Premium 2D Logo Lockup Frame -->
             <div class="relative w-full max-w-xl h-72 md:h-96 mx-auto flex items-center justify-center">
                 <!-- Professional Loading Fallback -->
-                <div id="logo-loader" class="absolute inset-0 flex flex-col items-center justify-center bg-white/85 z-20 transition-opacity duration-500">
+                <div id="logo-loader" class="absolute inset-0 flex flex-col items-center justify-center bg-white/85 z-20 transition-opacity duration-500 pointer-events-none">
                     <div class="w-10 h-10 border-4 border-brand-red/20 border-t-brand-red rounded-full animate-spin"></div>
-                    <span class="text-[10px] uppercase font-bold tracking-widest text-zinc-600 mt-3">Compiling 3D Wordmark Meshes</span>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-zinc-600 mt-3">Initializing Vector Tracing Engine</span>
                 </div>
-                <!-- 3D Logo Canvas -->
-                <canvas id="logo-3d-canvas" class="w-full h-full cursor-grab active:cursor-grabbing outline-none"></canvas>
+                <!-- Dynamic 2D SVG Container -->
+                <div id="logo-svg-container" class="w-full h-full flex items-center justify-center relative select-none">
+                    <!-- Loaded dynamically or falls back to pristine inline SVG markup -->
+                </div>
             </div>
 
             <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] text-black">
@@ -259,7 +340,7 @@
                         <i data-lucide="zap" class="w-6 h-6"></i>
                     </div>
                     <h3 class="text-lg font-bold text-black mb-2">Crisis & Depletion Support</h3>
-                    <p class="text-xs text-zinc-650 font-light leading-relaxed max-w-md">
+                    <p class="text-xs text-zinc-600 font-light leading-relaxed max-w-md">
                         On-demand reserve dispatch for major power plants, utility complexes, and remote facilities experiencing severe volume drops or pipeline failures.
                     </p>
                 </div>
@@ -477,7 +558,7 @@
                 </div>
                 <div>
                     <h4 class="font-bold text-black text-sm uppercase tracking-wider mb-2">Office Headquarters</h4>
-                    <p class="text-xs font-extrabold text-zinc-850 mb-1">Cross Island Petroleum Supplies Ltd</p>
+                    <p class="text-xs font-extrabold text-zinc-855 mb-1">Cross Island Petroleum Supplies Ltd</p>
                     <p class="text-xs text-zinc-500">Entrance At 6 Lewis Villa Rd</p>
                     <p class="text-xs text-zinc-500">18 Clairdale Avenue, Kingston 10, Jamaica</p>
                 </div>
@@ -490,7 +571,7 @@
                 </div>
                 <div>
                     <h4 class="font-bold text-black text-sm uppercase tracking-wider mb-2">Direct Lines</h4>
-                    <p class="text-xs font-extrabold text-zinc-850 mb-1">Logistics & Dispatch</p>
+                    <p class="text-xs font-extrabold text-zinc-855 mb-1">Logistics & Dispatch</p>
                     <p class="text-xs text-zinc-500 font-mono">876-929-3466</p>
                     <p class="text-xs text-zinc-500 font-mono">876-929-3406</p>
                 </div>
@@ -503,7 +584,7 @@
                 </div>
                 <div>
                     <h4 class="font-bold text-black text-sm uppercase tracking-wider mb-2">Electronic Mail</h4>
-                    <p class="text-xs font-extrabold text-zinc-850 mb-1">Corporate & Logistics</p>
+                    <p class="text-xs font-extrabold text-zinc-855 mb-1">Corporate & Logistics</p>
                     <a href="mailto:cipsjamaica@gmail.com" class="text-xs text-brand-red hover:underline block font-semibold">cipsjamaica@gmail.com</a>
                 </div>
             </div>
@@ -547,7 +628,7 @@
                         <span class="text-xs text-brand-red font-bold block">How to sell this site for $3,500 – $5,000</span>
                     </div>
                 </div>
-                <button onclick="togglePitchPanel()" class="p-2 hover:bg-zinc-100 rounded-lg text-zinc-500 hover:text-black transition-colors">
+                <button onclick="togglePitchPanel()" class="p-2 hover:bg-zinc-100 rounded-lg text-zinc-500 hover:text-white transition-colors">
                     <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
             </div>
@@ -991,7 +1072,7 @@ Let’s lock in a brief 10-minute preview run to show you how we can deploy this
 
                 // High-contrast, polished dark chrome/obsidian metal material for clean light-background visibility
                 const darkMetalMaterial = new THREE.MeshStandardMaterial({
-                    color: 0x18181c, // Sleek polished gunmetal/black chrome
+                    color: 0x18181c, 
                     metalness: 0.9,
                     roughness: 0.15,
                     side: THREE.DoubleSide,
